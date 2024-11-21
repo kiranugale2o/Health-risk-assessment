@@ -49,7 +49,7 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex gap-2">
-            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#359EFF] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
+            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
               <span className="truncate">Sign up</span>
             </button>
             <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">

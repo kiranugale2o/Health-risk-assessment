@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="lg:px-40 flex flex-1 justify-center lg:py-5">
-      <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+    <div className="lg:px-0 flex flex-1 justify-center lg:py-0">
+      <div className="layout-content-container flex flex-col  w-full flex-1">
         <div className="@container">
           <div className="@[480px]:p-4">
             <div
               className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-4 pb-10 @[480px]:px-10"
               style={{
                 backgroundImage:
-                  'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://cdn.usegalileo.ai/sdxl10/83f87938-a08e-4cb3-8470-5bd5886429ab.png")',
+                  'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("be1.jpg")',
               }}
             >
               <div className="flex flex-col gap-2 text-left">
@@ -22,7 +22,7 @@ export default function Home() {
                   to help you make informed decisions about your health
                 </h2>
               </div>
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#359EFF] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 @[480px]:h-12 @[480px]:px-5  bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
                 <span className="truncate">Start your risk assessment</span>
               </button>
             </div>
