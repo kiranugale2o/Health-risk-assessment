@@ -44,28 +44,11 @@ export default function Navbar({ user, UserProfile }) {
     <>
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F0F2F5] px-3 lg:px-10 py-3">
         <div className="flex items-center text-[#141414]  px-0 lg:p-auto justify-between">
-          {/* <div className="size-6">
-            <svg
-              className=""
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <h2 className=" lg:p-auto text-[#141414] text-[25px]  font-bold leading-tight tracking-[-0.015em]">
-            HealthCare
-          </h2> */}
           <img
             src="https://firebasestorage.googleapis.com/v0/b/musico-9bf36.appspot.com/o/smallEx%2Fbg2.jpg?alt=media&token=e421a24f-4983-4646-8450-39dab7d2f471"
             width={150}
             height={70}
+            alt="logo"
           />
           <Sheet>
             <SheetTrigger
