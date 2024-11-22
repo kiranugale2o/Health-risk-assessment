@@ -14,12 +14,12 @@ export default function HomePage() {
               >
                 <div className="flex flex-col gap-2 text-left">
                   <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                    Understand your health risks
+                    Know your health risks
                   </h1>
                   <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                    Get personalized insights and recommendations from top
-                    doctors to help you make informed decisions about your
-                    health
+                    Our free online health risk assessment will help you
+                    understand your risk for major diseases, so you can take
+                    action to prevent them
                   </h2>
                 </div>
                 <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 @[480px]:h-12 @[480px]:px-5  bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
@@ -28,67 +28,126 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-10 px-4 py-10 @container">
-            <h1 className="text-[#141414] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-              How it works
-            </h1>
-          </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4 flex-wrap">
-            <div className="flex flex-col gap-3">
-              <div
-                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded"
-                style={{
-                  backgroundImage:
-                    'url("https://cdn.usegalileo.ai/sdxl10/d4501149-1dd9-415e-8dbf-65ceef1c8ddf.png")',
-                }}
-              />
+          <>
+            <div className="flex flex-col gap-10 px-4 py-10 @container">
+              <div className="flex flex-col gap-4">
+                <h1 className="text-[#111418] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                  Why take our health risk assessment?
+                </h1>
+                <p className="text-[#111418] text-base font-normal leading-normal max-w-[720px]">
+                  Early detection and prevention are key to maintaining good
+                  health. Our health risk assessment is designed to help you
+                  understand your risk for major diseases, so you can take
+                  action to prevent them. Here are some reasons why you should
+                  take it.
+                </p>
+              </div>
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+                <div className="flex flex-col gap-3 pb-3">
+                  <div
+                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style={{
+                      backgroundImage:
+                        'url("https://cdn.usegalileo.ai/sdxl10/22451c4f-e6b3-4914-916b-3d68d4ee2080.png")',
+                    }}
+                  />
+                  <div>
+                    <p className="text-[#111418] text-base font-medium leading-normal">
+                      Quick and easy
+                    </p>
+                    <p className="text-[#617489] text-sm font-normal leading-normal">
+                      Takes just 10-15 minutes to complete
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3 pb-3">
+                  <div
+                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style={{
+                      backgroundImage:
+                        'url("https://cdn.usegalileo.ai/sdxl10/8e113684-6932-4669-b7eb-4ebdbad31d0c.png")',
+                    }}
+                  />
+                  <div>
+                    <p className="text-[#111418] text-base font-medium leading-normal">
+                      Comprehensive
+                    </p>
+                    <p className="text-[#617489] text-sm font-normal leading-normal">
+                      Assesses your risk for 12 major diseases
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3 pb-3">
+                  <div
+                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style={{
+                      backgroundImage:
+                        'url("https://cdn.usegalileo.ai/sdxl10/4eae42f8-2e6c-4916-98fa-39a5dd69a8d9.png")',
+                    }}
+                  />
+                  <div>
+                    <p className="text-[#111418] text-base font-medium leading-normal">
+                      Personalized recommendations
+                    </p>
+                    <p className="text-[#617489] text-sm font-normal leading-normal">
+                      Based on your unique health profile
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3 pb-3">
+                  <div
+                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style={{
+                      backgroundImage:
+                        'url("https://cdn.usegalileo.ai/sdxl10/bc575209-ba6a-4f61-83c8-a4058bbe3114.png")',
+                    }}
+                  />
+                  <div>
+                    <p className="text-[#111418] text-base font-medium leading-normal">
+                      Track your progress
+                    </p>
+                    <p className="text-[#617489] text-sm font-normal leading-normal">
+                      Follow up assessments to monitor changes
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col gap-3">
-              <div
-                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded"
-                style={{
-                  backgroundImage:
-                    'url("https://cdn.usegalileo.ai/sdxl10/42510950-8fed-4a65-94fd-7ee24d1a428e.png")',
-                }}
-              />
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div className="flex flex-col gap-3">
+                <div
+                  className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style={{
+                    backgroundImage:
+                      'url("https://cdn.usegalileo.ai/sdxl10/7dc05bdc-7109-41b1-ac42-eb6805885392.png")',
+                  }}
+                />
+              </div>
+              <div className="flex flex-col gap-3">
+                <div
+                  className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style={{
+                    backgroundImage:
+                      'url("https://cdn.usegalileo.ai/sdxl10/e8896f43-93d8-47a3-8cce-548a58e287a3.png")',
+                  }}
+                />
+              </div>
+              <div className="flex flex-col gap-3">
+                <div
+                  className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style={{
+                    backgroundImage:
+                      'url("https://cdn.usegalileo.ai/sdxl10/81795523-5873-4bf9-a60a-6e7236f30a71.png")',
+                  }}
+                />
+              </div>
             </div>
-            <div className="flex flex-col gap-3">
-              <div
-                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded"
-                style={{
-                  backgroundImage:
-                    'url("https://cdn.usegalileo.ai/sdxl10/77a2414d-9f47-4074-b08d-b657c998fe1c.png")',
-                }}
-              />
+            <div className="flex px-4 py-3">
+              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-[#116cd4] text-white text-base font-bold leading-normal tracking-[0.015em]">
+                <span className="truncate">Start your assessment</span>
+              </button>
             </div>
-            <div className="flex flex-col gap-3">
-              <div
-                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded"
-                style={{
-                  backgroundImage:
-                    'url("https://cdn.usegalileo.ai/stability/78c2d39b-e69e-4ac0-a5d6-4a8b311ff810.png")',
-                }}
-              />
-            </div>
-            <div className="flex flex-col gap-3">
-              <div
-                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded"
-                style={{
-                  backgroundImage:
-                    'url("https://cdn.usegalileo.ai/stability/a8b74b4f-04e6-4385-8d4e-7b8f7e08f4e4.png")',
-                }}
-              />
-            </div>
-            <div className="flex flex-col gap-3">
-              <div
-                className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded"
-                style={{
-                  backgroundImage:
-                    'url("https://cdn.usegalileo.ai/stability/f8dfab6a-1181-4f85-8a33-9549b3ff5752.png")',
-                }}
-              />
-            </div>
-          </div>
+          </>
         </div>
       </div>
     </>

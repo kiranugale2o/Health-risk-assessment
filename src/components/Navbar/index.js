@@ -12,38 +12,39 @@ import { AlignLeft, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function Navbar() {
+export default function Navbar({ user, UserProfile }) {
   const router = useRouter();
+  console.log(user, UserProfile, "fffff");
 
   const pathname = usePathname();
   const navItem = [
     {
       name: "Home",
       path: "/",
-      show: true,
+      show: UserProfile,
     },
     {
       name: "Get Assessment",
       path: "/assessment",
-      show: true,
+      show: UserProfile,
     },
     {
       name: "Saved Assessment",
       path: "/savedAssement",
-      show: true,
+      show: UserProfile,
     },
     {
       name: "Dashboard",
       path: "/profile",
-      show: true,
+      show: UserProfile,
     },
   ];
 
   return (
     <>
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F0F2F5] px-3 lg:px-10 py-3">
-        <div className="flex items-center gap-2 text-[#141414] py-3 px-0 lg:p-auto">
-          <div className="size-6">
+        <div className="flex items-center text-[#141414]  px-0 lg:p-auto justify-between">
+          {/* <div className="size-6">
             <svg
               className=""
               viewBox="0 0 48 48"
@@ -59,15 +60,20 @@ export default function Navbar() {
             </svg>
           </div>
           <h2 className=" lg:p-auto text-[#141414] text-[25px]  font-bold leading-tight tracking-[-0.015em]">
-            Health Check
-          </h2>
+            HealthCare
+          </h2> */}
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/musico-9bf36.appspot.com/o/smallEx%2Fbg2.jpg?alt=media&token=e421a24f-4983-4646-8450-39dab7d2f471"
+            width={150}
+            height={70}
+          />
           <Sheet>
             <SheetTrigger
               className={`flex mt-0  ml-10  lg:hidden ${
                 true ? "block" : "hidden"
               }`}
             >
-              <AlignLeft className="font-2xl text-[#80ED99] text-black size-9 mx-10    " />
+              <AlignLeft className="font-2xl text-[#80ED99] text-black size-9 mx-20   " />
             </SheetTrigger>
 
             <SheetContent className="py-24">
@@ -77,7 +83,7 @@ export default function Navbar() {
                   router.push("/");
                 }}
               >
-                Health Check
+                HealthCare
               </SheetTitle>
               <div className=" flex flex-col lg:hidden justify-start  mt-6 gap-5   ">
                 {navItem.map((d) => {
@@ -108,23 +114,44 @@ export default function Navbar() {
           <div className="flex items-center gap-9">
             {navItem.map((d) => {
               return (
-                <a
-                  key={d.name}
-                  className="text-[#141414] text-sm font-medium leading-normal"
-                  href="#"
-                >
-                  {d.name}
-                </a>
+                <div key={d.name}>
+                  {d.show ? (
+                    <a
+                      className="text-[#141414] text-sm font-medium leading-normal"
+                      href={d.path}
+                    >
+                      {d.name}
+                    </a>
+                  ) : null}
+                </div>
               );
             })}
           </div>
           <div className="flex gap-2">
-            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
-              <span className="truncate">Sign up</span>
-            </button>
-            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
-              <span className="truncate">Log in</span>
-            </button>
+            {!user ? (
+              <>
+                <Link href="/sign-up">
+                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span className="truncate">Sign up</span>
+                  </button>
+                </Link>
+                <Link href="/sign-in">
+                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span className="truncate">Log in</span>
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link href="/assement">
+                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
+                    <span className="truncate">
+                      Start your risk Assessment{" "}
+                    </span>
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </header>

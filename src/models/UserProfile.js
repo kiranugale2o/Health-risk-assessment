@@ -21,7 +21,18 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  profilePicture: {
+  weight: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  height: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+
+  profile_image: {
     type: String,
     default:
       "https://yzlxgraclfixtcrahgup.supabase.co/storage/v1/object/public/studybuddy/public/programmer.jpg",

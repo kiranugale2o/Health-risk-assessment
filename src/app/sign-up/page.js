@@ -1,4 +1,5 @@
 import { currentUser } from "@/actions";
+import SignUpCard from "@/components/signup-card";
 import { redirect } from "next/navigation";
 
 export default async function SignUp() {
@@ -7,7 +8,7 @@ export default async function SignUp() {
   return (
     <>
       <div className="p-auto ">
-        <h1>sign up</h1>
+        <SignUpCard />
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import CommonLayout from "@/components/common-layout";
+import { currentUser, fetchUser } from "@/actions";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,10 +20,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  const user = await currentUser();
+  const UserProfile = await fetchUser(user?.userId);
+
   return (
     <html lang="en">
       <body>
-        <CommonLayout>{children}</CommonLayout>
+        <CommonLayout user={user} UserProfile={UserProfile}>
+          {children}
+        </CommonLayout>
       </body>
     </html>
   );
