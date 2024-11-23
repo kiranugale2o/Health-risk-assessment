@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "@/model/User";
+import User from "@/models/User";
 import bcrypt from "bcryptjs";
 import DatabaseConn from "@/database";
 import { NextResponse } from "next/server";
