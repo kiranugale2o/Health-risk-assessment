@@ -39,7 +39,7 @@ export default function SignUpCard() {
             title: `Otp Send on ${res.email}`,
             description: `Otp Send on ${res.email}`,
           });
-
+          alert("sign up ok!");
           sessionStorage.setItem("email", res.email);
           router.push("/sign-up/verification-of-email");
         } else {
@@ -63,7 +63,7 @@ export default function SignUpCard() {
           Assess your health risks and receive personalized recommendations for
           a healthier you. Join our community of 200,000 users.
         </p>
-        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 lg:mx-20">
           <label className="flex flex-col min-w-40 flex-1">
             <p className="text-[#111518] text-base font-medium leading-normal pb-2">
               Email
@@ -76,7 +76,7 @@ export default function SignUpCard() {
             />
           </label>
         </div>
-        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 lg:mx-20">
           <label className="flex flex-col min-w-40 flex-1">
             <p className="text-[#111518] text-base font-medium leading-normal pb-2">
               Password
@@ -90,7 +90,7 @@ export default function SignUpCard() {
             />
           </label>
         </div>
-        <div className="px-4">
+        <div className="px-4 lg:mx-20">
           <label className="flex gap-x-3 py-3 flex-row">
             <input
               type="checkbox"
@@ -104,7 +104,7 @@ export default function SignUpCard() {
             </p>
           </label>
         </div>
-        <div className="flex flex-col px-4 py-3">
+        <div className="flex flex-col py-3 lg:mx-20">
           <div className="flex  px-4 py-3">
             <button
               onClick={handleSignup}
@@ -114,7 +114,7 @@ export default function SignUpCard() {
               <span className="truncate">Join HealthCare</span>
             </button>
           </div>
-          <footer className="flex justify-center">
+          <footer className="flex justify-center lg:mx-20">
             <div className="flex max-w-[960px] flex-1 flex-col">
               <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center">
                 By signing up, you agree to our Terms of Service and Privacy

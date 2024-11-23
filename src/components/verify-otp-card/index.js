@@ -33,8 +33,6 @@ export default function VerifyOtpCard({ otpVerificationType }) {
   const [seconds, setSeconds] = useState(60); // Initialize countdown with 60 seconds
   const [resendText, setResendText] = useState(true);
 
-  console.log(currentOtp);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Access sessionStorage here
@@ -102,7 +100,7 @@ export default function VerifyOtpCard({ otpVerificationType }) {
               setIncorrectOtp("none");
               setExpriesOtp("none");
               setWarningDis("none");
-              router.push("/");
+              router.refresh("/");
               sessionStorage.removeItem("email");
             } else {
               if (res.status === 1) {

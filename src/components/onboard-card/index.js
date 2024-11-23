@@ -1,66 +1,58 @@
 "use client";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { initialUserData } from "@/utils";
+import { useToast } from "@/hooks/use-toast";
+import { initialUserData, storage } from "@/utils";
 import { createClient } from "@supabase/supabase-js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-// Supabase client initialization inside a useEffect or conditionally on client-side
-let supabaseClient;
-if (typeof window !== "undefined") {
-  supabaseClient = createClient(
-    "https://yzlxgraclfixtcrahgup.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl6bHhncmFjbGZpeHRjcmFoZ3VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjcxOTEzMjIsImV4cCI6MjA0Mjc2NzMyMn0.ILXAWBAG42TltAzzHZQtTN_yF4P79-XfhJn4ORg8src"
-  );
-}
-
 export default function OnboardCard({ userid, email }) {
+  const { toast } = useToast();
   const [currentOnboardData, setOnboardData] = useState(initialUserData);
-  const [file, setFile] = useState(null);
-
   // State to store the selected radio button value
   const [selectedValue, setSelectedValue] = useState("");
+  const [image, setImage] = useState(null); // Store the selected image
 
-  function handleFileChange(event) {
-    event.preventDefault();
-    setFile(event.target.files[0]);
-  }
-  async function handleFileUploadToSupabase() {
-    if (!supabaseClient || !file) return;
-
-    const { data, error } = await supabaseClient.storage
-      .from("studybuddy")
-      .upload(`/public/${file.name}`, file, {
-        cacheControl: "3600",
-        upsert: false,
-      });
-
-    if (data) {
-      // Get the public URL for the image
-
-      const url = await getImageUrl("studybuddy", data.path);
-      setOnboardData({
-        ...currentOnboardData,
-        profile_image: url,
-      });
+  // Handle file input change
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      handleUpload();
     }
-  }
-  const getImageUrl = async (bucketName, filePath) => {
-    // Get the public URL for the image
-    const { data } = await supabaseClient.storage
-      .from(bucketName)
-      .getPublicUrl(filePath);
-    return data.publicUrl;
+  };
+
+  // Handle file upload
+  const handleUpload = () => {
+    if (!image) {
+      alert("Please select an image first");
+      return;
+    }
+
+    const storageRef = ref(storage, `images/${image.name}`); // Create a reference to the storage location
+
+    const uploadTask = uploadBytes(storageRef, image); // Upload the image
+
+    uploadTask
+      .then((snapshot) => {
+        // After upload completes, get the download URL
+        getDownloadURL(snapshot.ref).then((url) => {
+          setOnboardData({ ...currentOnboardData, profile_image: url }); // Store the URL
+          console.log("Image uploaded at: ", url); // Log the URL
+        });
+      })
+      .catch((error) => {
+        console.error("Upload failed: ", error);
+        alert("Upload failed. Please try again.");
+      });
   };
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (file !== null) handleFileUploadToSupabase();
-  }, [file]);
-
   async function handleOnboard() {
+    handleUpload();
     setOnboardData({ ...currentOnboardData, gender: selectedValue });
     const data = {
       ...currentOnboardData,
@@ -68,19 +60,21 @@ export default function OnboardCard({ userid, email }) {
       email: email,
     };
 
-    // fetch("/api/createprofile", {
-    //   method: "POST",
-    //   body: JSON.stringify({ data }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     toast.success("success");
-
-    //     router.refresh();
-    //   })
-    //   .catch((er) => {
-    //     console.log(er);
-    //   });
+    fetch("/api/onboard", {
+      method: "POST",
+      body: JSON.stringify({ data }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        toast({
+          description: "success !",
+        });
+        alert("success");
+        router.push("/");
+      })
+      .catch((er) => {
+        console.log(er);
+      });
   }
   console.log(currentOnboardData);
 
@@ -220,8 +214,6 @@ export default function OnboardCard({ userid, email }) {
                   <Label htmlFor="r3">Other</Label>
                 </div>
               </RadioGroup>
-              {/* Display the selected value */}
-              <p>Selected Gender: {selectedValue}</p>
             </label>
           </div>
           <div className="flex ">

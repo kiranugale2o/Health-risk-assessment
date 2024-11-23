@@ -1,7 +1,12 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  fullName: {
+  firstName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  LastName: {
     type: String,
     required: true,
     trim: true,
@@ -37,10 +42,6 @@ const userSchema = new mongoose.Schema({
     default:
       "https://yzlxgraclfixtcrahgup.supabase.co/storage/v1/object/public/studybuddy/public/programmer.jpg",
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
   userId: {
     type: String,
   },
@@ -48,4 +49,4 @@ const userSchema = new mongoose.Schema({
 
 // Ensure proper model registration without resetting `mongoose.models`
 export const UserProfile =
-  mongoose.models.Student || mongoose.model("Student", userSchema);
+  mongoose.models.UserProfile || mongoose.model("UserProfile", userSchema);

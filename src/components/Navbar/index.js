@@ -24,11 +24,6 @@ export default function Navbar({ user, UserProfile }) {
       show: UserProfile,
     },
     {
-      name: "Get Assessment",
-      path: "/assessment",
-      show: UserProfile,
-    },
-    {
       name: "Saved Assessment",
       path: "/savedAssement",
       show: UserProfile,
@@ -53,11 +48,22 @@ export default function Navbar({ user, UserProfile }) {
           <Sheet>
             <SheetTrigger
               className={`flex mt-0  ml-10  lg:hidden ${
-                true ? "block" : "hidden"
+                user ? "block" : "hidden"
               }`}
             >
               <AlignLeft className="font-2xl text-[#80ED99] text-black size-9 w-[70px] mx-10    " />
             </SheetTrigger>
+            <button
+              className={`${
+                user ? "hidden" : "flex"
+              } lg:hidden flex min-w-[94px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 lg:px-4 bg-[#80ED99]  text-white text-sm font-bold leading-normal tracking-[0.015em] mx-20`}
+            >
+              <Link href={pathname === "/sign-up" ? "/sign-in" : "/sign-up"}>
+                <span className="">
+                  {pathname === "/sign-up" ? "Log In" : "Sign up"}
+                </span>
+              </Link>
+            </button>
 
             <SheetContent className="py-24">
               <SheetTitle
@@ -68,6 +74,7 @@ export default function Navbar({ user, UserProfile }) {
               >
                 HealthCare
               </SheetTitle>
+
               <div className=" flex flex-col lg:hidden justify-start  mt-6 gap-5   ">
                 {navItem.map((d) => {
                   return (
@@ -86,10 +93,6 @@ export default function Navbar({ user, UserProfile }) {
                   );
                 })}
               </div>
-              <div
-                className="hidden lg:flexmt-6 ml-10"
-                style={{ display: `${true ? "block" : "none"}` }}
-              ></div>
             </SheetContent>
           </Sheet>
         </div>

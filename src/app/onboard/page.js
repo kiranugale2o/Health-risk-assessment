@@ -13,7 +13,7 @@ export default async function OnboardPage() {
   return (
     <>
       <div className="">
-        <OnboardCard userid={user?.userId} email={user?.email} />
+        <OnboardCard userid={user?.userId} email={user.email} />
       </div>
     </>
   );

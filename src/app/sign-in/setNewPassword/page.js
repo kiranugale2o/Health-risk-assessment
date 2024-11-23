@@ -1,4 +1,6 @@
 import { currentUser } from "@/actions";
+import ResetPasswordCard from "@/components/Reset-password-card";
+import VerifyOtpCard from "@/components/verify-otp-card";
 import { redirect } from "next/navigation";
 
 export default async function ResetPasswords() {
@@ -7,8 +9,8 @@ export default async function ResetPasswords() {
 
   return (
     <>
-      <div className="lg:p-24">
-        <h1>Reset password</h1>
+      <div className="mt-5 lg:p-24">
+        <ResetPasswordCard />
       </div>
     </>
   );
