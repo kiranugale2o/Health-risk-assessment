@@ -1,5 +1,6 @@
 "use client";
 import { useToast } from "@/hooks/use-toast";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -54,7 +55,7 @@ export default function SignUpCard() {
       <div className="hidden lg:flex py-6 w-[600px] ">
         <img src="bg1.jpg" className="h-[300px] mt-10" alt="" />
       </div>
-      <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+      <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-2 max-w-[960px] flex-1">
         <h3 className="text-[#111518] tracking-light text-2xl font-bold leading-tight px-4 text-center pb-2 pt-5">
           Welcome to HealthCare
         </h3>
@@ -103,14 +104,29 @@ export default function SignUpCard() {
             </p>
           </label>
         </div>
-        <div className="flex px-4 py-3">
-          <button
-            onClick={handleSignup}
-            disabled={buttonDisabled()}
-            className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#80ED99] text-black text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
-          >
-            <span className="truncate">Join HealthCare</span>
-          </button>
+        <div className="flex flex-col px-4 py-3">
+          <div className="flex  px-4 py-3">
+            <button
+              onClick={handleSignup}
+              disabled={buttonDisabled()}
+              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#80ED99] text-black text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
+            >
+              <span className="truncate">Join HealthCare</span>
+            </button>
+          </div>
+          <footer className="flex justify-center">
+            <div className="flex max-w-[960px] flex-1 flex-col">
+              <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center">
+                By signing up, you agree to our Terms of Service and Privacy
+                Policy.
+              </p>
+              <Link href="/sign-in">
+                <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">
+                  Already have an account?
+                </p>
+              </Link>
+            </div>
+          </footer>
         </div>
       </div>
     </div>

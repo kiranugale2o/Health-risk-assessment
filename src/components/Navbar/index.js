@@ -56,7 +56,7 @@ export default function Navbar({ user, UserProfile }) {
                 true ? "block" : "hidden"
               }`}
             >
-              <AlignLeft className="font-2xl text-[#80ED99] text-black size-9 mx-20   " />
+              <AlignLeft className="font-2xl text-[#80ED99] text-black size-9 w-[70px] mx-10    " />
             </SheetTrigger>
 
             <SheetContent className="py-24">
