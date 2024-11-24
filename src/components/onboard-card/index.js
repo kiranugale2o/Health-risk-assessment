@@ -179,7 +179,7 @@ export default function OnboardCard({ userid, email }) {
                     height: e.target.value,
                   });
                 }}
-                placeholder="Height in inches"
+                placeholder="Height in CM"
                 className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
               />
             </label>

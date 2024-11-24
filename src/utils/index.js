@@ -28,3 +28,34 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Storage
 export const storage = getStorage(app);
+
+// Create a new Date object for the current date
+const today = new Date();
+
+// Array of month names
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+// Get the day of the month
+const day = today.getDate();
+
+// Get the month name
+const month = months[today.getMonth()];
+
+// Get the full year
+const year = today.getFullYear();
+
+// Format the date as "12 June 2024"
+export const formattedDate = `${day} ${month} ${year}`;

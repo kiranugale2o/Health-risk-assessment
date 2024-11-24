@@ -30,7 +30,7 @@ export default function Navbar({ user, UserProfile }) {
     },
     {
       name: "Dashboard",
-      path: "/profile",
+      path: "/dashboard",
       show: UserProfile,
     },
   ];
