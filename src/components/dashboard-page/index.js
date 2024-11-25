@@ -41,9 +41,9 @@ export default function DashboardCard({ user, ProfileUser }) {
           ProfileUser={ProfileUser}
         />
 
-        <div className="block p-5 lg:flex  justify-center w-full flex-col">
-          <div className="block w-full h-[200px]  lg:flex  lg:w-[870px] lg:h-[100px] border rounded-md  bg-white justify-between">
-            <div className="flex flex-row gap-2 mx-10">
+        <div className="block lg:p-5 py-5 lg:flex  w-full flex-col shadow ">
+          <div className="block w-full h-auto shadow-lg lg:flex  lg:w-[890px] lg:h-[100px] border rounded-md  bg-white justify-between">
+            <div className="flex flex-row  gap-2 mx-1 lg:mx-10">
               <div
                 className="bg-center bg-no-repeat border mt-5 aspect-square bg-cover rounded-full w-[70px] h-[70px]"
                 style={{
@@ -59,12 +59,13 @@ export default function DashboardCard({ user, ProfileUser }) {
                 </p>
               </div>
             </div>
-            <div className="flex mt-3 gap-2 lg:gap-4 px-5">
+            <div className=" flex mt-3 gap-2 lg:gap-4 p-5 lg:p-0 ">
+              <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
               <div className="flex flex-col gap-2">
                 <p className="text-[18px] text-gray-400">Age</p>
                 <p className="text-[15px] mx-5">{ProfileUser?.age}</p>
               </div>
-              <div className="lg:flex w-[1px] h-[60px] bg-[#80ED99]"></div>
+              <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
               <div className="flex flex-col gap-2">
                 <p className="text-[18px] text-gray-400">Gender</p>
                 <p className="text-[15px] mx-5">{ProfileUser?.gender}</p>
@@ -72,20 +73,20 @@ export default function DashboardCard({ user, ProfileUser }) {
               <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
               <div className="flex flex-col gap-2">
                 <p className="text-[18px] text-gray-400">Weight</p>
-                <p className="text-[15px] mx-5 ">{ProfileUser?.weight} Kg</p>
+                <p className="text-[15px] mx-5 ">{ProfileUser?.weight}Kg</p>
               </div>
               <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
               <div className="flex flex-col gap-2">
                 <p className="text-[18px] text-gray-400">Height</p>
-                <p className="text-[15px] mx-5 ">{ProfileUser?.height} cm</p>
+                <p className="text-[15px] mx-5 ">{ProfileUser?.height}cm</p>
               </div>
             </div>
           </div>
-          <div className="block p-4 lg:flex  gap-5">
+          <div className="block p-4 lg:flex  gap-5 ">
             <div className="flex py-5  ">
               <BmiChart currentBmi={bmi} />
             </div>
-            <div className="flex py-5">
+            <div className="flex py-5 ">
               <Card>
                 <CardContent>
                   <CardTitle className="text-2xl p-5">
@@ -110,7 +111,9 @@ export default function DashboardCard({ user, ProfileUser }) {
                       {category}
                     </p>
                     <br />
-                    <p className="text-[20px] text-start">HealthCare Sugg :</p>
+                    <p className="text-[20px] text-start">
+                      HealthCare Suggestion :
+                    </p>
                     <p className={`text-[18px] mt-3 underline text-green-500`}>
                       {category === "Underweight"
                         ? " To safely gain weight and improve your overall health."

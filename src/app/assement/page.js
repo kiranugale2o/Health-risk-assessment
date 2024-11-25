@@ -12,7 +12,7 @@ export default async function AssessmentPage() {
   }
   return (
     <>
-      <div className="mt-5 lg:p-24">
+      <div className="">
         <AssessmentPageCard />
       </div>
     </>

@@ -69,7 +69,7 @@ export default function BmiChart({ currentBmi }) {
   }, []);
 
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col shadow-md">
       <CardHeader className="items-center pb-0">
         <CardTitle>BMI (Body Mass Index) </CardTitle>
         <CardDescription>{formattedDate}</CardDescription>

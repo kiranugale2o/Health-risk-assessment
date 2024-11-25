@@ -109,7 +109,7 @@ export default function SignUpCard() {
             <button
               onClick={handleSignup}
               disabled={buttonDisabled()}
-              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#80ED99] text-black text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
+              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#80ED99] text-black hover:bg-black hover:text-white text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
             >
               <span className="truncate">Join HealthCare</span>
             </button>

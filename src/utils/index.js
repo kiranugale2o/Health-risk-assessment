@@ -59,3 +59,93 @@ const year = today.getFullYear();
 
 // Format the date as "12 June 2024"
 export const formattedDate = `${day} ${month} ${year}`;
+
+export const HealthRiskAssessmentField = [
+  {
+    label: "Name",
+    name: "name",
+    placeholder: "Enter your Name",
+    contentType: "input",
+  },
+  {
+    label: "Age",
+    name: "age",
+    placeholder: "Enter your age",
+    contentType: "input",
+  },
+  {
+    label: "Gender",
+    name: "gender",
+    placeholder: "Select your gender",
+    contentType: "select",
+  },
+  {
+    label: "Height",
+    name: "height",
+    placeholder: "Enter your height in cm",
+    contentType: "input",
+  },
+  {
+    label: "Weight",
+    name: "weight",
+    placeholder: "Enter your weight in kg",
+    contentType: "input",
+  },
+  {
+    label: "Medical Conditions",
+    name: "medical_conditions",
+    placeholder: "Enter your medical conditions",
+    contentType: "input",
+  },
+  {
+    label: "Family History of Health Conditions",
+    name: "family_history",
+    placeholder: "Enter family history of health conditions",
+    contentType: "input",
+  },
+  {
+    label: "Physical Activity",
+    name: "physical_activity",
+    placeholder: "Describe your physical activity habits",
+    contentType: "input",
+  },
+  {
+    label: "Diet",
+    name: "diet",
+    placeholder: "Describe your dietary habits",
+    contentType: "input",
+  },
+  {
+    label: "Smoking",
+    name: "smoking",
+    placeholder: "Enter smoking habits ",
+    contentType: "input",
+  },
+  {
+    label: "Alcohol",
+    name: "alcohol",
+    placeholder: "Enter alcohol consumption details",
+    contentType: "input",
+  },
+  {
+    label: "Symptoms",
+    name: "symptoms",
+    placeholder: "Enter any symptoms",
+    contentType: "input",
+  },
+];
+
+export const initialHealthRiskAssessmentData = {
+  firstName: "",
+  age: "",
+  gender: "",
+  weight: "",
+  height: "",
+  medicalConditions: "",
+  familyHistory: "",
+  physicalActivity: "",
+  diet: "",
+  smoking: "",
+  alcohol: "",
+  symptoms: "chest pain",
+};
