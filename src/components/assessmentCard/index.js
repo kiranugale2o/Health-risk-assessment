@@ -5,17 +5,28 @@ import {
   HealthRiskAssessmentField,
   initialHealthRiskAssessmentData,
 } from "@/utils";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Progress } from "../ui/progress";
 import { Button } from "../ui/button";
 import { StepForward } from "lucide-react";
 import { StepBack } from "lucide";
 import { useState } from "react";
+import CaptureImage from "../CaptureHRAImage";
 
 export default function AssessmentPageCard() {
   const [currentData, setData] = useState(initialHealthRiskAssessmentData);
   const [hra, setHra] = useState("");
   const [form, setForm] = useState(1);
   const [step, setSteps] = useState(1);
+  const [dialogBtn, setDialogBtn] = useState(false);
   const style = {
     backgroundImage: "url('back.jpg')",
     backgroundSize: "cover",
@@ -26,35 +37,51 @@ export default function AssessmentPageCard() {
   };
 
   function handleHRA() {
+    setDialogBtn(true);
     let prompt = `${currentData?.name}, a ${currentData?.age}-year-old ${currentData?.gender} with ${currentData?.medicalConditions} or ${currentData?.familyhistory},my weight is${currentData?.weight} kg and height is ${currentData?.height} cm, reports experiencing ${currentData?.symptoms}, despite leading a sedentary lifestyle and having an ${currentData?.diet} diet. so write my health riks assessment with recommandation`;
 
     fetch("/api/hra-generator", {
       method: "POST",
       body: JSON.stringify({ prompt: prompt }),
     }).then((res) =>
-      res.json().then((res) => {
-        setHra(res.message.replace(/\*/g, ""));
-      })
+      res
+        .json()
+        .then((res) => {
+          setHra(res.message.replace(/\*/g, ""));
+        })
+        .then(() => {
+          setDialogBtn(false);
+        })
     );
   }
 
   // Extract the content between "Health" and "Recommendations"
-  let healthStartIndex = healthRiskAssessment.indexOf("Health");
+  let healthStartIndex = hra.indexOf("Health");
   // Extract everything after the word "Recommendations"
-  let recommendationsStartIndex = healthRiskAssessment.indexOf(
-    "Recommendations:"
-  );
+  let recommendationsStartIndex = hra.indexOf("Recommendations:");
 
   // Extract the data between "Health" and "Recommendations"
-  let healthToRecommendations = healthRiskAssessment
+  let healthToRecommendations = hra
     .substring(healthStartIndex, recommendationsStartIndex)
     .trim();
 
-  let recommendationsData = healthRiskAssessment.substring(
-    recommendationsStartIndex
-  );
+  let recommendationsData = hra.substring(recommendationsStartIndex);
+
   return (
     <>
+      <Dialog open={dialogBtn} className="border rounded-lg">
+        <DialogContent className="">
+          <DialogTitle> Please Wait A Seconds !</DialogTitle>
+          <div
+            className="flex min-h-[280px]  flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("waitimg.jpg")',
+            }}
+          ></div>{" "}
+          <div className=" lg:mt-0  lg:mx-auto "></div>
+        </DialogContent>
+      </Dialog>
       <div
         className="lg:px-20 flex flex-1 justify-center py-10 lg:py-5  "
         style={style}
@@ -301,13 +328,15 @@ export default function AssessmentPageCard() {
           </div>
         </div>
       </div>
-      <p className="text-[20px] p-5  whitespace-pre-wrap lg:mx-10 whitespace-break-spaces text-center flex flex-1 text-wrap ">
-        {healthToRecommendations.replace(/\*/g, "")}
-      </p>
-      <hr />
-      <p className="text-[20px] p-15  whitespace-pre-wrap lg:mx-10 whitespace-break-spaces text-center flex flex-1 text-wrap ">
-        {recommendationsData.replace(/\*/g, "")}
-      </p>
+      <div
+        className="flex flex-col bg-cyan-100 font-semibold italic  "
+        style={style}
+      >
+        <CaptureImage
+          healthToRecommendations={healthToRecommendations}
+          recommendationsData={recommendationsData}
+        />
+      </div>
     </>
   );
 }

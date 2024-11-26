@@ -23,11 +23,7 @@ export default function Navbar({ user, UserProfile }) {
       path: "/",
       show: UserProfile,
     },
-    {
-      name: "Saved Assessment",
-      path: "/savedAssement",
-      show: UserProfile,
-    },
+
     {
       name: "Dashboard",
       path: "/dashboard",
