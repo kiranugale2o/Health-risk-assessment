@@ -93,19 +93,19 @@ export const HealthRiskAssessmentField = [
   },
   {
     label: "Medical Conditions",
-    name: "medical_conditions",
+    name: "medicalConditions",
     placeholder: "Enter your medical conditions",
     contentType: "input",
   },
   {
     label: "Family History of Health Conditions",
-    name: "family_history",
+    name: "familyhistory",
     placeholder: "Enter family history of health conditions",
     contentType: "input",
   },
   {
     label: "Physical Activity",
-    name: "physical_activity",
+    name: "physicalActivity",
     placeholder: "Describe your physical activity habits",
     contentType: "input",
   },
@@ -136,16 +136,16 @@ export const HealthRiskAssessmentField = [
 ];
 
 export const initialHealthRiskAssessmentData = {
-  firstName: "",
+  name: "",
   age: "",
   gender: "",
   weight: "",
   height: "",
   medicalConditions: "",
-  familyHistory: "",
+  familyhistory: "",
   physicalActivity: "",
   diet: "",
   smoking: "",
   alcohol: "",
-  symptoms: "chest pain",
+  symptoms: "",
 };
