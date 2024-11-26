@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  healthRiskAssessment,
   HealthRiskAssessmentField,
   initialHealthRiskAssessmentData,
 } from "@/utils";
@@ -32,11 +33,26 @@ export default function AssessmentPageCard() {
       body: JSON.stringify({ prompt: prompt }),
     }).then((res) =>
       res.json().then((res) => {
-        setHra(res.message);
+        setHra(res.message.replace(/\*/g, ""));
       })
     );
   }
 
+  // Extract the content between "Health" and "Recommendations"
+  let healthStartIndex = healthRiskAssessment.indexOf("Health");
+  // Extract everything after the word "Recommendations"
+  let recommendationsStartIndex = healthRiskAssessment.indexOf(
+    "Recommendations:"
+  );
+
+  // Extract the data between "Health" and "Recommendations"
+  let healthToRecommendations = healthRiskAssessment
+    .substring(healthStartIndex, recommendationsStartIndex)
+    .trim();
+
+  let recommendationsData = healthRiskAssessment.substring(
+    recommendationsStartIndex
+  );
   return (
     <>
       <div
@@ -285,7 +301,13 @@ export default function AssessmentPageCard() {
           </div>
         </div>
       </div>
-      <p className="text-[20px]">{hra}</p>
+      <p className="text-[20px] p-5  whitespace-pre-wrap lg:mx-10 whitespace-break-spaces text-center flex flex-1 text-wrap ">
+        {healthToRecommendations.replace(/\*/g, "")}
+      </p>
+      <hr />
+      <p className="text-[20px] p-15  whitespace-pre-wrap lg:mx-10 whitespace-break-spaces text-center flex flex-1 text-wrap ">
+        {recommendationsData.replace(/\*/g, "")}
+      </p>
     </>
   );
 }
