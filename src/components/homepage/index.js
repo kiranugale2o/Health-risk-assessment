@@ -1,3 +1,7 @@
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 export default function HomePage() {
   return (
     <>
@@ -22,9 +26,11 @@ export default function HomePage() {
                     action to prevent them
                   </h2>
                 </div>
-                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 @[480px]:h-12 @[480px]:px-5  bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                  <span className="truncate">Start your risk assessment</span>
-                </button>
+                <Link href="/assessment">
+                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 @[480px]:h-12 @[480px]:px-5  bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                    <span className="truncate">Start your risk assessment</span>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -328,10 +328,7 @@ export default function AssessmentPageCard() {
           </div>
         </div>
       </div>
-      <div
-        className="flex flex-col bg-cyan-100 font-semibold italic  "
-        style={style}
-      >
+      <div className="flex flex-col  font-semibold italic  ">
         <CaptureImage
           healthToRecommendations={healthToRecommendations}
           recommendationsData={recommendationsData}

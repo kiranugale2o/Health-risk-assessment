@@ -41,6 +41,7 @@ export default function Navbar({ user, UserProfile }) {
             height={70}
             alt="logo"
           />
+
           <Sheet>
             <SheetTrigger
               className={`flex mt-0  ml-10  lg:hidden ${
@@ -125,7 +126,7 @@ export default function Navbar({ user, UserProfile }) {
               </>
             ) : (
               <>
-                <Link href="/assement">
+                <Link href="/assessment">
                   <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
                     <span className="truncate">
                       Start your risk Assessment{" "}
