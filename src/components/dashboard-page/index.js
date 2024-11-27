@@ -41,7 +41,7 @@ export default function DashboardCard({ user, ProfileUser }) {
           ProfileUser={ProfileUser}
         />
 
-        <div className="block lg:p-5 py-5 lg:flex  w-full flex-col shadow ">
+        <div className="block lg:p-5 py-5 lg:flex  w-full flex-col shadow-lg ">
           <div className="block w-full h-auto shadow-lg lg:flex  lg:w-[890px] lg:h-[100px] border rounded-md  bg-white justify-between">
             <div className="flex flex-row  gap-2 mx-1 lg:mx-10">
               <div

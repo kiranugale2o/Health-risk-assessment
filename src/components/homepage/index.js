@@ -3,27 +3,42 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const style = {
+    backgroundImage: "url('back.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "auto", // Full height of the viewport
+    margin: 0, // Remove default margin
+  };
   return (
     <>
-      <div className="lg:px-0 flex flex-1 justify-center lg:py-0">
+      <div
+        style={style}
+        className="lg:px-0 flex flex-1 justify-center lg:py-0 "
+      >
         <div className="layout-content-container flex flex-col  w-full flex-1">
           <div className="@container">
             <div className="@[480px]:p-4">
               <div
-                className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-4 pb-10 @[480px]:px-10"
                 style={{
                   backgroundImage:
-                    'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("be1.jpg")',
+                    'linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(10, 0, 0, 0.4) 100%), url("be1.jpg")',
                 }}
+                className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-4 pb-10 @[480px]:px-10"
               >
                 <div className="flex flex-col gap-2 text-left">
                   <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
                     Know your health risks
                   </h1>
-                  <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                  <h2 className="text-white text-sm font-normal leading-normal lg:w-[600px] @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                     Our free online health risk assessment will help you
                     understand your risk for major diseases, so you can take
-                    action to prevent them
+                    action to prevent them. Health care is the organized
+                    provision of medical services and support to maintain or
+                    improve the well-being of individuals through prevention,
+                    diagnosis, treatment, and management of illnesses and
+                    conditions.
                   </h2>
                 </div>
                 <Link href="/assessment">
@@ -149,9 +164,11 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex px-4 py-3">
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-[#116cd4] text-white text-base font-bold leading-normal tracking-[0.015em]">
-                <span className="truncate">Start your assessment</span>
-              </button>
+              <Link href="/assessment">
+                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-[#116cd4] text-white text-base font-bold leading-normal tracking-[0.015em]">
+                  <span className="truncate">Start your assessment</span>
+                </button>
+              </Link>
             </div>
           </>
         </div>

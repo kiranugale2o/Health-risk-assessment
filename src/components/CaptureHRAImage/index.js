@@ -4,6 +4,7 @@
 import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import { Button } from "../ui/button";
+import jsPDF from "jspdf";
 
 const CaptureImage = ({ healthToRecommendations, recommendationsData }) => {
   const elementRef = useRef();
@@ -11,10 +12,17 @@ const CaptureImage = ({ healthToRecommendations, recommendationsData }) => {
   const handleCapture = async () => {
     const canvas = await html2canvas(elementRef.current);
     const imgData = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = imgData;
-    link.download = `HRAReport.png`; // Specify the filename
-    link.click();
+    const doc = new jsPDF();
+
+    // Add the captured image as the first page in the PDF
+    doc.addImage(imgData, "PNG", 10, 10, 180, 160); // You can adjust x, y, width, height as per your requirement
+
+    // Save the PDF with the desired filename
+    doc.save("HRAReport.pdf");
+    // const link = document.createElement("a");
+    // link.href = imgData;
+    // link.download = `HRAReport.pdf`; // Specify the filename
+    // link.click();
   };
 
   const style = {

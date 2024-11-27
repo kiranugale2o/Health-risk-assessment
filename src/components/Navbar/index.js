@@ -14,8 +14,14 @@ import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar({ user, UserProfile }) {
   const router = useRouter();
-  console.log(user, UserProfile, "fffff");
-
+  const style = {
+    backgroundImage: "url('be1.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "auto", // Full height of the viewport
+    margin: 0, // Remove default margin
+  };
   const pathname = usePathname();
   const navItem = [
     {
@@ -23,9 +29,13 @@ export default function Navbar({ user, UserProfile }) {
       path: "/",
       show: UserProfile,
     },
-
     {
-      name: "Dashboard",
+      name: "Risk Assessment",
+      path: "/assessment",
+      show: UserProfile,
+    },
+    {
+      name: "Profile",
       path: "/dashboard",
       show: UserProfile,
     },
@@ -33,10 +43,10 @@ export default function Navbar({ user, UserProfile }) {
 
   return (
     <>
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F0F2F5] px-3 lg:px-10 py-3">
+      <header className=" flex items-center justify-between whitespace-nowrap   bg-white px-3 lg:px-10 py-1">
         <div className="flex items-center text-[#141414]  px-0 lg:p-auto justify-between">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/musico-9bf36.appspot.com/o/smallEx%2Fbg2.jpg?alt=media&token=e421a24f-4983-4646-8450-39dab7d2f471"
+            src="https://firebasestorage.googleapis.com/v0/b/musico-9bf36.appspot.com/o/bg12.png?alt=media&token=b1a0ab04-fbab-4f44-b528-a1275ec8d863"
             width={150}
             height={70}
             alt="logo"
@@ -99,12 +109,14 @@ export default function Navbar({ user, UserProfile }) {
               return (
                 <div key={d.name}>
                   {d.show ? (
-                    <a
-                      className="text-[#141414] text-sm font-medium leading-normal"
-                      href={d.path}
-                    >
-                      {d.name}
-                    </a>
+                    <>
+                      <a
+                        className="text-[#141414] text-sm min-w-[84px] max-w-[480px] p-3   font-semibold font-serif  leading-normal rounded-xl h-10 px-4 bg-[#80ED99] hover:bg-green-400 bg-[#80ED99] text-[#111418] text-black text-sm font-bold leading-normal tracking-[0.015em]"
+                        href={d.path}
+                      >
+                        {d.name}
+                      </a>
+                    </>
                   ) : null}
                 </div>
               );
@@ -125,15 +137,7 @@ export default function Navbar({ user, UserProfile }) {
                 </Link>
               </>
             ) : (
-              <>
-                <Link href="/assessment">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
-                    <span className="truncate">
-                      Start your risk Assessment{" "}
-                    </span>
-                  </button>
-                </Link>
-              </>
+              <></>
             )}
           </div>
         </div>
