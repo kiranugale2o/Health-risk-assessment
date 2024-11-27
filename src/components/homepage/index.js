@@ -34,11 +34,7 @@ export default function HomePage() {
                   <h2 className="text-white text-sm font-normal leading-normal lg:w-[600px] @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                     Our free online health risk assessment will help you
                     understand your risk for major diseases, so you can take
-                    action to prevent them. Health care is the organized
-                    provision of medical services and support to maintain or
-                    improve the well-being of individuals through prevention,
-                    diagnosis, treatment, and management of illnesses and
-                    conditions.
+                    action to prevent them.{" "}
                   </h2>
                 </div>
                 <Link href="/assessment">
