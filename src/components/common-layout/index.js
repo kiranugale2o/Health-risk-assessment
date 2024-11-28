@@ -11,16 +11,16 @@ export default function CommonLayout({ user, UserProfile, children }) {
       <Navbar user={user} UserProfile={UserProfile} />
       <main>{children}</main>
 
-      <footer class="bg-[#2c3e50] text-white py-4 text-center">
-        <div class="max-w-screen-xl mx-auto px-4">
-          <div class="flex flex-col items-center">
+      <footer className="bg-[#2c3e50] text-white py-4 text-center">
+        <div className="max-w-screen-xl mx-auto px-4">
+          <div className="flex flex-col items-center">
             <p>&copy; 2024 Healthcare Inc. All Rights Reserved.</p>
 
-            <p class="mt-4">
+            <p className="mt-4">
               Contact us at:{" "}
               <a
                 href="mailto:info@healthcare.com"
-                class="text-[#3498db] hover:underline"
+                className="text-[#3498db] hover:underline"
               >
                 info@healthcare.com
               </a>

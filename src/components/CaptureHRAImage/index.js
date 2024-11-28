@@ -6,7 +6,13 @@ import html2canvas from "html2canvas";
 import { Button } from "../ui/button";
 import jsPDF from "jspdf";
 
-const CaptureImage = ({ healthToRecommendations, recommendationsData }) => {
+const CaptureImage = ({
+  healthToRecommendations,
+  name,
+  age,
+  gender,
+  recommendationsData,
+}) => {
   const elementRef = useRef();
 
   const handleCapture = async () => {
@@ -38,36 +44,44 @@ const CaptureImage = ({ healthToRecommendations, recommendationsData }) => {
     <>
       <Button
         onClick={handleCapture}
-        className={`absolute right-10 mt-5  ${
+        className={`absolute right-10 mt-[-20px] lg:mt-5  ${
           healthToRecommendations === "" ? "hidden" : ""
         }`}
       >
         Download HRA
       </Button>
-      <div
-        style={style}
-        className="flex flex-col w-full mx-auto "
-        ref={elementRef}
-      >
-        <p className="mt-10 lg:mt-0 text-[20px] p-5   lg:mx-10 whitespace-break-spaces text-center flex flex-1 text-wrap  font-times">
-          {healthToRecommendations.replace(/\*/g, "")}
-        </p>
-        <hr />
-        <hr />
-        <hr />
-        <hr />
-        <br />
-
-        <p className="text-[20px] p-15    lg:mx-10 whitespace-break-spaces text-center flex flex-1 text-wrap font-times">
-          {recommendationsData.replace(/\*/g, "")}
-        </p>
-        <p
-          className={`text-[20px] text-center ${
-            healthToRecommendations === "" ? "hidden" : ""
-          }`}
-        >
-          Created By HealthCare
-        </p>
+      <div ref={elementRef} className="h-full w-full">
+        <h2 className="text-center text-gray-800 text-2xl font-semibold mt-4">
+          Risk Assessment for {name} ({age}-year-old {gender})
+        </h2>
+        <table className="w-full table-auto mt-5">
+          <thead className="w-full">
+            <tr className="bg-green-500 text-white">
+              <th className="hidden lg:flex lg:py-3 lg:px-4 border border-gray-300">
+                Factors
+              </th>
+              <th className="py-3 px-4 border border-gray-300">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className=" even:bg-gray-100 hover:bg-gray-200">
+              <td className="hidden lg:flex py-3 px-4 border ">
+                <strong>Health Information</strong>
+              </td>
+              <td className="text-wrap text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
+                {healthToRecommendations}
+              </td>
+            </tr>
+            <tr className=" even:bg-gray-100 hover:bg-gray-200 bg-red-200">
+              <td className="hidden lg:flex py-3 px-4 border ">
+                <strong>Recommendations</strong>
+              </td>
+              <td className="text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
+                {recommendationsData}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div className="hidden"></div>

@@ -38,7 +38,7 @@ export default function AssessmentPageCard() {
 
   function handleHRA() {
     setDialogBtn(true);
-    let prompt = `${currentData?.name}, a ${currentData?.age}-year-old ${currentData?.gender} with ${currentData?.medicalConditions} or ${currentData?.familyhistory},my weight is${currentData?.weight} kg and height is ${currentData?.height} cm, reports experiencing ${currentData?.symptoms}, despite leading a sedentary lifestyle and having an ${currentData?.diet} diet. so write my health riks assessment with recommandation`;
+    let prompt = `${currentData?.name}, a ${currentData?.age}-year-old ${currentData?.gender} with ${currentData?.medicalConditions} or ${currentData?.familyhistory},my weight is${currentData?.weight} kg and height is ${currentData?.height} cm, reports experiencing ${currentData?.symptoms}, despite leading a sedentary lifestyle and having an ${currentData?.diet} diet. so write my health riks assessment with recommandation. that all information get me into like Patient,lifestyle ,bmi ,Diet,Symptoms,Risk factor`;
 
     fetch("/api/hra-generator", {
       method: "POST",
@@ -59,6 +59,31 @@ export default function AssessmentPageCard() {
   let healthStartIndex = hra.indexOf("Health");
   // Extract everything after the word "Recommendations"
   let recommendationsStartIndex = hra.indexOf("Recommendations:");
+
+  //Extract the data  between "Patient" and "Lifestyle"
+  let PatientStartIndex = hra.indexOf("Patient");
+  let BMIStartIndex = hra.indexOf("BMI");
+  let lifestyleStartIndex = hra.indexOf("Lifestyle:");
+  let DietStartIndex = hra.indexOf("Diet:");
+  let SymptomsStartIndex = hra.indexOf("Symptoms");
+  let RiskStartIndex = hra.indexOf("Risk");
+  let SedentaryLifeStartIndex = hra.indexOf("Sedentary");
+
+  //Extarct data
+  let Patient = hra.substring(PatientStartIndex, lifestyleStartIndex).trim();
+
+  let BMI = hra.substring(BMIStartIndex, DietStartIndex).trim();
+
+  let Lifestyle = hra.substring(lifestyleStartIndex, BMIStartIndex).trim();
+
+  let Risk = hra.substring(RiskStartIndex, recommendationsStartIndex).trim();
+  let diet = hra.substring(DietStartIndex, SymptomsStartIndex).trim();
+  //let Symptoms = hra.substring(SymptomsStartIndex, RiskStartIndex).trim();
+  const start = hra.indexOf("Symptoms:") + "Symptoms:".length; // Find the start position after "Symptoms:"
+  const end = hra.indexOf("Risk"); // Find the position of "Risk"
+
+  // Extract the substring between "Symptoms:" and "Risk"
+  const Symptoms = hra.substring(start, end).trim();
 
   // Extract the data between "Health" and "Recommendations"
   let healthToRecommendations = hra
@@ -331,6 +356,9 @@ export default function AssessmentPageCard() {
       <div className="flex flex-col  font-semibold italic  ">
         <CaptureImage
           healthToRecommendations={healthToRecommendations}
+          name={currentData.name}
+          age={currentData.age}
+          gender={currentData?.gender}
           recommendationsData={recommendationsData}
         />
       </div>
