@@ -7,7 +7,7 @@ import UpdateProfile from "../updateProfile";
 
 export default function DashboardCard({ user, ProfileUser }) {
   const style = {
-    backgroundImage: "url('back.jpg')",
+    backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -34,100 +34,182 @@ export default function DashboardCard({ user, ProfileUser }) {
   }
 
   return (
-    <>
-      <div className="lg:px-40 block  justify-center py-5" style={style}>
-        <UpdateProfile
-          className="absolute mt-5 right-5"
-          ProfileUser={ProfileUser}
-        />
-
-        <div className="block lg:p-5 py-5 lg:flex  w-full flex-col shadow-lg ">
-          <div className="block w-full h-auto shadow-lg lg:flex  lg:w-[890px] lg:h-[100px] border rounded-md  bg-white justify-between">
-            <div className="flex flex-row  gap-2 mx-1 lg:mx-10">
-              <div
-                className="bg-center bg-no-repeat border mt-5 aspect-square bg-cover rounded-full w-[70px] h-[70px]"
-                style={{
-                  backgroundImage: `url(bg2.jpg)`,
-                }}
-              />
-              <div className="flex flex-col justify-center ">
-                <p className=" text-[22px] text-[#80ED99]  font-bold leading-tight tracking-[-0.015em]">
-                  {ProfileUser?.firstName} {ProfileUser?.LastName}
-                </p>
-                <p className="text-[#636e88]  text-base font-normal leading-normal">
-                  {ProfileUser?.gender},{ProfileUser?.age} years old{" "}
-                </p>
-              </div>
-            </div>
-            <div className=" flex mt-3 gap-2 lg:gap-4 p-5 lg:p-0 ">
-              <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
-              <div className="flex flex-col gap-2">
-                <p className="text-[18px] text-gray-400">Age</p>
-                <p className="text-[15px] mx-5">{ProfileUser?.age}</p>
-              </div>
-              <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
-              <div className="flex flex-col gap-2">
-                <p className="text-[18px] text-gray-400">Gender</p>
-                <p className="text-[15px] mx-5">{ProfileUser?.gender}</p>
-              </div>
-              <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
-              <div className="flex flex-col gap-2">
-                <p className="text-[18px] text-gray-400">Weight</p>
-                <p className="text-[15px] mx-5 ">{ProfileUser?.weight}Kg</p>
-              </div>
-              <div className="flex w-[1px] h-[60px] bg-[#80ED99]"></div>
-              <div className="flex flex-col gap-2">
-                <p className="text-[18px] text-gray-400">Height</p>
-                <p className="text-[15px] mx-5 ">{ProfileUser?.height}cm</p>
-              </div>
-            </div>
-          </div>
-          <div className="block p-4 lg:flex  gap-5 ">
-            <div className="flex py-5  ">
-              <BmiChart currentBmi={bmi} />
-            </div>
-            <div className="flex py-5 ">
-              <Card>
-                <CardContent>
-                  <CardTitle className="text-2xl p-5">
-                    Health Information
-                  </CardTitle>
-                  <CardDescription>
-                    <p className="text-[20px] text-start">
-                      # Healthy BMI range{" "}
-                    </p>{" "}
-                    <p className="text-[18px] mt-3 underline text-green-500">
-                      18.5 - 24.9
-                    </p>
-                    <br />
-                    <p className="text-[20px] text-start">your Report is :</p>
-                    <p
-                      className={`text-[18px] mt-3 underline ${
-                        category === "Underweight"
-                          ? "text-red-400"
-                          : "text-green-500"
-                      }`}
-                    >
-                      {category}
-                    </p>
-                    <br />
-                    <p className="text-[20px] text-start">
-                      HealthCare Suggestion :
-                    </p>
-                    <p className={`text-[18px] mt-3 underline text-green-500`}>
-                      {category === "Underweight"
-                        ? " To safely gain weight and improve your overall health."
-                        : category === "Overweight"
-                        ? " it's important to focus on achieving a balanced diet, regular exercise . "
-                        : "regular exercise"}
-                    </p>
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </div>
+    <div style={style} className="w-full">
+      <div className="w-full  mx-auto  max-w-4xl  py-20 px-5 lg:p-20 bg-none  ">
+        {/* Profile Header */}
+        <div className="flex items-center mb-8">
+          <img
+            src={ProfileUser?.profile_image}
+            alt="User Image"
+            className="w-32 h-32 rounded-full mr-6"
+          />
+          <div>
+            <h1 className="text-3xl font-bold text-gray-200">
+              {ProfileUser?.firstName} {ProfileUser?.LastName}
+            </h1>
+            <p className="text-sm text-gray-400">
+              Age: {ProfileUser?.age}years
+            </p>
+            <p className="text-sm text-gray-400">
+              BMI: <span className="font-bold">{bmi.toFixed(2)}</span>
+            </p>
           </div>
         </div>
+
+        {/* Profile Details */}
+        <div className="mb-6">
+          <p className="text-lg text-gray-500">
+            <strong>Weight:</strong> {ProfileUser?.weight} kg
+          </p>
+          <p className="text-lg text-gray-500">
+            <strong>Height:</strong> {ProfileUser?.height} cm
+          </p>
+        </div>
+
+        {/* Health Information */}
+        <div className="mb-8">
+          <div className="text-xl font-semibold text-gray-400 border-b-2 border-green-500 pb-2 mb-4">
+            Health Information
+          </div>
+          <ul className="list-none pl-4">
+            <li className="text-lg text-gray-700 flex items-start mb-2">
+              <span className="mr-2 text-green-500">✔</span> Blood Pressure:
+              Normal
+            </li>
+            <li className="text-lg text-gray-700 flex items-start mb-2">
+              <span className="mr-2 text-green-500">✔</span> Cholesterol:
+              Moderate
+            </li>
+            <li className="text-lg text-gray-700 flex items-start mb-2">
+              <span className="mr-2 text-green-500">✔</span> Physical Activity:
+              Moderate (30 minutes daily)
+            </li>
+            <li className="text-lg text-gray-700 flex items-start mb-2">
+              <span className="mr-2 text-green-500">✔</span> Sleep: 7-8 hours
+              per night
+            </li>
+          </ul>
+        </div>
+
+        {/* Recommendations */}
+        <div className="mb-8">
+          <div className="text-xl font-semibold text-gray-400 border-b-2 border-green-500 pb-2 mb-4">
+            Recommendations for {category} To Good Health
+          </div>
+          <>
+            {category === "Overweight" ? (
+              <>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>1. Eat a balanced diet:</strong> Include more
+                    fruits, vegetables, and whole grains in your diet.
+                  </p>
+                </div>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>2. Exercise regularly:</strong> Aim for at least 150
+                    minutes of moderate-intensity exercise weekly.
+                  </p>
+                </div>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>3. Regular check-ups:</strong> Schedule annual
+                    health check-ups to monitor your health.
+                  </p>
+                </div>
+              </>
+            ) : category === "Underweight" ? (
+              <>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>1. Increase Caloric Intake:</strong> Focus on eating
+                    more calorie-dense, nutrient-rich foods like nuts, seeds,
+                    avocados, and lean protein to help gain weight in a healthy
+                    way.
+                  </p>
+                </div>
+
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>2. Strength Training:</strong> Incorporate strength
+                    training exercises into your routine to build muscle mass
+                    and improve overall body composition.
+                  </p>
+                </div>
+
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>3. Consult a Healthcare Provider:</strong> Work with
+                    a nutritionist or healthcare provider to create a tailored
+                    plan for gaining weight and addressing any underlying health
+                    conditions.
+                  </p>
+                </div>
+              </>
+            ) : category === "Obesity" ? (
+              <>
+                {" "}
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>1. Adopt a balanced diet:</strong> Focus on eating
+                    nutrient-dense, low-calorie foods such as vegetables,
+                    fruits, lean proteins, and whole grains. Reduce the intake
+                    of processed foods, sugary drinks, and high-fat snacks.
+                  </p>
+                </div>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>2. Regular physical activity:</strong> Incorporate
+                    at least 30 minutes of moderate-intensity exercise (such as
+                    walking, cycling, or swimming) most days of the week to help
+                    burn calories and improve overall health.
+                  </p>
+                </div>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>3. Consult a healthcare professional:</strong> Work
+                    with a doctor, dietitian, or personal trainer to create a
+                    personalized weight loss plan that includes dietary changes,
+                    exercise, and behavioral adjustments.
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>1. Maintain a balanced diet:</strong> Continue
+                    eating a variety of nutrient-dense foods, including fruits,
+                    vegetables, whole grains, lean proteins, and healthy fats to
+                    keep your weight within a healthy range.
+                  </p>
+                </div>
+
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>2. Stay physically active:</strong> Aim for at least
+                    150 minutes of moderate-intensity exercise per week. Regular
+                    physical activity helps to maintain your weight, improve
+                    muscle strength, and enhance overall health.
+                  </p>
+                </div>
+
+                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-gray-700">
+                    <strong>3. Regular health check-ups:</strong> Continue with
+                    regular health check-ups to monitor your overall health,
+                    manage stress, and detect any potential health issues early
+                    before they become more serious.
+                  </p>
+                </div>
+              </>
+            )}
+          </>
+        </div>
+
+        {/* Edit Profile Button */}
+        <UpdateProfile ProfileUser={ProfileUser} />
       </div>
-    </>
+    </div>
   );
 }

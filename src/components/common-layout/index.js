@@ -9,6 +9,7 @@ export default function CommonLayout({ user, UserProfile, children }) {
     <>
       {/* headers section */}
       <Navbar user={user} UserProfile={UserProfile} />
+
       <main>{children}</main>
 
       <footer className="bg-[#2c3e50] text-white py-4 text-center">

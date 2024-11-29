@@ -51,7 +51,7 @@ export default function SignUpCard() {
     });
   }
   return (
-    <div className="px-5 flex justify-evenly py-5">
+    <div className="px-5 flex justify-evenly py-20 lg:py-10">
       <div className="hidden lg:flex py-6 w-[600px] ">
         <img src="bg1.jpg" className="h-[300px] mt-10" alt="" />
       </div>

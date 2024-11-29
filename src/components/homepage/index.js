@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const style = {
-    backgroundImage: "url('back.jpg')",
+    backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -15,17 +15,22 @@ export default function HomePage() {
     <>
       <div
         style={style}
-        className="lg:px-0 flex flex-1 justify-center lg:py-0 "
+        className="lg:px-0 flex flex-1 justify-center lg:py-0 text-white mt-20"
       >
         <div className="layout-content-container flex flex-col  w-full flex-1">
           <div className="@container">
             <div className="@[480px]:p-4">
-              <div
+              {/* <div
                 style={{
-                  backgroundImage:
-                    'linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(10, 0, 0, 0.4) 100%), url("be1.jpg")',
+                  backgroundImage: ' url("be1.jpg")',
                 }}
                 className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-4 pb-10 @[480px]:px-10"
+              > */}
+              <div
+                className="flex min-h-[580px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-4 pb-10 @[480px]:px-10"
+                style={{
+                  backgroundImage: "url('be1.jpg')",
+                }}
               >
                 <div className="flex flex-col gap-2 text-left">
                   <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
@@ -48,10 +53,10 @@ export default function HomePage() {
           <>
             <div className="flex flex-col gap-10 px-4 py-10 @container">
               <div className="flex flex-col gap-4">
-                <h1 className="text-[#111418] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+                <h1 className="text-[#111418] text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
                   Why take our health risk assessment?
                 </h1>
-                <p className="text-[#111418] text-base font-normal leading-normal max-w-[720px]">
+                <p className="text-[#111418] text-white text-base font-normal leading-normal max-w-[720px]">
                   Early detection and prevention are key to maintaining good
                   health. Our health risk assessment is designed to help you
                   understand your risk for major diseases, so you can take
@@ -69,7 +74,7 @@ export default function HomePage() {
                     }}
                   />
                   <div>
-                    <p className="text-[#111418] text-base font-medium leading-normal">
+                    <p className="text-[#111418] text-white text-base font-medium leading-normal">
                       Quick and easy
                     </p>
                     <p className="text-[#617489] text-sm font-normal leading-normal">
@@ -86,7 +91,7 @@ export default function HomePage() {
                     }}
                   />
                   <div>
-                    <p className="text-[#111418] text-base font-medium leading-normal">
+                    <p className="text-[#111418] text-white text-base font-medium leading-normal">
                       Comprehensive
                     </p>
                     <p className="text-[#617489] text-sm font-normal leading-normal">
@@ -103,7 +108,7 @@ export default function HomePage() {
                     }}
                   />
                   <div>
-                    <p className="text-[#111418] text-base font-medium leading-normal">
+                    <p className="text-[#111418] text-white text-base font-medium leading-normal">
                       Personalized recommendations
                     </p>
                     <p className="text-[#617489] text-sm font-normal leading-normal">
@@ -120,7 +125,7 @@ export default function HomePage() {
                     }}
                   />
                   <div>
-                    <p className="text-[#111418] text-base font-medium leading-normal">
+                    <p className="text-[#111418] text-white text-base font-medium leading-normal">
                       Track your progress
                     </p>
                     <p className="text-[#617489] text-sm font-normal leading-normal">

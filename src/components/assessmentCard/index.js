@@ -28,7 +28,7 @@ export default function AssessmentPageCard() {
   const [step, setSteps] = useState(1);
   const [dialogBtn, setDialogBtn] = useState(false);
   const style = {
-    backgroundImage: "url('back.jpg')",
+    backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -108,7 +108,7 @@ export default function AssessmentPageCard() {
         </DialogContent>
       </Dialog>
       <div
-        className="lg:px-20 flex flex-1 justify-center py-10 lg:py-5  "
+        className="lg:px-20 flex flex-1 justify-center py-20 lg:py-20 text-white "
         style={style}
       >
         <div className="block w-full lg:w-[500px] lg:shadow-lg p-5 h-fit ">
@@ -124,6 +124,7 @@ export default function AssessmentPageCard() {
               Step {step}/4{" "}
             </p>
             <Progress
+              className="border bg-white"
               value={
                 step === 1
                   ? 25

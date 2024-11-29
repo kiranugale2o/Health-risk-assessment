@@ -9,18 +9,21 @@ import { Label } from "../ui/label";
 import { useRouter } from "next/navigation";
 
 export default function UpdateProfile({ ProfileUser }) {
+  const id = ProfileUser?._id;
   const initialData = {
     age: ProfileUser?.age,
     weight: ProfileUser?.weight,
     height: ProfileUser?.height,
   };
+  console.log(ProfileUser?._id);
+
   const router = useRouter();
   const [dialogBtn, setDialgobtn] = useState(false);
   const [currentData, setCurrentData] = useState(initialData);
   function handleUpdate() {
     fetch("/api/updateProfile", {
       method: "POST",
-      body: JSON.stringify({ id: ProfileUser?._id, data: currentData }),
+      body: JSON.stringify({ id: id, data: currentData }),
     }).then((res) =>
       res.json().then((res) => {
         if (res.success) {
@@ -37,12 +40,12 @@ export default function UpdateProfile({ ProfileUser }) {
   return (
     <>
       <Dialog open={dialogBtn} onOpenChange={setDialgobtn}>
-        <DialogContent className="overflow-auto  h-[300px]  lg:w-[450px] lg:w-auto">
+        <DialogContent className="overflow-auto  h-[400px]  lg:w-[650px] ">
           <DialogHeader>
             <DialogTitle>Update Profile</DialogTitle>
           </DialogHeader>
-          <div className="flex flex-col">
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+          <div className="flex flex-col gap-5">
+            <div className="grid  w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="Age">Age</Label>
               <Input
                 type="number"
@@ -84,14 +87,15 @@ export default function UpdateProfile({ ProfileUser }) {
           </div>
         </DialogContent>
       </Dialog>
-      <Button
+
+      <button
         onClick={() => {
           setDialgobtn(true);
         }}
-        className="lg:absolute mt-5 right-5 text-[15px] text-[#80ED99]"
+        className="inline-block py-2 px-4 bg-green-500 text-white text-lg font-semibold rounded-md hover:bg-green-600 transition duration-200"
       >
-        Update Profile
-      </Button>
+        Edit Profile
+      </button>
     </>
   );
 }
