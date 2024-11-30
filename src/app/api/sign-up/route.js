@@ -18,6 +18,7 @@ export async function POST(req) {
   await DatabaseConn();
   try {
     let { email, password } = await req.json();
+    console.log(email, password);
 
     if (email === "" || password === "") {
       return NextResponse.json({
@@ -29,6 +30,8 @@ export async function POST(req) {
     //Check Email is Already exit in database
     const userExit = await User.findOne({ email: email });
     if (userExit) {
+      console.log(userExit);
+
       if (!userExit.verifyUser) {
         await User.deleteOne({ email: email });
       }
@@ -47,17 +50,18 @@ export async function POST(req) {
     var hashPass = await bcrypt.hash(password, salt);
 
     //add user email and otp in database
-    const user = await User({
+    const user = await User.create({
       email,
       password: hashPass,
       otp,
       expiration,
       verifyUser: false,
     });
-    await user.save();
 
     if (user) {
       // Send OTP email
+      console.log(user);
+
       await transporter.sendMail({
         to: email,
         subject: "Email Verification Code send  ",
@@ -82,6 +86,8 @@ export async function POST(req) {
         message: "OTP Send !",
       });
     } else {
+      console.log("fff");
+
       return NextResponse.json({
         success: false,
         message: "Somting Went Wrong !",

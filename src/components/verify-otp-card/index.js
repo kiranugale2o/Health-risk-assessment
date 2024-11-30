@@ -117,6 +117,7 @@ export default function VerifyOtpCard({ otpVerificationType }) {
 
   //handle resend otp function
   async function handleResendOtp() {
+    alert("Otp Send !");
     fetch("/api/resend-otp", {
       method: "POST",
       body: JSON.stringify({ email }),

@@ -70,7 +70,7 @@ export default function OnboardCard({ userid, email }) {
           description: "success !",
         });
         alert("success");
-        router.push("/");
+        router.refresh("/");
       })
       .catch((er) => {
         console.log(er);
@@ -93,7 +93,7 @@ export default function OnboardCard({ userid, email }) {
     }
   }
   const style = {
-    backgroundImage: "url('back.jpg')",
+    backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -104,7 +104,7 @@ export default function OnboardCard({ userid, email }) {
     <>
       <div className="lg:px-40 flex flex-1 justify-center py-5" style={style}>
         <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
-          <h1 className="text-[#111418] tracking-light text-[32px] font-bold leading-tight px-4 text-left pb-3 pt-6">
+          <h1 className="text-white tracking-light text-[32px] font-bold leading-tight px-4 text-left pb-3 pt-6">
             Let's get started with some basic information.
           </h1>
           <div className="lg:flex max-w-[480px]">
@@ -119,7 +119,7 @@ export default function OnboardCard({ userid, email }) {
                     });
                   }}
                   placeholder="First name"
-                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
+                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
                 />
               </label>
             </div>
@@ -134,7 +134,7 @@ export default function OnboardCard({ userid, email }) {
                     });
                   }}
                   placeholder="Last name"
-                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
+                  className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
                 />
               </label>
             </div>
@@ -150,7 +150,7 @@ export default function OnboardCard({ userid, email }) {
                   });
                 }}
                 placeholder="Age"
-                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
+                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
               />
             </label>
           </div>
@@ -165,7 +165,7 @@ export default function OnboardCard({ userid, email }) {
                   });
                 }}
                 placeholder="Weight in Kg"
-                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
+                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
               />
             </label>
           </div>
@@ -180,17 +180,17 @@ export default function OnboardCard({ userid, email }) {
                   });
                 }}
                 placeholder="Height in CM"
-                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
+                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray focus:outline-0 focus:ring-0 border border-[#dce0e5] bg-white focus:border-[#dce0e5] h-14 placeholder:text-[#637488] p-[15px] text-base font-normal leading-normal"
               />
             </label>
           </div>
-          <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+          <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 text-white">
             <label className="flex flex-col min-w-40 flex-1">
               {" "}
               Gender :
               <br />
               <RadioGroup
-                className="mt-2 flex"
+                className="mt-2 flex "
                 value={selectedValue} // Controlled component
                 onChange={() =>
                   setOnboardData({
@@ -201,16 +201,16 @@ export default function OnboardCard({ userid, email }) {
                 onValueChange={setSelectedValue}
                 //  onChange={handleChange} // Update state on change
               >
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="male" id="r1" />
+                <div className="flex items-center space-x-2 ">
+                  <RadioGroupItem value="male" id="r1" className="bg-white" />
                   <Label htmlFor="r1">Male</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="female" id="r2" />
+                  <RadioGroupItem value="female" id="r2" className="bg-white" />
                   <Label htmlFor="r2">Female</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="other" id="r3" />
+                  <RadioGroupItem value="other" id="r3" className="bg-white" />
                   <Label htmlFor="r3">Other</Label>
                 </div>
               </RadioGroup>
@@ -222,7 +222,7 @@ export default function OnboardCard({ userid, email }) {
               className="flex items-center gap-4  px-4 min-h-[72px] py-2 bg-none"
             >
               <div
-                className="text-[#111418] flex items-center justify-center rounded-lg bg-[#f0f2f4] shrink-0 size-12"
+                className="text-gray text-[#637488] flex items-center justify-center rounded-lg bg-[#f0f2f4] shrink-0 size-12"
                 data-icon="Image"
                 data-size="24px"
                 data-weight="regular"
@@ -238,7 +238,7 @@ export default function OnboardCard({ userid, email }) {
                 </svg>
               </div>
               <div className="flex flex-col justify-center">
-                <p className="text-[#111418] text-base font-medium leading-normal line-clamp-1">
+                <p className="text-white text-base font-medium leading-normal line-clamp-1">
                   Profile Photo
                 </p>
                 <p className="text-[#637488] text-sm font-normal leading-normal line-clamp-2">

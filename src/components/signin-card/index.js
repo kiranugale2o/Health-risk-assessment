@@ -64,12 +64,18 @@ export default function SignInCard() {
       })
     );
   }
+  const style = {
+    backgroundImage: "url('be1.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "120vh", // Full height of the viewport
+    margin: 0, // Remove default margin
+  };
   return (
     <>
-      <div className="px-5 flex justify-evenly py-20 lg:py-10 ">
-        <div className="hidden lg:flex py-6 w-[600px] ">
-          <img src="bg1.jpg" className="h-[300px] mt-10" alt="" />
-        </div>
+      <div className="px-5 flex justify-evenly py-20 lg:py-10 " style={style}>
+        <div className="hidden lg:flex py-6 w-[600px] "></div>
         <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1 block">
           <h1 className="text-[#111518] text-[26px] font-bold leading-tight tracking-[-0.015em]  text-center px-4 pb-3 pt-5">
             Sign In for a Health Risk Assessment

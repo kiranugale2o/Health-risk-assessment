@@ -29,7 +29,7 @@ export default function HomePage() {
               <div
                 className="flex min-h-[580px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded items-start justify-end px-4 pb-10 @[480px]:px-10"
                 style={{
-                  backgroundImage: "url('be1.jpg')",
+                  backgroundImage: "url('back.jpg')",
                 }}
               >
                 <div className="flex flex-col gap-2 text-left">

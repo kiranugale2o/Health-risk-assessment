@@ -34,15 +34,14 @@ export default function SignUpCard() {
       body: JSON.stringify(data),
     }).then((res) => {
       res.json().then((res) => {
+        console.log(res);
+
         if (res.success) {
-          toast({
-            title: `Otp Send on ${res.email}`,
-            description: `Otp Send on ${res.email}`,
-          });
-          alert("sign up ok!");
           sessionStorage.setItem("email", res.email);
           router.push("/sign-up/verification-of-email");
+          alert("sign up ok!");
         } else {
+          alert("this Email Already Exit !");
           toast({
             description: res.message,
           });
@@ -50,11 +49,21 @@ export default function SignUpCard() {
       });
     });
   }
+
+  const style = {
+    backgroundImage: "url('be1.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "120vh", // Full height of the viewport
+    margin: 0, // Remove default margin
+  };
   return (
-    <div className="px-5 flex justify-evenly py-20 lg:py-10">
-      <div className="hidden lg:flex py-6 w-[600px] ">
-        <img src="bg1.jpg" className="h-[300px] mt-10" alt="" />
-      </div>
+    <div
+      className="px-5 flex justify-evenly py-20 lg:py-10 text-white"
+      style={style}
+    >
+      <div className="hidden lg:flex py-6 w-[600px] "></div>
       <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-2 max-w-[960px] flex-1">
         <h3 className="text-[#111518] tracking-light text-2xl font-bold leading-tight px-4 text-center pb-2 pt-5">
           Welcome to HealthCare
