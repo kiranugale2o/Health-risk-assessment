@@ -142,7 +142,7 @@ export default function VerifyOtpCard({ otpVerificationType }) {
   const isDisabled = seconds === 0;
   return (
     <>
-      <Card className=" mt-10 py-20 lg:py-10 w-[350px] mx-auto lg:mt-auto shadow flex flex-col lg:w-[400px] item-center">
+      <Card className=" mt-20  w-[350px] mx-auto lg:mt-auto shadow flex flex-col lg:w-[400px] item-center">
         <CardHeader className="p-6 ml-auto mr-auto mt-auto">
           <CardTitle className="text-[22px] mx-auto">
             Verify your email
