@@ -12,7 +12,7 @@ export default function CommonLayout({ user, UserProfile, children }) {
 
       <main>{children}</main>
 
-      <footer className="bg-[#2c3e50] text-white py-4 text-center">
+      <footer className="absolute bottom-1 bg-[#2c3e50] text-white py-4 text-center">
         <div className="max-w-screen-xl mx-auto px-4">
           <div className="flex flex-col items-center">
             <p>&copy; 2024 Healthcare Inc. All Rights Reserved.</p>
