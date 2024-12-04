@@ -21,7 +21,7 @@ This project is a **Health Risk Assessment Tool** built using **Next.js**. The a
 - **React**: For building interactive UI components.
 - **Tailwind CSS**: For a responsive and modern design.
 - **Node.js**: Backend logic for processing user inputs.
-- **APIs**: Integrates with health-related APIs (if applicable).
+- **AI**: Google Gemini
 
 ---
 
