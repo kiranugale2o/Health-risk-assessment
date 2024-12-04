@@ -1,4 +1,4 @@
-# Health-risk-assessment
+
 # Health Risk Assessment Tool
 
 This project is a **Health Risk Assessment Tool** built using **Next.js**. The application helps users identify potential health risks by collecting information about their lifestyle, medical history, and other relevant data. It provides tailored insights and recommendations based on the assessment.
@@ -25,36 +25,6 @@ This project is a **Health Risk Assessment Tool** built using **Next.js**. The a
 
 ---
 
-## Getting Started
-
-### Prerequisites
-
-Ensure you have the following installed on your system:
-
-- **Node.js** (v14+)
-- **npm** or **yarn**
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/health-risk-assessment-tool.git
-   cd health-risk-assessment-tool
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and navigate to `http://localhost:3000`.
-
----
 
 ## Usage
 
@@ -81,25 +51,12 @@ Ensure you have the following installed on your system:
 ---
 
 ## Contributing
+1.vishal masake
+2.rohan khandarkar
+3.krushna Hamand
+4.ritesh Vishwambhare
+5.kiran ugale
 
-We welcome contributions! To contribute:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit:
-   ```bash
-   git commit -m "Add your feature description"
-   ```
-4. Push to your branch:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Create a pull request.
-
----
 
 ## License
 
@@ -111,9 +68,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries or support, feel free to contact:
 
-- **Name**: [Your Name]
-- **Email**: [your.email@example.com]  
-- **GitHub**: [https://github.com/your-username](https://github.com/your-username)  
+- **Name**: Devsquad 
+- **Email**: kiranugale129@gmail.com
 
 --- 
 
