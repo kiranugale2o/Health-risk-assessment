@@ -41,7 +41,7 @@ export default function SignUpCard() {
           router.push("/sign-up/verification-of-email");
           alert("sign up ok!");
         } else {
-          alert("this Email Already Exit !");
+          alert(res.message);
           toast({
             description: res.message,
           });

@@ -21,7 +21,7 @@ import { StepBack } from "lucide";
 import { useState } from "react";
 import CaptureImage from "../CaptureHRAImage";
 
-export default function AssessmentPageCard() {
+export default function AssessmentPageCard({ email }) {
   const [currentData, setData] = useState(initialHealthRiskAssessmentData);
   const [hra, setHra] = useState("");
   const [form, setForm] = useState(1);
@@ -42,7 +42,7 @@ export default function AssessmentPageCard() {
 
     fetch("/api/hra-generator", {
       method: "POST",
-      body: JSON.stringify({ prompt: prompt }),
+      body: JSON.stringify({ prompt: prompt, email: email }),
     }).then((res) =>
       res
         .json()

@@ -11,6 +11,7 @@ import {
 import { AlignLeft, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { LogoImg } from "../images";
 
 export default function Navbar({ user, UserProfile }) {
   const router = useRouter();
@@ -43,15 +44,9 @@ export default function Navbar({ user, UserProfile }) {
 
   return (
     <>
-      <header className="flex fixed top-0 left-0 w-full z-10 justify-between bg-transparent   px-3 lg:px-10 py-2">
-        <div className="flex items-center text-[#141414] bg-transparent border-none px-0 lg:p-auto justify-between max-w-screen-xl mx-auto">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/musico-9bf36.appspot.com/o/bg12.png?alt=media&token=b1a0ab04-fbab-4f44-b528-a1275ec8d863"
-            width={150}
-            height={70}
-            alt="logo"
-          />
-
+      <header className="flex absolute top-0 left-0 w-full h-[70px] z-10 justify-between  bg-[#285B5A]  px-3 lg:px-10 py-2">
+        <div className="flex items-center text-[#141414]  border-none px-0 lg:p-auto justify-between max-w-screen-xl mx-auto">
+          <LogoImg />
           <Sheet>
             <SheetTrigger
               className={`flex mt-0 ml-10 lg:hidden ${
@@ -60,17 +55,15 @@ export default function Navbar({ user, UserProfile }) {
             >
               <AlignLeft className="font-2xl text-[#80ED99] size-9 w-[70px] mx-10" />
             </SheetTrigger>
-
             <button
               className={`${
                 user ? "hidden" : "flex"
-              } lg:hidden flex min-w-[94px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 lg:px-4 bg-[#80ED99]  text-white text-sm font-bold leading-normal tracking-[0.015em] mx-20`}
+              } lg:hidden flex min-w-[94px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 lg:px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black mx-20`}
             >
               <Link href={pathname === "/sign-up" ? "/sign-in" : "/sign-up"}>
                 <span>{pathname === "/sign-up" ? "Log In" : "Sign up"}</span>
               </Link>
             </button>
-
             <SheetContent className="py-24">
               <SheetTitle
                 className="uppercase text-2xl semibold text-[#80ED99]"
@@ -121,16 +114,16 @@ export default function Navbar({ user, UserProfile }) {
               );
             })}
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-5 p-2">
             {!user ? (
               <>
                 <Link href="/sign-up">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#80ED99] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
-                    <span className="truncate">Sign up</span>
+                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px]  hover:bg-white hover:text-black ">
+                    <span className="truncate ">Sign up</span>
                   </button>
                 </Link>
                 <Link href="/sign-in">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#F0F2F5] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
+                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black ">
                     <span className="truncate">Log in</span>
                   </button>
                 </Link>

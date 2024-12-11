@@ -4,6 +4,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
+  background: linear-gradient(to bottom, #113d3c, #285b5a);
 }
 
 @layer base {
@@ -62,16 +64,13 @@ body {
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* This will apply no shadow to all divs */
+* {
+  box-shadow: none !important;
 }
 
 /* Custom keyframes for the spin animation */
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -84,4 +83,12 @@ body {
 /* Custom spin animation */
 .spin {
   animation: spin 1s linear infinite;
+}
+
+#section1-leftside {
+  box-shadow: none;
+}
+
+div {
+  box-shadow: none !important;
 }
