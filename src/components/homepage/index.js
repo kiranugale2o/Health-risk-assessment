@@ -77,6 +77,76 @@ export default function HomePage() {
         </div>
 
         {/*  Section  2*/}
+        <div className="block lg:flex mt-10 flex-col w-full" id="section2">
+          {/* top heading */}
+          <div
+            className="flex w-full mb-[30px] drop-shadow-none"
+            id="section2-topside"
+            style={{ boxShadow: "none" }}
+          >
+            <div className="flex flex-col mx-[107px] text-wrap w-full font-exo text-[60px] font-bold leading-[72px] text-white">
+              Why take our health risk <br />
+              <span className="bg-[#80ED99] bg-lime-500 p-1 w-[400px]">
+                assessment?
+              </span>
+            </div>
+          </div>
+          {/* left content container */}
+          <div className="flex lg:flex-row md:flex-col sm:flex-col w-full h-[500px] px-[100px]">
+            <div
+              className="flex w-[50%] flex-col gap-[30px] w-full drop-shadow-none"
+              id="section1-leftside"
+              style={{ boxShadow: "none" }}
+            >
+              <div className="flex flex-col justify-center pl-5 w-[340px] lg:w-[521px] h-[150px] lg:left-[107px] lg:top-[304px] font-exo text-[18px] lg:text-[30px] font-medium leading-[36px] text-white border-l-4 border-[#80ED99] border-lime-500">
+                <b className="text-[30px] mb-4">Early detection</b>
+                <b className="text-[23px] leading-[30px]">
+                  Early detection and prevention are key <br /> to maintaining
+                  good health.
+                </b>
+              </div>
+
+              <div className="flex flex-col justify-center pl-5 w-[340px] lg:w-[521px] h-[250px] lg:left-[107px] lg:top-[304px] font-exo text-[18px] lg:text-[30px] font-medium leading-[36px] text-white border-l-4">
+                <b className="text-[30px] mb-4">
+                  Help you understand to major
+                  <br />
+                  diseases
+                </b>
+                <b className="text-[23px] leading-[30px]">
+                  Our health risk assessment is designed <br />
+                  to help you understand your risk for <br />
+                  major diseases, so you can take action to <br />
+                  prevent them.
+                </b>
+              </div>
+            </div>
+
+            {/* Rigth content image conatiner */}
+            <div
+              className="flex w-[50%] items-start justify-center"
+              id="section1-right-side"
+            >
+              <img src="homebanner1.png" alt="banner" width={600}/>
+            </div>
+          </div>
+        </div>
+
+        {/*  Section 3 */}
+        <div className="block lg:flex mt-10 flex-col w-full" id="section3">
+          <div
+            className="flex items-center justify-center w-full  mb-[30px] drop-shadow-none"
+            id="section3-topside"
+            style={{ boxShadow: "none" }}
+          >
+            <div className="flex flex-row gap-[10px] justify-center mx-[107px] text-wrap w-full font-exo text-[60px] font-bold leading-[72px] text-white">
+              <span className="bg-[#80ED99] bg-lime-500 pl-[30px] w-[155px] h-[80px]">
+                {" "}
+                why
+              </span>
+              you should take it
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
