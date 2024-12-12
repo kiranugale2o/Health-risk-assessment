@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server.js";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
-import User from "@/models/User";
+//import User from "@/models/User";
 import DatabaseConn from "@/database";
+import User from "@/models/User";
 
 const authemail = process.env.AUTH_EMAIL;
 const pass = process.env.EMAIL_PASS;

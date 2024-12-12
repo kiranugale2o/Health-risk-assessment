@@ -151,7 +151,7 @@ export const initialHealthRiskAssessmentData = {
 };
 
 export let healthRiskAssessment = `
-Health Risk Assessment for Kiran (20-year-old Male)
+ Health Risk Assessment for Kiran (20-year-old Male)
 **Presenting Complaint:** Chest pain
 **Demographics:** 20-year-old male, 170 cm (5'7"), 45 kg (99 lbs) - significantly underweight. Sedentary lifestyle, no specific diet reported.
 **Risk Factors:**

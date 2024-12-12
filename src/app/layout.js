@@ -25,10 +25,6 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap"
-        rel="stylesheet"
-      />
       <body>
         <CommonLayout user={user} UserProfile={UserProfile}>
           {children}

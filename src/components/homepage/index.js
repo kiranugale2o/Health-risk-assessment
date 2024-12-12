@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export default function HomePage() {
   return (
     <>
-      <div className="lg:px-0 w-full flex flex-col">
+      <div className=" lg:px-0 w-full flex flex-col">
         <div className="block lg:flex w-full" id="section1">
           {/* <div class="hidden absolute left-[35.33%] right-[59.01%] top-[43.19%] bottom-[83.02%] ">
             <img src="heart.png" width={300}></img>
@@ -15,9 +15,9 @@ export default function HomePage() {
             id="section1-leftside"
             style={{ boxShadow: "none" }}
           >
-            <div className="absolute px-5 p-3 text-wrap top-[120px] lg:left-[80px] lg:top-[140px] w-full font-exo text-[60px] font-bold leading-[72px] text-white">
+            <div className="absolute lg:px-5 px-5 text-wrap top-[120px] lg:left-[80px] lg:top-[140px] w-full font-exo text-[50px] lg:text-[60px] font-bold leading-[72px] text-white">
               Know your{" "}
-              <span className="bg-[#80ED99] bg-lime-500 p-2 w-[200px]">
+              <span className="bg-[#80ED99] bg-lime-500 p-2 lg:w-[200px]">
                 Health
               </span>
               <br /> Risks
@@ -69,7 +69,7 @@ export default function HomePage() {
 
           {/* Right Section */}
           <div
-            className="relative lg:static left-auto right-auto top-[450px] w-full p-5 lg:p-20 mt-10 h-[500px]"
+            className="relative lg:static left-auto right-auto top-[550px] w-full p-5 lg:p-20 mt-10 h-[500px]"
             id="section1-right-side"
           >
             <img src="homebanner1.png" alt="banner" height={500} />
@@ -77,28 +77,28 @@ export default function HomePage() {
         </div>
 
         {/*  Section  2*/}
-        <div className="block lg:flex mt-10 flex-col w-full" id="section2">
+        <div className=" block lg:flex mt-20 flex-col w-full" id="section2">
           {/* top heading */}
           <div
-            className="flex w-full mb-[30px] drop-shadow-none"
+            className="flex mt-20 px-5 py-20 lg:px-0 lg:mt-0 lg:mx-0 lg:py-0 w-full lg:mb-[30px] drop-shadow-none"
             id="section2-topside"
             style={{ boxShadow: "none" }}
           >
-            <div className="flex flex-col mx-[107px] text-wrap w-full font-exo text-[60px] font-bold leading-[72px] text-white">
+            <div className=" flex flex-col mt-20 mx-0 lg:mt-0 lg:mx-[107px] text-wrap w-full font-exo text-[50px] lg:text-[60px] font-bold leading-[72px] text-white">
               Why take our health risk <br />
-              <span className="bg-[#80ED99] bg-lime-500 p-1 w-[400px]">
+              <span className="bg-[#80ED99] bg-lime-500 p-1 w-[350px] lg:w-[400px]">
                 assessment?
               </span>
             </div>
           </div>
           {/* left content container */}
-          <div className="flex lg:flex-row md:flex-col sm:flex-col w-full h-[500px] px-[100px]">
+          <div className=" flex lg:flex-row md:flex-col sm:flex-col w-full h-[500px] px-10 lg:px-[100px]">
             <div
-              className="flex w-[50%] flex-col gap-[30px] w-full drop-shadow-none"
+              className="flex flex-col gap-[30px] w-full drop-shadow-none"
               id="section1-leftside"
               style={{ boxShadow: "none" }}
             >
-              <div className="flex flex-col justify-center pl-5 w-[340px] lg:w-[521px] h-[150px] lg:left-[107px] lg:top-[304px] font-exo text-[18px] lg:text-[30px] font-medium leading-[36px] text-white border-l-4 border-[#80ED99] border-lime-500">
+              <div className="flex flex-col justify-center pl-5  lg:w-[521px] h-[150px] lg:left-[107px] lg:top-[304px] font-exo text-[18px] lg:text-[30px] font-medium leading-[36px] text-white border-l-4 border-[#80ED99] border-lime-500">
                 <b className="text-[30px] mb-4">Early detection</b>
                 <b className="text-[23px] leading-[30px]">
                   Early detection and prevention are key <br /> to maintaining
@@ -106,8 +106,8 @@ export default function HomePage() {
                 </b>
               </div>
 
-              <div className="flex flex-col justify-center pl-5 w-[340px] lg:w-[521px] h-[250px] lg:left-[107px] lg:top-[304px] font-exo text-[18px] lg:text-[30px] font-medium leading-[36px] text-white border-l-4">
-                <b className="text-[30px] mb-4">
+              <div className="flex flex-col justify-center pl-5  lg:w-[521px] h-[350px] lg:h-[250] lg:left-[107px] lg:top-[304px] font-exo text-[18px] lg:text-[30px] font-medium leading-[36px] text-white border-l-4">
+                <b className="text-[30px] mt-10 lg:mt-0 mb-4">
                   Help you understand to major
                   <br />
                   diseases
@@ -122,31 +122,22 @@ export default function HomePage() {
             </div>
 
             {/* Rigth content image conatiner */}
-            <div
-              className="flex w-[50%] items-start justify-center"
-              id="section1-right-side"
-            >
-              <img src="homebanner1.png" alt="banner" width={600}/>
+            <div className="block  lg:flex absolute mx-0 left-[2px] right-[2px]  top-[900px] lg:static lg:top-[0px] ">
+              {/* <!-- Background Box --> */}
+              <div className="absolute mx-0 left-[0px] w-[370px] h-[423px] top-[900px] lg:w-[528px] lg:h-[353px] lg:left-[652px] lg:top-[780px] bg-[rgba(245,245,245,0.1)]  rounded-lg"></div>
+              <div class="absolute w-[120px] top-[874px] left-[130px] h-[193px] lg:left-[780px] lg:top-[757px] bg-[#D9D9D9] bg-[url('https://shorturl.at/uHuoh')] bg-cover rounded-[10px_70px_10px_10px] rotate-[-90deg]"></div>
+              <div class="absolute top-[942px] w-[50px] h-[71px] lg:left-[656px] lg:top-[852px] bg-[#E8F44A] rounded-[10px_70px_30px_10px]  rotate-[-140deg]"></div>
+              <div class="absolute left-[190px] top-[1050px] w-[158px]  lg:w-[178px] h-[193px] lg:left-[962px] lg:top-[850px] bg-[#D9D9D9] bg-[url('https://tinyurl.com/3hcxkyj3')] bg-cover rounded-[15px]"></div>
+              <div class="absolute left-[20px]  top-[1060px] w-[158px]  lg:w-[178px] h-[157px] lg:left-[757px] lg:top-[931px] bg-[#9BCECF] bg-[url('https://tinyurl.com/5635jn3y')] bg-cover rounded-[10px]"></div>
+              <div class="absolute left-[320px] top-[1220px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] lg:left-[1091px] lg:top-[1000px] bg-[#3AB549] rounded-full"></div>
+              <div class="absolute top-[1108px] w-[50px] h-[50px] lg:left-[727px] lg:top-[978px] bg-[#9BCECF] rounded-full"></div>
+              <div class="absolute top-[1208px] w-12 h-12 lg:left-[723px] lg:top-[1050px] bg-[#E8F44A]"></div>
+              <div class="absolute   top-[1248px] left-[100px] w-[114px] h-[117px] lg:left-[588px] lg:top-[990px]  bg-[url('https://tinyurl.com/yy8ap58u')]  bg-cover "></div>
             </div>
           </div>
         </div>
 
         {/*  Section 3 */}
-        <div className="block lg:flex mt-10 flex-col w-full" id="section3">
-          <div
-            className="flex items-center justify-center w-full  mb-[30px] drop-shadow-none"
-            id="section3-topside"
-            style={{ boxShadow: "none" }}
-          >
-            <div className="flex flex-row gap-[10px] justify-center mx-[107px] text-wrap w-full font-exo text-[60px] font-bold leading-[72px] text-white">
-              <span className="bg-[#80ED99] bg-lime-500 pl-[30px] w-[155px] h-[80px]">
-                {" "}
-                why
-              </span>
-              you should take it
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

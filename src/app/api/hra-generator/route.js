@@ -21,3 +21,5 @@ export async function POST(req) {
     message: result.response.text(),
   });
 }
+
+/* Rectangle 1 */
