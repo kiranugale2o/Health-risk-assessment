@@ -318,11 +318,10 @@ export default function HomePage() {
                   </svg>
                 </div>
                 <div className="absolute w-[108px] h-[117px] left-[131px] z-50 top-[100px] bg-[url('https://tinyurl.com/3dwakyhs')] bg-cover"></div>
-                <div className="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#E8F44A] rounded-b-[15px]"></div>
+                <div className="absolute w-[250px]  h-[40px] left-[0px] top-[169px] bg-[#E8F44A] rounded-b-[15px]"></div>
               </div>
             </div>
           </div>
-                  
         </div>
       </div>
     </>
