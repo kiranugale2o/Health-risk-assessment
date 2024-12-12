@@ -69,7 +69,7 @@ export async function POST(req) {
         html: `
          <div>
           <h1><b>HealthCare</b></h1>
-            <h1 class="color:"red"">Verification code</h1>
+            <h1 className="color:"red"">Verification code</h1>
              <br/>
             <b>Enter the following verification code when prompted:
             <h1>

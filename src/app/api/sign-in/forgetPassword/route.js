@@ -44,7 +44,7 @@ export async function POST(req) {
       html: `
            <div>
           <h1><b>HealthCare</b></h1>
-            <h1 class="color:"red"">Verification code For Reset Password !</h1>
+            <h1 className="color:"red"">Verification code For Reset Password !</h1>
              <br/>
             <p>Enter the following verification code when prompted:
             <h1>
