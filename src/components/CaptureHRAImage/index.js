@@ -44,39 +44,39 @@ const CaptureImage = ({
     <>
       <Button
         onClick={handleCapture}
-        className={`absolute right-10 mt-[-20px] lg:mt-5  ${
+        classNameName={`absolute right-10 mt-[-20px] lg:mt-5  ${
           healthToRecommendations === "" ? "hidden" : ""
         }`}
       >
         Download HRA
       </Button>
-      <div ref={elementRef} className="h-full w-full">
-        <h2 className="text-center text-gray-800 text-2xl font-semibold mt-4">
+      <div ref={elementRef} classNameName="h-full w-full">
+        <h2 classNameName="text-center text-gray-800 text-2xl font-semibold mt-4">
           Risk Assessment for {name} ({age}-year-old {gender})
         </h2>
-        <table className="w-full table-auto mt-5">
-          <thead className="w-full">
-            <tr className="bg-green-500 text-white">
-              <th className="hidden lg:flex lg:py-3 lg:px-4 border border-gray-300">
+        <table classNameName="w-full table-auto mt-5">
+          <thead classNameName="w-full">
+            <tr classNameName="bg-green-500 text-white">
+              <th classNameName="hidden lg:flex lg:py-3 lg:px-4 border border-gray-300">
                 Factors
               </th>
-              <th className="py-3 px-4 border border-gray-300">Details</th>
+              <th classNameName="py-3 px-4 border border-gray-300">Details</th>
             </tr>
           </thead>
           <tbody>
-            <tr className=" even:bg-gray-100 hover:bg-gray-200">
-              <td className="hidden lg:flex py-3 px-4 border ">
+            <tr classNameName=" even:bg-gray-100 hover:bg-gray-200">
+              <td classNameName="hidden lg:flex py-3 px-4 border ">
                 <strong>Health Information</strong>
               </td>
-              <td className="text-wrap text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
+              <td classNameName="text-wrap text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
                 {healthToRecommendations}
               </td>
             </tr>
-            <tr className=" even:bg-gray-100 hover:bg-gray-200 bg-red-200">
-              <td className="hidden lg:flex py-3 px-4 border ">
+            <tr classNameName=" even:bg-gray-100 hover:bg-gray-200 bg-red-200">
+              <td classNameName="hidden lg:flex py-3 px-4 border ">
                 <strong>Recommendations</strong>
               </td>
-              <td className="text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
+              <td classNameName="text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
                 {recommendationsData}
               </td>
             </tr>
@@ -84,7 +84,7 @@ const CaptureImage = ({
         </table>
       </div>
 
-      <div className="hidden"></div>
+      <div classNameName="hidden"></div>
     </>
   );
 };

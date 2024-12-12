@@ -9,7 +9,7 @@ export default async function ResetPasswords() {
 
   return (
     <>
-      <div className="mt-5 lg:p-24">
+      <div classNameName="mt-5 lg:p-24">
         <ResetPasswordCard />
       </div>
     </>

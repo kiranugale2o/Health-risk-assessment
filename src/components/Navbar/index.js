@@ -44,19 +44,19 @@ export default function Navbar({ user, UserProfile }) {
 
   return (
     <>
-      <header className="flex absolute top-0 left-0 w-full h-[70px] z-10 justify-between  bg-[#285B5A]  px-3 lg:px-10 py-2">
-        <div className="flex items-center text-[#141414]  border-none px-0 lg:p-auto justify-between max-w-screen-xl mx-auto">
+      <header classNameName="flex absolute top-0 left-0 w-full h-[70px] z-10 justify-between  bg-[#285B5A]  px-3 lg:px-10 py-2">
+        <div classNameName="flex items-center text-[#141414]  border-none px-0 lg:p-auto justify-between max-w-screen-xl mx-auto">
           <LogoImg />
           <Sheet>
             <SheetTrigger
-              className={`flex mt-0 ml-10 lg:hidden ${
+              classNameName={`flex mt-0 ml-10 lg:hidden ${
                 user ? "block" : "hidden"
               }`}
             >
-              <AlignLeft className="font-2xl text-[#80ED99] size-9 w-[70px] mx-10" />
+              <AlignLeft classNameName="font-2xl text-[#80ED99] size-9 w-[70px] mx-10" />
             </SheetTrigger>
             <button
-              className={`${
+              classNameName={`${
                 user ? "hidden" : "flex"
               } lg:hidden flex min-w-[94px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 lg:px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black mx-20`}
             >
@@ -64,9 +64,9 @@ export default function Navbar({ user, UserProfile }) {
                 <span>{pathname === "/sign-up" ? "Log In" : "Sign up"}</span>
               </Link>
             </button>
-            <SheetContent className="py-24">
+            <SheetContent classNameName="py-24">
               <SheetTitle
-                className="uppercase text-2xl semibold text-[#80ED99]"
+                classNameName="uppercase text-2xl semibold text-[#80ED99]"
                 onClick={() => {
                   router.push("/");
                 }}
@@ -74,7 +74,7 @@ export default function Navbar({ user, UserProfile }) {
                 HealthCare
               </SheetTitle>
 
-              <div className="flex flex-col lg:hidden justify-start mt-6 gap-5">
+              <div classNameName="flex flex-col lg:hidden justify-start mt-6 gap-5">
                 {navItem.map((d) => {
                   return (
                     <div key={d.name}>
@@ -82,7 +82,7 @@ export default function Navbar({ user, UserProfile }) {
                         <SheetClose asChild>
                           <Link
                             href={d.path}
-                            className="font-semibold uppercase flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#80ED99] hover:bg-sky-300 bg-[#80ED99] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] "
+                            classNameName="font-semibold uppercase flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#80ED99] hover:bg-sky-300 bg-[#80ED99] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] "
                           >
                             {d.name}
                           </Link>
@@ -95,15 +95,15 @@ export default function Navbar({ user, UserProfile }) {
             </SheetContent>
           </Sheet>
         </div>
-        <div className="hidden lg:flex flex-1 justify-end gap-8">
-          <div className="flex items-center gap-9">
+        <div classNameName="hidden lg:flex flex-1 justify-end gap-8">
+          <div classNameName="flex items-center gap-9">
             {navItem.map((d) => {
               return (
                 <div key={d.name}>
                   {d.show ? (
                     <>
                       <a
-                        className="text-[#141414] text-sm min-w-[84px] max-w-[480px] p-3 font-semibold font-serif leading-normal rounded-xl h-10 px-4  hover:bg-green-400  text-white text-lg  font-bold leading-normal tracking-[0.015em]"
+                        classNameName="text-[#141414] text-sm min-w-[84px] max-w-[480px] p-3 font-semibold font-serif leading-normal rounded-xl h-10 px-4  hover:bg-green-400  text-white text-lg  font-bold leading-normal tracking-[0.015em]"
                         href={d.path}
                       >
                         {d.name}
@@ -114,17 +114,17 @@ export default function Navbar({ user, UserProfile }) {
               );
             })}
           </div>
-          <div className="flex gap-5 p-2">
+          <div classNameName="flex gap-5 p-2">
             {!user ? (
               <>
                 <Link href="/sign-up">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px]  hover:bg-white hover:text-black ">
-                    <span className="truncate ">Sign up</span>
+                  <button classNameName="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px]  hover:bg-white hover:text-black ">
+                    <span classNameName="truncate ">Sign up</span>
                   </button>
                 </Link>
                 <Link href="/sign-in">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black ">
-                    <span className="truncate">Log in</span>
+                  <button classNameName="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black ">
+                    <span classNameName="truncate">Log in</span>
                   </button>
                 </Link>
               </>

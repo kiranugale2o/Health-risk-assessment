@@ -11,7 +11,7 @@ export default async function AssessmentPage() {
 
   return (
     <>
-      <div className="">
+      <div classNameName="">
         <AssessmentPageCard email={user?.email} />
       </div>
     </>

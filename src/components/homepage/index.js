@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       <div className="flex flex-col w-full lg:px-0">
         <div className="block w-full lg:flex" id="section1">
-          {/* <div class="hidden absolute left-[35.33%] right-[59.01%] top-[43.19%] bottom-[83.02%] ">
+          {/* <div className="hidden absolute left-[35.33%] right-[59.01%] top-[43.19%] bottom-[83.02%] ">
             <img src="heart.png" width={300}></img>
           </div> */}
           <div
@@ -150,12 +150,12 @@ export default function HomePage() {
             </div>
           </div>
           <div className="block lg:flex w-full item-center gap-20 px-[70px]">
-            <div class="flex justify-center gap-5 flex-wrap">
-              <div class="w-[250px] bg-green-800 h-[200px] p-5  rounded-lg text-left shadow-md relative">
-                <div class="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[28px] leading-[34px] text-white">
+            <div className="flex flex-wrap justify-center gap-5">
+              <div className="w-[250px] bg-green-800 h-[200px] p-5  rounded-lg text-left shadow-md relative">
+                <div className="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[28px] leading-[34px] text-white">
                   Quick and easy
                 </div>
-                <div class="absolute w-[181px] h-[38px] top-[60px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
+                <div className="absolute w-[181px] h-[38px] top-[60px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
                   Takes just 10-15 minutes to complete
                 </div>
                 <div className="absolute w-[30px] h-[30px]  left-[26px] top-[110px]   bg-transparent  ">
@@ -190,16 +190,16 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <div class="absolute w-[108px] h-[117px] left-[131px] z-50 top-[80px] bg-[url('https://tinyurl.com/ms7tp28k')] bg-cover"></div>
-                <div class="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#EFBB59] rounded-b-[15px]"></div>
+                <div className="absolute w-[108px] h-[117px] left-[131px] z-50 top-[80px] bg-[url('https://tinyurl.com/ms7tp28k')] bg-cover"></div>
+                <div className="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#EFBB59] rounded-b-[15px]"></div>
               </div>
 
               {/* box 2 */}
-              <div class="w-[250px] bg-[#406F6F] h-[200px] p-5  rounded-lg text-left shadow-md relative">
-                <div class="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[28px] leading-[34px] text-white">
+              <div className="w-[250px] bg-[#406F6F] h-[200px] p-5  rounded-lg text-left shadow-md relative">
+                <div className="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[28px] leading-[34px] text-white">
                   Comprehensive
                 </div>
-                <div class="absolute w-[181px] h-[38px] top-[60px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
+                <div className="absolute w-[181px] h-[38px] top-[60px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
                   Assesses your risk for 12 major diseases
                 </div>
                 <div className="absolute w-[30px] h-[30px]  left-[26px] top-[110px]   bg-transparent">
@@ -233,15 +233,15 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <div class="absolute w-[108px] h-[137px] left-[111px] z-50 top-[80px] bg-[url('https://tinyurl.com/37szpwhm')] bg-cover"></div>
-                <div class="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#8FCBCD] rounded-b-[15px]"></div>
+                <div className="absolute w-[108px] h-[137px] left-[111px] z-50 top-[80px] bg-[url('https://tinyurl.com/37szpwhm')] bg-cover"></div>
+                <div className="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#8FCBCD] rounded-b-[15px]"></div>
               </div>
               {/* box 3 */}
-              <div class="w-[260px] bg-[#A25900] h-[200px] p-5  rounded-lg text-left shadow-md relative">
-                <div class="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[26px] leading-[34px] text-white">
+              <div className="w-[260px] bg-[#A25900] h-[200px] p-5  rounded-lg text-left shadow-md relative">
+                <div className="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[26px] leading-[34px] text-white">
                   Personalized recommendations
                 </div>
-                <div class="absolute w-[181px] h-[38px] top-[80px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
+                <div className="absolute w-[181px] h-[38px] top-[80px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
                   Based on your unique health profile
                 </div>
                 <div className="absolute w-[30px] h-[30px]  left-[26px] top-[120px]   bg-transparent">
@@ -275,15 +275,15 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <div class="absolute w-[108px] h-[107px] left-[131px] z-50 top-[90px] bg-[url('https://tinyurl.com/2ch2pwsv')] bg-cover"></div>
-                <div class="absolute w-[260px] z-10 h-[40px] left-[0px] top-[169px] bg-[#B27122] rounded-b-[15px]"></div>
+                <div className="absolute w-[108px] h-[107px] left-[131px] z-50 top-[90px] bg-[url('https://tinyurl.com/2ch2pwsv')] bg-cover"></div>
+                <div className="absolute w-[260px] z-10 h-[40px] left-[0px] top-[169px] bg-[#B27122] rounded-b-[15px]"></div>
               </div>
               {/* box 4 */}
-              <div class="w-[250px] bg-[#BFCE00] h-[200px] p-5  rounded-lg text-left shadow-md relative">
-                <div class="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[28px] leading-[34px] text-white">
+              <div className="w-[250px] bg-[#BFCE00] h-[200px] p-5  rounded-lg text-left shadow-md relative">
+                <div className="absolute w-[207px] h-[34px]  font-exo-2 font-semibold text-[28px] leading-[34px] text-white">
                   Track your progress
                 </div>
-                <div class="absolute w-[181px] h-[38px] top-[83px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
+                <div className="absolute w-[181px] h-[38px] top-[83px] font-exo-2 font-medium text-[16px] leading-[19px] text-white">
                   Follow up assessments to monitor changes
                 </div>
                 <div className="absolute w-[20px] h-[20px]  left-[26px] top-[120px]   bg-transparent">
@@ -317,8 +317,8 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <div class="absolute w-[108px] h-[117px] left-[131px] z-50 top-[100px] bg-[url('https://tinyurl.com/3dwakyhs')] bg-cover"></div>
-                <div class="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#E8F44A] rounded-b-[15px]"></div>
+                <div className="absolute w-[108px] h-[117px] left-[131px] z-50 top-[100px] bg-[url('https://tinyurl.com/3dwakyhs')] bg-cover"></div>
+                <div className="absolute w-[250px] z-10 h-[40px] left-[0px] top-[169px] bg-[#E8F44A] rounded-b-[15px]"></div>
               </div>
             </div>
           </div>

@@ -49,14 +49,14 @@ export default function ResetPasswordCard() {
     }
   }
   return (
-    <Card className="mx-auto w-[350px]">
+    <Card classNameName="mx-auto w-[350px]">
       <CardHeader>
-        <CardTitle className="text-[20px]">Reset Password</CardTitle>
+        <CardTitle classNameName="text-[20px]">Reset Password</CardTitle>
       </CardHeader>
       <CardContent>
         <form action={handleResetPassword}>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
+          <div classNameName="grid w-full items-center gap-4">
+            <div classNameName="flex flex-col space-y-1.5">
               <Label htmlFor="name">New Password</Label>
               <Input
                 id="name"
@@ -67,7 +67,7 @@ export default function ResetPasswordCard() {
                 placeholder="Enter new Password"
               />
             </div>
-            <div className="flex flex-col space-y-1.5">
+            <div classNameName="flex flex-col space-y-1.5">
               <Label htmlFor="conform">Confirm Password</Label>
               <Input
                 id="conform"
@@ -79,8 +79,8 @@ export default function ResetPasswordCard() {
               />
             </div>
           </div>
-          <CardFooter className="flex justify-between mt-7">
-            <Button className="w-full" type="submit">
+          <CardFooter classNameName="flex justify-between mt-7">
+            <Button classNameName="w-full" type="submit">
               SET PASSWORD
             </Button>
           </CardFooter>

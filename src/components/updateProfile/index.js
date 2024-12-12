@@ -40,12 +40,12 @@ export default function UpdateProfile({ ProfileUser }) {
   return (
     <>
       <Dialog open={dialogBtn} onOpenChange={setDialgobtn}>
-        <DialogContent className="overflow-auto  h-[400px]  lg:w-[650px] ">
+        <DialogContent classNameName="overflow-auto  h-[400px]  lg:w-[650px] ">
           <DialogHeader>
             <DialogTitle>Update Profile</DialogTitle>
           </DialogHeader>
-          <div className="flex flex-col gap-5">
-            <div className="grid  w-full max-w-sm items-center gap-1.5">
+          <div classNameName="flex flex-col gap-5">
+            <div classNameName="grid  w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="Age">Age</Label>
               <Input
                 type="number"
@@ -57,7 +57,7 @@ export default function UpdateProfile({ ProfileUser }) {
                 placeholder="Age"
               />
             </div>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div classNameName="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="w">Weight</Label>
               <Input
                 type="number"
@@ -69,7 +69,7 @@ export default function UpdateProfile({ ProfileUser }) {
                 placeholder="Weight in Kg"
               />
             </div>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div classNameName="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="height">Height </Label>
               <Input
                 type="number"
@@ -81,7 +81,7 @@ export default function UpdateProfile({ ProfileUser }) {
                 placeholder="Height in Cm"
               />
             </div>
-            <Button onClick={handleUpdate} type="submit" className="mt-10 px-5">
+            <Button onClick={handleUpdate} type="submit" classNameName="mt-10 px-5">
               Update
             </Button>
           </div>
@@ -92,7 +92,7 @@ export default function UpdateProfile({ ProfileUser }) {
         onClick={() => {
           setDialgobtn(true);
         }}
-        className="inline-block py-2 px-4 bg-green-500 text-white text-lg font-semibold rounded-md hover:bg-green-600 transition duration-200"
+        classNameName="inline-block py-2 px-4 bg-green-500 text-white text-lg font-semibold rounded-md hover:bg-green-600 transition duration-200"
       >
         Edit Profile
       </button>

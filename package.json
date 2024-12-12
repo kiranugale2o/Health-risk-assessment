@@ -20,7 +20,7 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@supabase/supabase-js": "^2.46.1",
     "bcryptjs": "^2.4.3",
-    "class-variance-authority": "^0.7.0",
+    "className-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cookie": "^1.0.2",
     "express": "^4.21.1",

@@ -8,7 +8,7 @@ export default async function VerficitionOfEmail() {
 
   return (
     <>
-      <div className="lg:p-24">
+      <div classNameName="lg:p-24">
         {/* <VerifyOtpCard otpVerificationType={"sign-up"} /> */}
         <VerifyOtpCard otpVerificationType={"sign-up"} />
       </div>

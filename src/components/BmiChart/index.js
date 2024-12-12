@@ -69,15 +69,15 @@ export default function BmiChart({ currentBmi }) {
   }, []);
 
   return (
-    <Card className="flex flex-col shadow-md">
-      <CardHeader className="items-center pb-0">
+    <Card classNameName="flex flex-col shadow-md">
+      <CardHeader classNameName="items-center pb-0">
         <CardTitle>BMI (Body Mass Index) </CardTitle>
         <CardDescription>{formattedDate}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
+      <CardContent classNameName="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          classNameName="mx-auto aspect-square max-h-[250px]"
         >
           <PieChart>
             <ChartTooltip
@@ -104,14 +104,14 @@ export default function BmiChart({ currentBmi }) {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
+                          classNameName="fill-foreground text-3xl font-bold"
                         >
                           {currentBmi.toFixed(2)}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
+                          classNameName="fill-muted-foreground"
                         >
                           Kg/m²
                         </tspan>
@@ -124,11 +124,11 @@ export default function BmiChart({ currentBmi }) {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Your BMI IS {currentBmi.toFixed(2)} <TrendingUp className="h-4 w-4" />
+      <CardFooter classNameName="flex-col gap-2 text-sm">
+        <div classNameName="flex items-center gap-2 font-medium leading-none">
+          Your BMI IS {currentBmi.toFixed(2)} <TrendingUp classNameName="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div classNameName="leading-none text-muted-foreground">
           Showing Body mass Index on Live Profile information
         </div>
       </CardFooter>

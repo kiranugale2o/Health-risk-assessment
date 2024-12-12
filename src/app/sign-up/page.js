@@ -7,7 +7,7 @@ export default async function SignUp() {
   if (user) redirect("/");
   return (
     <>
-      <div className="p-auto ">
+      <div classNameName="p-auto ">
         <SignUpCard />
       </div>
     </>

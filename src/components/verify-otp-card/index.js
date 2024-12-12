@@ -143,20 +143,20 @@ export default function VerifyOtpCard({ otpVerificationType }) {
   const isDisabled = seconds === 0;
   return (
     <>
-      <Card className=" mt-20  w-[350px] mx-auto lg:mt-auto shadow flex flex-col lg:w-[400px] item-center">
-        <CardHeader className="p-6 ml-auto mr-auto mt-auto">
-          <CardTitle className="text-[22px] mx-auto">
+      <Card classNameName=" mt-20  w-[350px] mx-auto lg:mt-auto shadow flex flex-col lg:w-[400px] item-center">
+        <CardHeader classNameName="p-6 ml-auto mr-auto mt-auto">
+          <CardTitle classNameName="text-[22px] mx-auto">
             Verify your email
           </CardTitle>
-          <CardDescription className="mx-auto flex flex-col ">
+          <CardDescription classNameName="mx-auto flex flex-col ">
             <p>Enter the verification code sent to your email</p>
-            <p className="mx-auto">{email}</p>
+            <p classNameName="mx-auto">{email}</p>
           </CardDescription>
         </CardHeader>
-        <CardContent className="justify-between">
-          <form action={otpChecker} className="">
-            <div className="flex w-full gap-5 mx-10 grid-col-gap-3">
-              <div className="mx-5">
+        <CardContent classNameName="justify-between">
+          <form action={otpChecker} classNameName="">
+            <div classNameName="flex w-full gap-5 mx-10 grid-col-gap-3">
+              <div classNameName="mx-5">
                 <InputOTP
                   maxLength={6}
                   value={currentOtp}
@@ -175,19 +175,19 @@ export default function VerifyOtpCard({ otpVerificationType }) {
             </div>
 
             <div
-              className="text-[13px] mx-auto mt-3   text-center  text-red-600 "
+              classNameName="text-[13px] mx-auto mt-3   text-center  text-red-600 "
               style={{ display: `${expriyOtpDis}` }}
             >
               Otp expired !
             </div>
             <div
-              className="text-[13px] mx-auto mt-3  text-center   text-red-600 "
+              classNameName="text-[13px] mx-auto mt-3  text-center   text-red-600 "
               style={{ display: `${incorrectOtpDis}` }}
             >
               Incorrect code !
             </div>
             <div
-              className="text-[13px]  mt-3  text-center  font-semibold  text-red-600 "
+              classNameName="text-[13px]  mt-3  text-center  font-semibold  text-red-600 "
               style={{ display: `${warningDis}` }}
             >
               Enter Code .
@@ -198,12 +198,12 @@ export default function VerifyOtpCard({ otpVerificationType }) {
               type="button"
               disabled={resendText}
               onClick={handleResendOtp}
-              className="ml-10 border-none hover:border-none hover:bg-color-none  "
+              classNameName="ml-10 border-none hover:border-none hover:bg-color-none  "
             >
               Didn’t receive a code? Resend ({seconds})
             </Button>
             <br />
-            <Button className="mt-5 w-full hover:bg-[#80ED99]" type="submit">
+            <Button classNameName="mt-5 w-full hover:bg-[#80ED99]" type="submit">
               Continue
             </Button>
           </form>
