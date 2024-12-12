@@ -276,7 +276,7 @@ export default function HomePage() {
                   </svg>
                 </div>
                 <div className="absolute w-[108px] h-[107px] left-[131px] z-50 top-[90px] bg-[url('https://tinyurl.com/2ch2pwsv')] bg-cover"></div>
-                <div className="absolute w-[260px] z-10 h-[40px] left-[0px] top-[169px] bg-[#B27122] rounded-b-[15px]"></div>
+                <div className="absolute w-[260px] zs h-[40px] left-[0px] top-[169px] bg-[#B27122] rounded-b-[15px]"></div>
               </div>
               {/* box 4 */}
               <div className="w-[250px] bg-[#BFCE00] h-[200px] p-5  rounded-lg text-left shadow-md relative">
