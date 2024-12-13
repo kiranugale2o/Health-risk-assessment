@@ -29,12 +29,12 @@ export default function HomePage() {
               them.
             </div>
 
-            <div className="absolute bg-none w-[218px] h-[50px] left-[30px] lg:left-[100px] top-[520px] lg:top-[471px] bg-white rounded-[30px] font-exo font-medium text-[20px] leading-[24px]"></div>
-            <div className="absolute w-[166px] h-[24px] left-[60px] lg:left-[125px] top-[535px] lg:top-[483px] font-exo font-medium text-[20px] leading-[24px] text-[#113D3C]">
+            <div className="absolute bg-none w-[218px] h-[50px] left-[10px] lg:left-[100px] top-[520px] lg:top-[471px] bg-white rounded-[30px] font-exo font-medium text-[20px] leading-[24px]"></div>
+            <div className="absolute w-[166px] h-[24px] left-[40px] lg:left-[125px] top-[535px] lg:top-[483px] font-exo font-medium text-[20px] leading-[24px] text-[#113D3C]">
               Start Assessment
             </div>
 
-            <div className="absolute w-[50px] h-[50px] left-[220px] lg:left-[296px] top-[519px] lg:top-[471px]">
+            <div className="absolute w-[50px] h-[50px] left-[200px] lg:left-[296px] top-[519px] lg:top-[471px]">
               <svg
                 width="50"
                 height="50"
@@ -69,7 +69,7 @@ export default function HomePage() {
 
           {/* Right Section */}
           <div
-            className="relative lg:static left-auto right-auto top-[450px] w-full p-5 lg:p-20 mt-10 h-[500px]"
+            className="relative lg:static left-auto right-auto top-[550px] w-full p-5 lg:p-20 mt-10 h-[500px]"
             id="section1-right-side"
           >
             <img src="homebanner1.png" alt="banner" height={500} />
@@ -78,7 +78,7 @@ export default function HomePage() {
 
         {/*  Section  2*/}
         <div
-          className="block lg:flex lg:flex-col absolute top-[800px] lg:static  w-full lg:mt-10 lg:flex"
+          className="block lg:flex lg:flex-col absolute top-[900px] lg:static  w-full lg:mt-10 lg:flex"
           id="section2"
         >
           {/* top heading */}
@@ -140,7 +140,7 @@ export default function HomePage() {
 
         {/*  Section 3 */}
         <div
-          className=" block absolute top-[2020px] lg:static lg:flex mt-10 flex-col w-full"
+          className=" block absolute top-[2120px] lg:static lg:flex mt-10 flex-col h-[400px] w-full"
           id="section3"
         >
           <div
@@ -330,6 +330,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <footer>
+          <div class="absolute top-[3300px] w-full mx-auto lg:w-[522px] h-[29px] lg:static lg:mt-[50px] font-exo-2 font-semibold text-2xl leading-7 text-center text-white">
+            © 2024 Healthcare Inc. All Rights Reserved.
+          </div>
+        </footer>
       </div>
     </>
   );

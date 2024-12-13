@@ -2,6 +2,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {

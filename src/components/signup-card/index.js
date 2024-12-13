@@ -3,6 +3,7 @@ import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { LogoImg } from "../images";
 
 export default function SignUpCard() {
   const { toast } = useToast();
@@ -59,84 +60,95 @@ export default function SignUpCard() {
     margin: 0, // Remove default margin
   };
   return (
-    <div
-      className="px-5 flex justify-evenly py-20 lg:py-10 text-white"
-      style={style}
-    >
-      <div className="hidden lg:flex py-6 w-[600px] "></div>
-      <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-2 max-w-[960px] flex-1">
-        <h3 className="text-[#111518] tracking-light text-2xl font-bold leading-tight px-4 text-center pb-2 pt-5">
-          Welcome to HealthCare
-        </h3>
-        <p className="text-[#111518] text-base font-normal leading-normal pb-3 pt-1 px-2 text-center">
-          Assess your health risks and receive personalized recommendations for
-          a healthier you. Join our community of 200,000 users.
-        </p>
-        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 lg:mx-20">
-          <label className="flex flex-col min-w-40 flex-1">
-            <p className="text-[#111518] text-base font-medium leading-normal pb-2">
-              Email
-            </p>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-14 placeholder:text-[#60778a] p-4 text-base font-normal leading-normal"
-              defaultValue=""
-            />
-          </label>
+    <div className="container flex flex-wrap max-w-6xl w-11/12 bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="form-section flex-1 p-8 bg-[#003d33] text-white text-center">
+        <div className="logo mb-6 mt-[40px]  px-[120px]">
+          <LogoImg w={240} h={145} />
         </div>
-        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 lg:mx-20">
-          <label className="flex flex-col min-w-40 flex-1">
-            <p className="text-[#111518] text-base font-medium leading-normal pb-2">
-              Password
-            </p>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-14 placeholder:text-[#60778a] p-4 text-base font-normal leading-normal"
-              defaultValue=""
+        <h2 class="text-2xl mb-4">Create an Account</h2>
+
+        <p className="text-sm mb-6">Let's get Started!</p>
+        <form action="#">
+          <input
+            type="text"
+            placeholder="Name"
+            required=""
+            className="w-4/5 p-4 mb-3 border-3 border-white rounded-lg bg-[#003d33] text-white text-sm"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            required=""
+            className="w-4/5 p-4 mb-3 border-3 border-white rounded-lg bg-[#003d33] text-white text-sm"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            required=""
+            className="w-4/5 p-4 mb-3 border-3 border-white rounded-lg bg-[#003d33] text-white text-sm"
+          />
+          <button
+            type="submit"
+            className="w-4/5 p-3 mb-3 bg-[#4caf50] text-white rounded-full font-bold"
+          >
+            Sign Up
+          </button>
+          <button
+            type="button"
+            className="w-4/5 p-3 mb-3 bg-white text-[#003d33] border-2 border-[#003d33] rounded-full font-bold"
+          >
+            Continue with Email
+          </button>
+          <p className="mt-4">
+            Already have an account?{" "}
+            <a href="#" className="text-[#80cbc4]">
+              Log In
+            </a>
+          </p>
+        </form>
+      </div>
+      <div className="image-section flex-1 flex justify-center items-center overflow-hidden">
+        <svg
+          width={680}
+          height={832}
+          viewBox="0 0 680 832"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <mask
+            id="mask0_58_183"
+            style={{ maskType: "luminance" }}
+            maskUnits="userSpaceOnUse"
+            x={0}
+            y={0}
+            width={680}
+            height={832}
+          >
+            <path d="M0 0H680V832H0V0Z" fill="white" />
+          </mask>
+          <g mask="url(#mask0_58_183)">
+            <rect
+              y="-0.636627"
+              width="681.046"
+              height="832.636"
+              fill="url(#pattern0_58_183)"
             />
-          </label>
-        </div>
-        <div className="px-4 lg:mx-20">
-          <label className="flex gap-x-3 py-3 flex-row">
-            <input
-              type="checkbox"
-              id="myCheckbox"
-              checked={isChecked} // Use state to control checkbox checked status
-              onChange={handleCheckboxChange} // Event handler for change
-              className="h-5 w-5 rounded border-[#dbe1e6] border-2 bg-transparent text-[#2094f3] checked:bg-[#2094f3] checked:border-[#2094f3] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#dbe1e6] focus:outline-none"
-            />
-            <p className="text-[#111518] text-base font-normal leading-normal">
-              I would like to receive health tips and news from HealthCare
-            </p>
-          </label>
-        </div>
-        <div className="flex flex-col py-3 lg:mx-20">
-          <div className="flex  px-4 py-3">
-            <button
-              onClick={handleSignup}
-              disabled={buttonDisabled()}
-              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#80ED99] text-black hover:bg-black hover:text-white text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
+          </g>
+          <defs>
+            <pattern
+              id="pattern0_58_183"
+              patternContentUnits="objectBoundingBox"
+              width={1}
+              height={1}
             >
-              <span className="truncate">Join HealthCare</span>
-            </button>
-          </div>
-          <footer className="flex justify-center lg:mx-20">
-            <div className="flex max-w-[960px] flex-1 flex-col">
-              <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center">
-                By signing up, you agree to our Terms of Service and Privacy
-                Policy.
-              </p>
-              <Link href="/sign-in">
-                <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">
-                  Already have an account?
-                </p>
-              </Link>
-            </div>
-          </footer>
-        </div>
+              <use
+                xlinkHref="#image0_58_183"
+                transform="matrix(0.00134794 0 0 0.00110254 -0.0467677 0.000216648)"
+              />
+            </pattern>
+          </defs>
+        </svg>
       </div>
     </div>
   );

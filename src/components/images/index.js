@@ -1,9 +1,9 @@
-export const LogoImg = () => {
+export const LogoImg = ({ w = 117, h = 50 }) => {
   return (
     <svg
       className="m-0"
-      width={117}
-      height={50}
+      width={w}
+      height={h}
       viewBox="0 0 117 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
