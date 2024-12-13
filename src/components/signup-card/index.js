@@ -60,95 +60,64 @@ export default function SignUpCard() {
     margin: 0, // Remove default margin
   };
   return (
-    <div className="container flex flex-wrap max-w-6xl w-11/12 bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="container flex  w-full bg-white rounded-lg shadow-md overflow-hidden">
       <div className="form-section flex-1 p-8 bg-[#003d33] text-white text-center">
-        <div className="logo mb-6 mt-[40px]  px-[120px]">
+        <div className="logo  mt-[40px]  px-[120px]">
           <LogoImg w={240} h={145} />
         </div>
-        <h2 class="text-2xl mb-4">Create an Account</h2>
+        <div
+          className="w-[460px] h-[500px] mt-5 flex flex-col  px-[70px] gap-2"
+          id="signInBody"
+        >
+          <h1 className="text-white text-start font-bold text-3xl font-sans  font-bold text-[34px] leading-[41px] mt-2">
+            Create an Account
+          </h1>
+          <div class=" text-white text-start font-exo-2 font-medium font-sans text-[24px] leading-[24px] mt-2">
+            Let’s get Started!
+          </div>
 
-        <p className="text-sm mb-6">Let's get Started!</p>
-        <form action="#">
-          <input
-            type="text"
-            placeholder="Name"
-            required=""
-            className="w-4/5 p-4 mb-3 border-3 border-white rounded-lg bg-[#003d33] text-white text-sm"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            required=""
-            className="w-4/5 p-4 mb-3 border-3 border-white rounded-lg bg-[#003d33] text-white text-sm"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            required=""
-            className="w-4/5 p-4 mb-3 border-3 border-white rounded-lg bg-[#003d33] text-white text-sm"
-          />
-          <button
-            type="submit"
-            className="w-4/5 p-3 mb-3 bg-[#4caf50] text-white rounded-full font-bold"
+          <div className="relative mt-7 ">
+            <input
+              type="email"
+              required
+              autocomplete="off"
+              className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
+            />
+            <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
+              Email
+            </div>
+          </div>
+
+          <div className="relative mt-7">
+            <input
+              type="password"
+              required
+              autocomplete="off"
+              className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
+            />
+            <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
+              Password
+            </div>
+          </div>
+
+          <div
+            className="w-[460px] h-12 mt-10 flex items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
+            id="loginButton"
           >
-            Sign Up
-          </button>
-          <button
-            type="button"
-            className="w-4/5 p-3 mb-3 bg-white text-[#003d33] border-2 border-[#003d33] rounded-full font-bold"
-          >
-            Continue with Email
-          </button>
-          <p className="mt-4">
+            <b>Sign Up</b>
+          </div>
+
+          <div class=" h-[19px] text-center text-white font-exo-2 font-normal text-[16px] leading-[19px]">
             Already have an account?{" "}
-            <a href="#" className="text-[#80cbc4]">
+            <a href="#" class="underline font-bold">
               Log In
             </a>
-          </p>
-        </form>
+          </div>
+        </div>
       </div>
-      <div className="image-section flex-1 flex justify-center items-center overflow-hidden">
-        <svg
-          width={680}
-          height={832}
-          viewBox="0 0 680 832"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-        >
-          <mask
-            id="mask0_58_183"
-            style={{ maskType: "luminance" }}
-            maskUnits="userSpaceOnUse"
-            x={0}
-            y={0}
-            width={680}
-            height={832}
-          >
-            <path d="M0 0H680V832H0V0Z" fill="white" />
-          </mask>
-          <g mask="url(#mask0_58_183)">
-            <rect
-              y="-0.636627"
-              width="681.046"
-              height="832.636"
-              fill="url(#pattern0_58_183)"
-            />
-          </g>
-          <defs>
-            <pattern
-              id="pattern0_58_183"
-              patternContentUnits="objectBoundingBox"
-              width={1}
-              height={1}
-            >
-              <use
-                xlinkHref="#image0_58_183"
-                transform="matrix(0.00134794 0 0 0.00110254 -0.0467677 0.000216648)"
-              />
-            </pattern>
-          </defs>
-        </svg>
+
+      <div className=" w-[54%] h-[300px]  ">
+        <img src="signupbanner.png" />
       </div>
     </div>
   );

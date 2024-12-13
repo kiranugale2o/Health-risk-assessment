@@ -21,7 +21,7 @@ export default function SignInCard() {
     } else {
       return false;
     }
-  }
+  };
 
   function handleSignIn() {
     const currentSignInData = {
@@ -76,35 +76,29 @@ export default function SignInCard() {
   };
   return (
     <>
-      <div
-        className="w-[100%] h-[100vh] bg-[#113D3C] flex items-center justify-center"
-        id="signInContainer"
-      >
-        <div
-          className="w-[46%] h-[100%] flex flex-col items-center justify-start"
-          id="signIn"
-        >
-          <div
-            className="w-full h-[145px] flex items-center justify-center mt-[100px]"
-            id="logoContainer"
-          >
-            <img src="signinLogo.png"></img>
+      <div className="container flex  w-full bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="form-section flex-1 p-8 bg-[#003d33] text-white text-center">
+          <div className="logo  mt-[40px]  px-[120px]">
+            <LogoImg w={240} h={145} />
           </div>
           <div
-            className="w-[460px] h-[600px] flex flex-col items-left justify-start"
+            className="w-[460px] h-[500px] mt-5 flex flex-col  px-[70px] gap-2"
             id="signInBody"
           >
-            <h1 className="text-white font-bold text-3xl mt-6">
+            <h1 className="text-white text-start font-bold text-3xl font-sans  font-bold text-[34px] leading-[41px] mt-2">
               Welcome Back!
             </h1>
-            <h4 className="text-white text-[20px] mt-2">
+            <div className=" text-white text-start font-exo-2 font-medium font-sans text-[24px] leading-[24px] mt-2">
               Enter Your Email & Password
-            </h4>
-
+            </div>
             <div className="relative mt-7">
               <input
-                type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}
-                className="w-full p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
               />
               <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[15px] ">
                 Email
@@ -114,40 +108,46 @@ export default function SignInCard() {
             <div className="relative mt-7">
               <input
                 type="password"
-                value={password} onChange={(e)=>{setPassword(e.target.value)}}
-                className="w-full p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
               />
               <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[15px] ">
                 Password
               </div>
             </div>
-            <div className="w-full h-5 mt-4 pr-3 mb-1 flex items-center justify-end text-white text-[12px] cursor-pointer active:scale-[0.99] "
-             onClick={handleForgetPassword}>
-              Forgot Password ?
-            </div>
-            <div onClick={handleSignIn} 
-            className= "w-full h-12 flex items-center justify-center text-5 border-2 border-white rounded-3xl mb-5 bg-white cursor-pointer active:scale-[0.98]" id="loginButton" 
+            <h1
+              className="w-full h-5 mt-4  text-end mb-1 flex text-white text-[12px] cursor-pointer active:scale-[0.99] "
+              onClick={handleForgetPassword}
             >
-               <b>Log In</b>
+              Forgot Password ?
+            </h1>
+            <div
+              onClick={handleSignIn}
+              className="w-[460px] h-12 mt-0 flex p-5 items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
+              id="loginButton"
+            >
+              <b>Log In</b>
             </div>
-            <div className="w-full h-5 mt-2 mb-1 flex items-center justify-center text-white text-[12px]">
+            <div className="w-[460px] h-5 mt-2 mb-1 flex items-center justify-center text-white text-[12px]">
               <img src="leftLine.png"></img>
               <b className="px-6">or Login with</b>
               <img src="rightLine.png"></img>
             </div>
-            <div className="w-full h-16 mt-4 flex items-center justify-center">
+            <div className="w-[460px] h-16 mt-4 flex items-center justify-center">
               <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center justify-center cursor-pointer">
-              <img src="facebookLogo.png"></img>
+                <img src="facebookLogo.png"></img>
               </div>
               <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center cursor-pointer justify-center">
-              <img src="googleLogo.png"></img>
+                <img src="googlelogo.png"></img>
               </div>
-            
             </div>
           </div>
         </div>
         <div className="w-[54%]  h-[100%]">
-          <img src=""></img>
+          <img src="signupbanner.png"></img>
         </div>
       </div>
     </>
