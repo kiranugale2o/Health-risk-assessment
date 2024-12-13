@@ -125,15 +125,11 @@ export default function HomePage() {
             </div>
 
             {/* Rigth content image conatiner */}
-            <div className=" flex">
-              <div class="absolute w-[360px] top-[830px] lg:w-[528px] h-[353px] left-[5px] lg:left-[652px] lg:top-[804px] bg-[rgba(245,245,245,0.1)] rounded-lg"></div>
-              <div class="absolute w-[100px] lg:w-[123px] h-[193px] left-[160px] lg:left-[777px] top-[797px] bg-[#D9D9D9] bg-[url('https://tinyurl.com/43b8p6vk')] bg-cover rounded-[10px_70px_10px_10px] rotate-[-90deg]"></div>
-              <div class="absolute  w-[50px] h-[71px] left-[30px] lg:left-[676px] top-[860px] lg:top-[902px] bg-[#E8F44A]"></div>
-              <div class="absolute w-[150px] lg:w-[178px] h-[157px] left-[30px] lg:left-[767px] top-[981px] bg-[#9BCECF] bg-[url('https://tinyurl.com/wcs76xru')] bg-cover  rounded-[10px]"></div>
-              <div class="absolute w-[140px] lg:w-[178px] h-[193px] left-[200px] lg:left-[962px] top-[960px] lg:top-[900px] bg-[#D9D9D9] bg-[url('https://tinyurl.com/h2kd7yrk')] bg-cover  rounded-[15px]"></div>
-              <div class="absolute w-[40px] h-[40px] lg:w-[50px] lg:h-[50px] left-[10px] lg:left-[726px] top-[1016px] bg-[#9BCECF] rounded-full"></div>
-              <div class="absolute  w-[40px] h-[40px] lg:w-[50px] lg:h-[50px] left-[320px] lg:left-[1123px] top-[1120px] lg:top-[1061px] bg-[#E8F44A] rounded-full"></div>
-              <div class="absolute  w-[114px] h-[117px] left-[120px] lg:left-[588px] top-[1110px] lg:top-[1066px]  bg-[url('https://tinyurl.com/4yrjncwz')] bg-cover "></div>
+            <div
+              className="flex w-[50%] items-start justify-center"
+              id="section1-right-side"
+            >
+              <img src="homebanner1.png" alt="banner" width={600} />
             </div>
           </div>
         </div>
