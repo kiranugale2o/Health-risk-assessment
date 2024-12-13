@@ -78,11 +78,11 @@ export default function SignInCard() {
     <>
       <div className="container flex  w-full bg-white rounded-lg shadow-md overflow-hidden">
         <div className="form-section flex-1 p-8 bg-[#003d33] text-white text-center">
-          <div className="logo  mt-[40px]  px-[120px]">
+          <div className="logo  mt-[40px]  lg:px-[120px]">
             <LogoImg w={240} h={145} />
           </div>
           <div
-            className="w-[460px] h-[500px] mt-5 flex flex-col  px-[70px] gap-2"
+            className="w-full lg:w-[460px] h-[500px] mt-5 flex flex-col  lg:px-[70px] gap-2"
             id="signInBody"
           >
             <h1 className="text-white text-start font-bold text-3xl font-sans  font-bold text-[34px] leading-[41px] mt-2">
@@ -98,7 +98,7 @@ export default function SignInCard() {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
+                className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
               />
               <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[15px] ">
                 Email
@@ -112,7 +112,7 @@ export default function SignInCard() {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
-                className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
+                className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
               />
               <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[15px] ">
                 Password
@@ -126,17 +126,17 @@ export default function SignInCard() {
             </h1>
             <div
               onClick={handleSignIn}
-              className="w-[460px] h-12 mt-0 flex p-5 items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
+              className="w-full lg:w-[460px] h-12 mt-0 flex p-5 items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
               id="loginButton"
             >
               <b>Log In</b>
             </div>
-            <div className="w-[460px] h-5 mt-2 mb-1 flex items-center justify-center text-white text-[12px]">
+            <div className="w-full lg:w-[460px] h-5 mt-2 mb-1 flex items-center justify-center text-white text-[12px]">
               <img src="leftLine.png"></img>
               <b className="px-6">or Login with</b>
               <img src="rightLine.png"></img>
             </div>
-            <div className="w-[460px] h-16 mt-4 flex items-center justify-center">
+            <div className="w-full lg:w-[460px] h-16 mt-4 flex items-center justify-center">
               <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center justify-center cursor-pointer">
                 <img src="facebookLogo.png"></img>
               </div>
@@ -146,7 +146,7 @@ export default function SignInCard() {
             </div>
           </div>
         </div>
-        <div className="w-[54%]  h-[100%]">
+        <div className="hidden lg:flex w-[50%]  h-[100%]">
           <img src="signupbanner.png"></img>
         </div>
       </div>

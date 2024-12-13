@@ -60,19 +60,19 @@ export default function SignUpCard() {
     margin: 0, // Remove default margin
   };
   return (
-    <div className="container flex  w-full bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="container  flex  w-full bg-white rounded-lg shadow-md overflow-hidden">
       <div className="form-section flex-1 p-8 bg-[#003d33] text-white text-center">
-        <div className="logo  mt-[40px]  px-[120px]">
+        <div className="logo  mt-[40px]  lg:px-[120px]">
           <LogoImg w={240} h={145} />
         </div>
         <div
-          className="w-[460px] h-[500px] mt-5 flex flex-col  px-[70px] gap-2"
-          id="signInBody"
+          className="w-full lg:w-[460px] h-[500px] mt-5 flex flex-col  lg:px-[70px] gap-2"
+          id="signUpBody"
         >
           <h1 className="text-white text-start font-bold text-3xl font-sans  font-bold text-[34px] leading-[41px] mt-2">
             Create an Account
           </h1>
-          <div class=" text-white text-start font-exo-2 font-medium font-sans text-[24px] leading-[24px] mt-2">
+          <div className=" text-white text-start font-exo-2 font-medium font-sans text-[24px] leading-[24px] mt-2">
             Let’s get Started!
           </div>
 
@@ -81,7 +81,7 @@ export default function SignUpCard() {
               type="email"
               required
               autocomplete="off"
-              className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
+              className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
             />
             <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
               Email
@@ -93,7 +93,7 @@ export default function SignUpCard() {
               type="password"
               required
               autocomplete="off"
-              className="w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
+              className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
             />
             <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
               Password
@@ -101,23 +101,23 @@ export default function SignUpCard() {
           </div>
 
           <div
-            className="w-[460px] h-12 mt-10 flex items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
-            id="loginButton"
+            className="w-full lg:w-[460px] h-12 mt-10 flex items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
+            id="SignUpButton"
           >
             <b>Sign Up</b>
           </div>
 
-          <div class=" h-[19px] text-center text-white font-exo-2 font-normal text-[16px] leading-[19px]">
+          <div className=" h-[19px] text-center text-white font-exo-2 font-normal text-[16px] leading-[19px]">
             Already have an account?{" "}
-            <a href="#" class="underline font-bold">
+            <a href="#" className="underline font-bold">
               Log In
             </a>
           </div>
         </div>
       </div>
 
-      <div className=" w-[54%] h-[300px]  ">
-        <img src="signupbanner.png" />
+      <div className="hidden lg:flex w-[50%] h-[100%]  ">
+        <img src="signupbanner.png"></img>
       </div>
     </div>
   );
