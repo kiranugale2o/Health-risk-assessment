@@ -126,7 +126,7 @@ export default function HomePage() {
               className="flex w-[50%] items-start justify-center"
               id="section1-right-side"
             >
-              <img src="homebanner1.png" alt="banner" width={600}/>
+              <img src="homebanner1.png" alt="banner" height={500}/>
             </div>
           </div>
         </div>
