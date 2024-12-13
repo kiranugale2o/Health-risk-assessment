@@ -3,17 +3,19 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { LogoImg } from "../images";
 
 export default function SignInCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const router = useRouter();
+
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked); // Update the state based on whether the checkbox is checked
   };
 
-  function buttonDisabled() {
+  const buttonDisabled = () => {
     if (email === "" || password === "") {
       return true;
     } else {
@@ -74,73 +76,78 @@ export default function SignInCard() {
   };
   return (
     <>
-      <div className="px-5 flex justify-evenly py-20 lg:py-10 " style={style}>
-        <div className="hidden lg:flex py-6 w-[600px] "></div>
-        <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1 block">
-          <h1 className="text-[#111518] text-[26px] font-bold leading-tight tracking-[-0.015em]  text-center px-4 pb-3 pt-5">
-            Sign In for a Health Risk Assessment
-          </h1>
-
-          <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 lg:mx-20 py-3">
-            <label className="flex flex-col min-w-40 flex-1">
-              <p className="text-[#111518] text-base font-medium leading-normal pb-2">
-                Email
-              </p>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-14 placeholder:text-[#60778a] p-4 text-base font-normal leading-normal"
-              />
-            </label>
+      <div
+        className="w-[100%] h-[100vh] bg-[#113D3C] flex items-center justify-center"
+        id="signInContainer"
+      >
+        <div
+          className="w-[46%] h-[100%] flex flex-col items-center justify-start"
+          id="signIn"
+        >
+          <div
+            className="w-full h-[145px] flex items-center justify-center mt-[100px]"
+            id="logoContainer"
+          >
+            <img src="signinLogo.png"></img>
           </div>
-          <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 lg:mx-20 py-3">
-            <label className="flex flex-col min-w-40 flex-1">
-              <p className="text-[#111518] text-base font-medium leading-normal pb-2">
-                Password
-              </p>
+          <div
+            className="w-[460px] h-[600px] flex flex-col items-left justify-start"
+            id="signInBody"
+          >
+            <h1 className="text-white font-bold text-3xl mt-6">
+              Welcome Back!
+            </h1>
+            <h4 className="text-white text-[20px] mt-2">
+              Enter Your Email & Password
+            </h4>
+
+            <div className="relative mt-7">
+              <input
+                type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}
+                className="w-full p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
+              />
+              <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[15px] ">
+                Email
+              </div>
+            </div>
+
+            <div className="relative mt-7">
               <input
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-14 placeholder:text-[#60778a] p-4 text-base font-normal leading-normal"
+                value={password} onChange={(e)=>{setPassword(e.target.value)}}
+                className="w-full p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
               />
-            </label>
-          </div>
-          <div className="px-4 lg:mx-20">
-            <button
-              variant="outline"
-              type="button"
-              className=" text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline"
-              onClick={handleForgetPassword}
-            >
-              Forget Password ?
-            </button>
-          </div>
-          <div className="flex flex-col  py-3 lg:mx-20">
-            <div className="flex  px-4 py-3">
-              <button
-                disabled={buttonDisabled()}
-                onClick={handleSignIn}
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#80ED99] text-black hover:bg-black hover:text-white text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
-              >
-                {" "}
-                <span className="truncate">Sign In</span>
-              </button>
-            </div>
-            <footer className="flex justify-center">
-              <div className="flex max-w-[960px] flex-1 flex-col">
-                <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center">
-                  By signing , you agree to our Terms of Service and Privacy
-                  Policy.
-                </p>
-                <Link href="/sign-up">
-                  <p className="text-[#60778a] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center underline">
-                    New registration?
-                  </p>
-                </Link>
+              <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[15px] ">
+                Password
               </div>
-            </footer>
+            </div>
+            <div className="w-full h-5 mt-4 pr-3 mb-1 flex items-center justify-end text-white text-[12px] cursor-pointer active:scale-[0.99] "
+             onClick={handleForgetPassword}>
+              Forgot Password ?
+            </div>
+            <div onClick={handleSignIn} 
+            className= "w-full h-12 flex items-center justify-center text-5 border-2 border-white rounded-3xl mb-5 bg-white cursor-pointer active:scale-[0.98]" id="loginButton" 
+            >
+               <b>Log In</b>
+            </div>
+            <div className="w-full h-5 mt-2 mb-1 flex items-center justify-center text-white text-[12px]">
+              <img src="leftLine.png"></img>
+              <b className="px-6">or Login with</b>
+              <img src="rightLine.png"></img>
+            </div>
+            <div className="w-full h-16 mt-4 flex items-center justify-center">
+              <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center justify-center cursor-pointer">
+              <img src="facebookLogo.png"></img>
+              </div>
+              <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center cursor-pointer justify-center">
+              <img src="googleLogo.png"></img>
+              </div>
+            
+            </div>
           </div>
+        </div>
+        <div className="w-[54%]  h-[100%]">
+          <img src=""></img>
         </div>
       </div>
     </>
