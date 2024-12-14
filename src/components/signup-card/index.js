@@ -10,21 +10,14 @@ export default function SignUpCard() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked); // Update the state based on whether the checkbox is checked
   };
 
-  function buttonDisabled() {
-    if (email === "" || password === "" || !isChecked) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   function handleSignup() {
+    setLoading(true);
     const data = {
       email: email.trim(),
       password: password.trim(),
@@ -41,11 +34,13 @@ export default function SignUpCard() {
           sessionStorage.setItem("email", res.email);
           router.push("/sign-up/verification-of-email");
           alert("sign up ok!");
+          setLoading(true);
         } else {
           alert(res.message);
           toast({
             description: res.message,
           });
+          setLoading(true);
         }
       });
     });
@@ -75,38 +70,48 @@ export default function SignUpCard() {
           <div className=" text-white text-start font-exo-2 font-medium font-sans text-[24px] leading-[24px] mt-2">
             Let’s get Started!
           </div>
-
-          <div className="relative mt-7 ">
-            <input
-              type="email"
-              required
-              autocomplete="off"
-              className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
-            />
-            <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
-              Email
+          <form action={handleSignup}>
+            <div className="relative mt-7 ">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                autoComplete="off"
+                className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] hover:bg-bg-transparent focus:outline-none focus:bg-transparent"
+              />
+              <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
+                Email
+              </div>
             </div>
-          </div>
 
-          <div className="relative mt-7">
-            <input
-              type="password"
-              required
-              autocomplete="off"
-              className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
-            />
-            <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
-              Password
+            <div className="relative mt-7">
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                autoComplete="off"
+                className="w-full lg:w-[460px] h-[60px] p-4 border-2 border-white rounded-lg bg-transparent text-white text-[18px] focus:outline-none"
+              />
+              <div className="absolute top-[-8px] left-5 text-white bg-[#113D3C] px-2 text-[18px] ">
+                Password
+              </div>
             </div>
-          </div>
 
-          <div
-            className="w-full lg:w-[460px] h-12 mt-10 flex items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98]"
-            id="SignUpButton"
-          >
-            <b>Sign Up</b>
-          </div>
-
+            <button
+              className="w-full lg:w-[460px] h-12 mt-10 flex items-center justify-center tborder-2 border-white rounded-3xl mb-5 text-[#113D3C] font-exo-2 font-semibold text-[18px] leading-[24px] bg-white  cursor-pointer active:scale-[0.98] disabled:bg-gray-400 disabled:cursor-not-allowed"
+              id="SignUpButton"
+              disabled={isLoading}
+              type="submit"
+            >
+              {isLoading ? "Process..." : "Sign Up"}
+            </button>
+          </form>
           <div className=" h-[19px] text-center text-white font-exo-2 font-normal text-[16px] leading-[19px]">
             Already have an account?{" "}
             <a href="#" className="underline font-bold">

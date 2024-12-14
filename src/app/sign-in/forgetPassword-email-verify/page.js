@@ -8,7 +8,7 @@ export default async function forgetPasswordVerficitionOfEmail() {
 
   return (
     <>
-      <div className="mt-5 lg:p-24">
+      <div className="mt-5 lg:p-auto">
         <VerifyOtpCard otpVerificationType={"forget-password"} />
       </div>
     </>

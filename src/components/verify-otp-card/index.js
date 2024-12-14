@@ -143,72 +143,79 @@ export default function VerifyOtpCard({ otpVerificationType }) {
   const isDisabled = seconds === 0;
   return (
     <>
-      <Card className=" mt-20  w-[350px] mx-auto lg:mt-auto shadow flex flex-col lg:w-[400px] item-center">
-        <CardHeader className="p-6 ml-auto mr-auto mt-auto">
-          <CardTitle className="text-[22px] mx-auto">
-            Verify your email
-          </CardTitle>
-          <CardDescription className="mx-auto flex flex-col ">
-            <p>Enter the verification code sent to your email</p>
-            <p className="mx-auto">{email}</p>
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="justify-between">
-          <form action={otpChecker} className="">
-            <div className="flex w-full gap-5 mx-10 grid-col-gap-3">
-              <div className="mx-5">
-                <InputOTP
-                  maxLength={6}
-                  value={currentOtp}
-                  onChange={(value) => setCurrentOtp(value)}
-                >
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} />
-                    <InputOTPSlot index={1} />
-                    <InputOTPSlot index={2} />
-                    <InputOTPSlot index={3} />
-                    <InputOTPSlot index={4} />
-                    <InputOTPSlot index={5} />
-                  </InputOTPGroup>
-                </InputOTP>
-              </div>
-            </div>
+      <div className="container  flex w-full py-[120px]  rounded-lg shadow-md overflow-hidden">
+        <div className="form-section flex-1 lg:p-8  text-white text-center">
+          <Card className=" mt-20  w-[350px] mx-auto lg:mt-auto shadow flex flex-col lg:w-[400px]  item-center">
+            <CardHeader className="p-6 ml-auto mr-auto mt-auto">
+              <CardTitle className="text-[22px] mx-auto">
+                Verify your email
+              </CardTitle>
+              <CardDescription className="mx-auto flex flex-col ">
+                <p>Enter the verification code sent to your email</p>
+                <p className="mx-auto">{email}</p>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="justify-between">
+              <form action={otpChecker} className="">
+                <div className="flex w-full gap-5 mx-10 grid-col-gap-3">
+                  <div className="mx-5">
+                    <InputOTP
+                      maxLength={6}
+                      value={currentOtp}
+                      onChange={(value) => setCurrentOtp(value)}
+                    >
+                      <InputOTPGroup>
+                        <InputOTPSlot index={0} />
+                        <InputOTPSlot index={1} />
+                        <InputOTPSlot index={2} />
+                        <InputOTPSlot index={3} />
+                        <InputOTPSlot index={4} />
+                        <InputOTPSlot index={5} />
+                      </InputOTPGroup>
+                    </InputOTP>
+                  </div>
+                </div>
 
-            <div
-              className="text-[13px] mx-auto mt-3   text-center  text-red-600 "
-              style={{ display: `${expriyOtpDis}` }}
-            >
-              Otp expired !
-            </div>
-            <div
-              className="text-[13px] mx-auto mt-3  text-center   text-red-600 "
-              style={{ display: `${incorrectOtpDis}` }}
-            >
-              Incorrect code !
-            </div>
-            <div
-              className="text-[13px]  mt-3  text-center  font-semibold  text-red-600 "
-              style={{ display: `${warningDis}` }}
-            >
-              Enter Code .
-            </div>
-            <Button
-              variant="outline"
-              size=""
-              type="button"
-              disabled={resendText}
-              onClick={handleResendOtp}
-              className="ml-10 border-none hover:border-none hover:bg-color-none  "
-            >
-              Didn’t receive a code? Resend ({seconds})
-            </Button>
-            <br />
-            <Button className="mt-5 w-full hover:bg-[#80ED99]" type="submit">
-              Continue
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+                <div
+                  className="text-[13px] mx-auto mt-3   text-center  text-red-600 "
+                  style={{ display: `${expriyOtpDis}` }}
+                >
+                  Otp expired !
+                </div>
+                <div
+                  className="text-[13px] mx-auto mt-3  text-center   text-red-600 "
+                  style={{ display: `${incorrectOtpDis}` }}
+                >
+                  Incorrect code !
+                </div>
+                <div
+                  className="text-[13px]  mt-3  text-center  font-semibold  text-red-600 "
+                  style={{ display: `${warningDis}` }}
+                >
+                  Enter Code .
+                </div>
+                <Button
+                  variant="outline"
+                  size=""
+                  type="button"
+                  disabled={resendText}
+                  onClick={handleResendOtp}
+                  className="ml-10 border-none hover:border-none hover:bg-color-none  "
+                >
+                  Didn’t receive a code? Resend ({seconds})
+                </Button>
+                <br />
+                <Button
+                  className="mt-5 w-full hover:bg-[#003d33]"
+                  type="submit"
+                >
+                  Continue
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </>
   );
 }
