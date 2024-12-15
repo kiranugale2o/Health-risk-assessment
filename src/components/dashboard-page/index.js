@@ -34,7 +34,7 @@ export default function DashboardCard({ user, ProfileUser }) {
   }
 
   return (
-    <div style={style} className="w-full">
+    <div className="w-full text-white">
       <div className="w-full  mx-auto  max-w-4xl  py-20 px-5 lg:p-20 bg-none  ">
         {/* Profile Header */}
         <div className="flex items-center mb-8">
@@ -47,10 +47,8 @@ export default function DashboardCard({ user, ProfileUser }) {
             <h1 className="text-3xl font-bold text-gray-200">
               {ProfileUser?.firstName} {ProfileUser?.LastName}
             </h1>
-            <p className="text-sm text-gray-400">
-              Age: {ProfileUser?.age}years
-            </p>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm ">Age: {ProfileUser?.age}years</p>
+            <p className="text-sm ">
               BMI: <span className="font-bold">{bmi.toFixed(2)}</span>
             </p>
           </div>
@@ -68,51 +66,48 @@ export default function DashboardCard({ user, ProfileUser }) {
 
         {/* Health Information */}
         <div className="mb-8">
-          <div className="text-xl font-semibold text-gray-400 border-b-2 border-green-500 pb-2 mb-4">
+          <div className="text-xl font-semibold  border-b-2 border-green-500 pb-2 mb-4">
             Health Information
           </div>
           <ul className="list-none pl-4">
-            <li className="text-lg text-gray-700 flex items-start mb-2">
-              <span className="mr-2 text-green-500">✔</span> Blood Pressure:
-              Normal
+            <li className="text-lg  flex items-start mb-2">
+              <span className="mr-2 ">✔</span> Blood Pressure: Normal
             </li>
-            <li className="text-lg text-gray-700 flex items-start mb-2">
-              <span className="mr-2 text-green-500">✔</span> Cholesterol:
-              Moderate
+            <li className="text-lg  flex items-start mb-2">
+              <span className="mr-2 ">✔</span> Cholesterol: Moderate
             </li>
-            <li className="text-lg text-gray-700 flex items-start mb-2">
-              <span className="mr-2 text-green-500">✔</span> Physical Activity:
-              Moderate (30 minutes daily)
+            <li className="text-lg  flex items-start mb-2">
+              <span className="mr-2 ">✔</span> Physical Activity: Moderate (30
+              minutes daily)
             </li>
-            <li className="text-lg text-gray-700 flex items-start mb-2">
-              <span className="mr-2 text-green-500">✔</span> Sleep: 7-8 hours
-              per night
+            <li className="text-lg  flex items-start mb-2">
+              <span className="mr-2 ">✔</span> Sleep: 7-8 hours per night
             </li>
           </ul>
         </div>
 
         {/* Recommendations */}
         <div className="mb-8">
-          <div className="text-xl font-semibold text-gray-400 border-b-2 border-green-500 pb-2 mb-4">
+          <div className="text-xl font-semibold  border-b-2 border-green-500 pb-2 mb-4">
             Recommendations for {category} To Good Health
           </div>
           <>
             {category === "Overweight" ? (
               <>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>1. Eat a balanced diet:</strong> Include more
                     fruits, vegetables, and whole grains in your diet.
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>2. Exercise regularly:</strong> Aim for at least 150
                     minutes of moderate-intensity exercise weekly.
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>3. Regular check-ups:</strong> Schedule annual
                     health check-ups to monitor your health.
                   </p>
@@ -120,8 +115,8 @@ export default function DashboardCard({ user, ProfileUser }) {
               </>
             ) : category === "Underweight" ? (
               <>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>1. Increase Caloric Intake:</strong> Focus on eating
                     more calorie-dense, nutrient-rich foods like nuts, seeds,
                     avocados, and lean protein to help gain weight in a healthy
@@ -129,16 +124,16 @@ export default function DashboardCard({ user, ProfileUser }) {
                   </p>
                 </div>
 
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>2. Strength Training:</strong> Incorporate strength
                     training exercises into your routine to build muscle mass
                     and improve overall body composition.
                   </p>
                 </div>
 
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>3. Consult a Healthcare Provider:</strong> Work with
                     a nutritionist or healthcare provider to create a tailored
                     plan for gaining weight and addressing any underlying health
@@ -149,24 +144,24 @@ export default function DashboardCard({ user, ProfileUser }) {
             ) : category === "Obesity" ? (
               <>
                 {" "}
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>1. Adopt a balanced diet:</strong> Focus on eating
                     nutrient-dense, low-calorie foods such as vegetables,
                     fruits, lean proteins, and whole grains. Reduce the intake
                     of processed foods, sugary drinks, and high-fat snacks.
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>2. Regular physical activity:</strong> Incorporate
                     at least 30 minutes of moderate-intensity exercise (such as
                     walking, cycling, or swimming) most days of the week to help
                     burn calories and improve overall health.
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg text-black">
                     <strong>3. Consult a healthcare professional:</strong> Work
                     with a doctor, dietitian, or personal trainer to create a
                     personalized weight loss plan that includes dietary changes,
@@ -176,8 +171,8 @@ export default function DashboardCard({ user, ProfileUser }) {
               </>
             ) : (
               <>
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg ">
                     <strong>1. Maintain a balanced diet:</strong> Continue
                     eating a variety of nutrient-dense foods, including fruits,
                     vegetables, whole grains, lean proteins, and healthy fats to
@@ -185,8 +180,8 @@ export default function DashboardCard({ user, ProfileUser }) {
                   </p>
                 </div>
 
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg ">
                     <strong>2. Stay physically active:</strong> Aim for at least
                     150 minutes of moderate-intensity exercise per week. Regular
                     physical activity helps to maintain your weight, improve
@@ -194,8 +189,8 @@ export default function DashboardCard({ user, ProfileUser }) {
                   </p>
                 </div>
 
-                <div className="bg-gray-100 p-4 mb-4 rounded-md shadow-sm">
-                  <p className="text-lg text-gray-700">
+                <div className=" p-4 mb-4 rounded-md shadow-sm">
+                  <p className="text-lg ">
                     <strong>3. Regular health check-ups:</strong> Continue with
                     regular health check-ups to monitor your overall health,
                     manage stress, and detect any potential health issues early

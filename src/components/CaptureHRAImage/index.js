@@ -51,10 +51,10 @@ const CaptureImage = ({
         Download HRA
       </Button>
       <div ref={elementRef} className="h-full w-full">
-        <h2 className="text-center text-gray-800 text-2xl font-semibold mt-4">
+        <h2 className="text-center text-white text-2xl font-semibold mt-4">
           Risk Assessment for {name} ({age}-year-old {gender})
         </h2>
-        <table className="w-full table-auto mt-5">
+        <table className=" bg-gray-200 w-full table-auto mt-5">
           <thead className="w-full">
             <tr className="bg-green-500 text-white">
               <th className="hidden lg:flex lg:py-3 lg:px-4 border border-gray-300">
@@ -64,7 +64,7 @@ const CaptureImage = ({
             </tr>
           </thead>
           <tbody>
-            <tr className=" even:bg-gray-100 hover:bg-gray-200">
+            <tr className=" bg-gray-200 even:bg-gray-100 hover:bg-gray-200">
               <td className="hidden lg:flex py-3 px-4 border ">
                 <strong>Health Information</strong>
               </td>
@@ -72,7 +72,7 @@ const CaptureImage = ({
                 {healthToRecommendations}
               </td>
             </tr>
-            <tr className=" even:bg-gray-100 hover:bg-gray-200 bg-red-200">
+            <tr className="  even:bg-gray-100 hover:bg-gray-200 bg-red-200">
               <td className="hidden lg:flex py-3 px-4 border ">
                 <strong>Recommendations</strong>
               </td>

@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { Progress } from "../ui/progress";
 import { Button } from "../ui/button";
-import { StepForward } from "lucide-react";
+import { StepForward, Volume2, VolumeOff } from "lucide-react";
 import { StepBack } from "lucide";
 import { useState } from "react";
 import CaptureImage from "../CaptureHRAImage";
@@ -27,6 +27,7 @@ export default function AssessmentPageCard({ email }) {
   const [form, setForm] = useState(1);
   const [step, setSteps] = useState(1);
   const [dialogBtn, setDialogBtn] = useState(false);
+  const [indianVoice, setIndianVoice] = useState(null);
   const style = {
     backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
@@ -92,13 +93,50 @@ export default function AssessmentPageCard({ email }) {
 
   let recommendationsData = hra.substring(recommendationsStartIndex);
 
+  function speechTotext() {
+    alert("start reading>>>>");
+    if (typeof window !== "undefined") {
+      const voices = window.speechSynthesis.getVoices();
+      // Find the Indian English voice, or fallback to the default
+      const indianVoice = voices.find((voice) =>
+        voice.name.toLowerCase().includes("indian")
+      );
+    }
+
+    // Create a new SpeechSynthesisUtterance object
+    const speech = new SpeechSynthesisUtterance(
+      healthToRecommendations + "" + recommendationsData
+    );
+
+    // Use the Indian English voice if available
+
+    speech.voice = indianVoice;
+
+    // Set optional parameters
+    speech.lang = indianVoice ? "en-IN" : "en-US"; // Set language to Indian English or fallback to US English
+    speech.pitch = 1; // Adjust pitch
+    speech.rate = 1; // Adjust rate
+
+    // Speak the text
+    window.speechSynthesis.speak(speech);
+  }
+
+  // Function to stop speech
+
+  const stopSpeech = () => {
+    alert("stop reading>>>>");
+    if (typeof window !== "undefined") {
+      window.speechSynthesis.cancel(); // Stop all ongoing speech
+    }
+  };
+
   return (
     <>
       <Dialog open={dialogBtn} className="border rounded-lg">
         <DialogContent className="">
           <DialogTitle> Please Wait A Seconds !</DialogTitle>
           <div
-            className="flex min-h-[280px]  flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+            className="flex min-h-[280px]  flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10  "
             style={{
               backgroundImage:
                 'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("waitimg.jpg")',
@@ -107,10 +145,7 @@ export default function AssessmentPageCard({ email }) {
           <div className=" lg:mt-0  lg:mx-auto "></div>
         </DialogContent>
       </Dialog>
-      <div
-        className="lg:px-20 flex flex-1 justify-center py-20 lg:py-20 text-white "
-        style={style}
-      >
+      <div className="lg:px-20 flex flex-1 justify-center py-20 lg:py-20 text-white ">
         <div className="block w-full lg:w-[500px] lg:shadow-lg p-5 h-fit ">
           <div className="flex w-full">
             <h1 className="text-4xl lg:p-5 font-serif   flex">
@@ -355,6 +390,11 @@ export default function AssessmentPageCard({ email }) {
         </div>
       </div>
       <div className="flex flex-col  font-semibold italic  ">
+        <div className="lg:mx-[10px]  gap-[30px]    flex  lg:gap-10 ">
+          <Volume2 onClick={speechTotext} className="hover:text-white " />
+
+          <VolumeOff onClick={stopSpeech} className="hover:text-white" />
+        </div>
         <CaptureImage
           healthToRecommendations={healthToRecommendations}
           name={currentData.name}
