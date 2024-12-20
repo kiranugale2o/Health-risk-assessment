@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import CommonLayout from "@/components/common-layout";
 import { currentUser, fetchUser } from "@/actions";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }) {
         <CommonLayout user={user} UserProfile={UserProfile}>
           {children}
         </CommonLayout>
+        <Toaster />
       </body>
     </html>
   );

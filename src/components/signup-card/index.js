@@ -33,11 +33,13 @@ export default function SignUpCard() {
         if (res.success) {
           sessionStorage.setItem("email", res.email);
           router.push("/sign-up/verification-of-email");
-          alert("sign up ok!");
+          toast({
+            description: res.message + "on " + email,
+          });
           setLoading(true);
         } else {
-          alert(res.message);
           toast({
+            variant: "destructive",
             description: res.message,
           });
           setLoading(true);
@@ -114,7 +116,7 @@ export default function SignUpCard() {
           </form>
           <div className=" h-[19px] text-center text-white font-exo-2 font-normal text-[16px] leading-[19px]">
             Already have an account?{" "}
-            <a href="#" className="underline font-bold">
+            <a href="/sign-in" className="underline font-bold">
               Log In
             </a>
           </div>

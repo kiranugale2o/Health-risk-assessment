@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { LogoImg } from "../images";
+import { useToast } from "@/hooks/use-toast";
 
 export default function SignInCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const router = useRouter();
+  const { toast } = useToast();
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked); // Update the state based on whether the checkbox is checked
@@ -35,10 +37,15 @@ export default function SignInCard() {
       res.json().then((res) => {
         if (res.success) {
           Cookies.set("healthcare", res.token);
-          alert(res.message);
+          toast({
+            title: res.message,
+          });
           router.refresh("/sign-in");
         } else {
-          alert(res.message);
+          toast({
+            variant: "destructive",
+            title: res.message,
+          });
         }
       })
     );
@@ -50,7 +57,11 @@ export default function SignInCard() {
     //setEmail as Session Storage
     sessionStorage.setItem("email", email);
     if (email === "") {
-      alert("First Enter Your Email");
+      toast({
+        variant: "destructive",
+        title: "Enter Email",
+      });
+
       return;
     }
     fetch("/api/sign-in/forgetPassword", {
@@ -59,9 +70,16 @@ export default function SignInCard() {
     }).then((res) =>
       res.json().then((res) => {
         if (res.success) {
+          toast({
+            variant: "destructive",
+            title: "OTP send on Your Email",
+          });
           router.push("/sign-in/forgetPassword-email-verify");
         } else {
-          alert(res.message);
+          toast({
+            variant: "destructive",
+            title: res.message,
+          });
         }
       })
     );
@@ -136,7 +154,7 @@ export default function SignInCard() {
               <b className="px-6">or Login with</b>
               <img src="rightLine.png"></img>
             </div>
-            <div className="w-full lg:w-[460px] h-16 mt-4 flex items-center justify-center">
+            <div className="hidden w-full lg:w-[460px] h-16 mt-4 flex items-center justify-center">
               <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center justify-center cursor-pointer">
                 <img src="facebookLogo.png"></img>
               </div>
