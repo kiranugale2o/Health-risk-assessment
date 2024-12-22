@@ -20,14 +20,18 @@ import { StepForward, Volume2, VolumeOff } from "lucide-react";
 import { StepBack } from "lucide";
 import { useState } from "react";
 import CaptureImage from "../CaptureHRAImage";
+import { useToast } from "@/hooks/use-toast";
 
 export default function AssessmentPageCard({ email }) {
+  const { toast } = useToast();
   const [currentData, setData] = useState(initialHealthRiskAssessmentData);
   const [hra, setHra] = useState("");
   const [form, setForm] = useState(1);
   const [step, setSteps] = useState(1);
   const [dialogBtn, setDialogBtn] = useState(false);
   const [indianVoice, setIndianVoice] = useState(null);
+  const [healthToRecommendations, setHealthToRecommendations] = useState("");
+  const [recommendationsData, setRecommendation] = useState("");
   const style = {
     backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
@@ -48,7 +52,9 @@ export default function AssessmentPageCard({ email }) {
       res
         .json()
         .then((res) => {
-          setHra(res.message.replace(/\*/g, ""));
+          setHealthToRecommendations(res.healthToRecommendations);
+          setRecommendation(res.recommendationsData);
+          // setHra(res.message.replace(/\*/g, ""));
         })
         .then(() => {
           setDialogBtn(false);
@@ -56,45 +62,11 @@ export default function AssessmentPageCard({ email }) {
     );
   }
 
-  // Extract the content between "Health" and "Recommendations"
-  let healthStartIndex = hra.indexOf("Health");
-  // Extract everything after the word "Recommendations"
-  let recommendationsStartIndex = hra.indexOf("Recommendations:");
-
-  //Extract the data  between "Patient" and "Lifestyle"
-  let PatientStartIndex = hra.indexOf("Patient");
-  let BMIStartIndex = hra.indexOf("BMI");
-  let lifestyleStartIndex = hra.indexOf("Lifestyle:");
-  let DietStartIndex = hra.indexOf("Diet:");
-  let SymptomsStartIndex = hra.indexOf("Symptoms");
-  let RiskStartIndex = hra.indexOf("Risk");
-  let SedentaryLifeStartIndex = hra.indexOf("Sedentary");
-
-  //Extarct data
-  let Patient = hra.substring(PatientStartIndex, lifestyleStartIndex).trim();
-
-  let BMI = hra.substring(BMIStartIndex, DietStartIndex).trim();
-
-  let Lifestyle = hra.substring(lifestyleStartIndex, BMIStartIndex).trim();
-
-  let Risk = hra.substring(RiskStartIndex, recommendationsStartIndex).trim();
-  let diet = hra.substring(DietStartIndex, SymptomsStartIndex).trim();
-  //let Symptoms = hra.substring(SymptomsStartIndex, RiskStartIndex).trim();
-  const start = hra.indexOf("Symptoms:") + "Symptoms:".length; // Find the start position after "Symptoms:"
-  const end = hra.indexOf("Risk"); // Find the position of "Risk"
-
-  // Extract the substring between "Symptoms:" and "Risk"
-  const Symptoms = hra.substring(start, end).trim();
-
-  // Extract the data between "Health" and "Recommendations"
-  let healthToRecommendations = hra
-    .substring(healthStartIndex, recommendationsStartIndex)
-    .trim();
-
-  let recommendationsData = hra.substring(recommendationsStartIndex);
-
   function speechTotext() {
-    alert("start reading>>>>");
+    toast({
+      title: "Start Reading...",
+    });
+
     if (typeof window !== "undefined") {
       const voices = window.speechSynthesis.getVoices();
       // Find the Indian English voice, or fallback to the default
@@ -124,7 +96,9 @@ export default function AssessmentPageCard({ email }) {
   // Function to stop speech
 
   const stopSpeech = () => {
-    alert("stop reading>>>>");
+    toast({
+      title: "Reading Stop ...",
+    });
     if (typeof window !== "undefined") {
       window.speechSynthesis.cancel(); // Stop all ongoing speech
     }

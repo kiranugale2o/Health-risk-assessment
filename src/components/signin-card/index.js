@@ -149,11 +149,7 @@ export default function SignInCard() {
             >
               <b>Log In</b>
             </div>
-            <div className="w-full lg:w-[460px] h-5 mt-2 mb-1 flex items-center justify-center text-white text-[12px]">
-              <img src="leftLine.png"></img>
-              <b className="px-6">or Login with</b>
-              <img src="rightLine.png"></img>
-            </div>
+
             <div className="hidden w-full lg:w-[460px] h-16 mt-4 flex items-center justify-center">
               <div className="w-10 h-10 m-4 bg-white rounded-lg flex items-center justify-center cursor-pointer">
                 <img src="facebookLogo.png"></img>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <>
       <div className="lg:px-0 w-full flex flex-col">
@@ -30,7 +31,12 @@ export default function HomePage() {
             </div>
 
             <div className="absolute bg-none w-[218px] h-[50px] left-[30px] lg:left-[100px] top-[520px] lg:top-[471px] bg-white rounded-[30px] font-exo font-medium text-[20px] leading-[24px]"></div>
-            <div className="absolute w-[166px] h-[24px] left-[60px] lg:left-[125px] top-[535px] lg:top-[483px] font-exo font-medium text-[20px] leading-[24px] text-[#113D3C]">
+            <div
+              onClick={() => {
+                router.push("/assessment");
+              }}
+              className="absolute w-[166px] h-[24px] left-[60px] lg:left-[125px] top-[535px] lg:top-[483px] font-exo font-medium text-[20px] leading-[24px] text-[#113D3C]"
+            >
               Start Assessment
             </div>
 

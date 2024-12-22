@@ -150,30 +150,4 @@ export const initialHealthRiskAssessmentData = {
   symptoms: "",
 };
 
-export let healthRiskAssessment = `
- Health Risk Assessment for Kiran (20-year-old Male)
-**Presenting Complaint:** Chest pain
-**Demographics:** 20-year-old male, 170 cm (5'7"), 45 kg (99 lbs) - significantly underweight. Sedentary lifestyle, no specific diet reported.
-**Risk Factors:**
-* **Low Body Weight:** Kiran's BMI is significantly below the healthy range, indicating potential malnutrition or underlying health issues. This can weaken the body, making it more susceptible to various problems including heart-related issues, though it's uncommon to be the *direct* cause of chest pain in a young adult.
-* **Sedentary Lifestyle:** Lack of physical activity increases the risk of cardiovascular disease, obesity, and other health problems. This is a significant risk factor.
-* **Unspecified Diet:** Lack of information regarding Kiran's diet makes it difficult to assess potential nutritional deficiencies which could contribute to weakness and other symptoms. Poor diet increases the risk of many health problems.
-* **Chest Pain:** This is the primary concern and warrants immediate medical attention. Chest pain can be a symptom of numerous conditions, ranging from relatively benign (muscle strain) to life-threatening (heart attack, pericarditis, pneumothorax). The cause needs to be determined promptly.
-* **Age (20 years old):** While relatively young, the presence of chest pain at this age still requires investigation, even if the cause is eventually found to be non-serious.
-**Potential Diagnoses (requiring medical evaluation):** The list below are possibilities and are *not* a diagnosis. Only a medical professional can diagnose Kiran's condition.
-* **Musculoskeletal pain:** Muscle strain or costochondritis (inflammation of the cartilage connecting the ribs to the breastbone) are possibilities.
-* **Gastrointestinal issues:** Acid reflux, esophageal spasm, or other digestive problems can cause chest pain.
-* **Cardiovascular issues:** While less likely given his age, the possibility of a cardiac issue (though unlikely without other risk factors) requires immediate investigation to rule out.
-* **Anxiety/Panic attack:** Chest pain is a common symptom of anxiety and panic attacks.
-* **Other:** Less common causes include lung problems (pneumothorax), esophageal rupture, or other conditions.
-**Recommendations:**
-**IMMEDIATE ACTION:**
-* **Seek immediate medical attention:** Kiran needs to go to a doctor or emergency room immediately to have his chest pain evaluated. This is the **most crucial** recommendation. Delaying assessment could have serious consequences.
-**Following Medical Evaluation:**
-* **Follow medical advice:** Strictly adhere to any diagnostic tests, treatments, or lifestyle changes recommended by the physician.
-* **Comprehensive medical examination:** This should include a thorough physical examination, electrocardiogram (ECG), and potentially other tests depending on the findings.
-* **Dietary assessment and counseling:** A registered dietitian can assess Kiran's nutritional needs and create a balanced eating plan to address his underweight status.
-* **Gradual increase in physical activity:** A physician or physiotherapist can guide Kiran on a safe and effective program to gradually increase his physical activity level. This will improve overall health and well-being. Starting slowly is essential given his current low weight and sedentary lifestyle.
-* **Stress management techniques:** If anxiety or stress are contributing factors, learning coping mechanisms through therapy or relaxation techniques might be beneficial.
-**Disclaimer:** This is a general health risk assessment and should not be considered a substitute for professional medical advice. Kiran must seek immediate medical attention for his chest pain.
-`;
+export let healthRiskAssessment = "";
