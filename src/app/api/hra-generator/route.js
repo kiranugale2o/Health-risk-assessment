@@ -45,9 +45,9 @@ export async function POST(req) {
     to: email,
     subject: `Your Health Risk Assessment . ${formattedDate} `,
     html: `
-         <h2 className="text-center text-white text-2xl font-semibold mt-4">
-          Risk Assessment for 
-        </h2>
+         <h1>
+         Health Risk Assessment
+        </h1>
         <table className=" bg-gray-200 w-full table-auto mt-5">
           <thead className="w-full">
             <tr className="bg-green-500 text-white">
