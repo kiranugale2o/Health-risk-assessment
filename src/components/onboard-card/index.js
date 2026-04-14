@@ -2,80 +2,119 @@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { initialUserData, storage } from "@/utils";
-import { createClient } from "@supabase/supabase-js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { initialUserData } from "@/utils";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function OnboardCard({ userid, email }) {
   const { toast } = useToast();
   const [currentOnboardData, setOnboardData] = useState(initialUserData);
-  // State to store the selected radio button value
   const [selectedValue, setSelectedValue] = useState("");
-  const [image, setImage] = useState(null); // Store the selected image
+  const [image, setImage] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   // Handle file input change
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       setImage(file);
-      handleUpload();
+      await handleUpload(file);
     }
   };
 
-  // Handle file upload
-  const handleUpload = () => {
-    if (!image) {
+  // Handle S3 upload
+  const handleUpload = async (file) => {
+    if (!file) {
       alert("Please select an image first");
       return;
     }
 
-    const storageRef = ref(storage, `images/${image.name}`); // Create a reference to the storage location
+    setUploading(true);
 
-    const uploadTask = uploadBytes(storageRef, image); // Upload the image
+    try {
+      // 1️⃣ Get signed URL from your API
+      const res = await fetch(
+        "https://aws-api.reparv.in/api/s3/signed-url/get",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fileName: file.name || `photo-${Date.now()}.jpg`,
+            fileType: file.type || "image/jpeg",
+            folder: "uploads",
+          }),
+        },
+      );
 
-    uploadTask
-      .then((snapshot) => {
-        // After upload completes, get the download URL
-        getDownloadURL(snapshot.ref).then((url) => {
-          setOnboardData({ ...currentOnboardData, profile_image: url }); // Store the URL
-          console.log("Image uploaded at: ", url); // Log the URL
-        });
-      })
-      .catch((error) => {
-        console.error("Upload failed: ", error);
-        alert("Upload failed. Please try again.");
+      if (!res.ok) {
+        throw new Error("Failed to get signed URL");
+      }
+
+      const { uploadUrl, fileUrl } = await res.json();
+
+      // 2️⃣ Upload to S3 using signed URL
+      const uploadRes = await fetch(uploadUrl, {
+        method: "PUT",
+        headers: {
+          "Content-Type": file.type || "image/jpeg",
+        },
+        body: file,
       });
+
+      if (!uploadRes.ok) {
+        throw new Error("Failed to upload to S3");
+      }
+
+      // 3️⃣ Update state with the file URL
+      setOnboardData({ ...currentOnboardData, profile_image: fileUrl });
+      console.log("Image uploaded at:", fileUrl);
+
+      toast({
+        description: "Image uploaded successfully!",
+      });
+    } catch (error) {
+      console.error("Upload failed:", error);
+      alert("Upload failed. Please try again.");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const router = useRouter();
 
   async function handleOnboard() {
-    handleUpload();
-    setOnboardData({ ...currentOnboardData, gender: selectedValue });
     const data = {
       ...currentOnboardData,
+      gender: selectedValue,
       userId: userid,
       email: email,
     };
 
     fetch("/api/onboard", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ data }),
     })
       .then((res) => res.json())
       .then((res) => {
         toast({
-          description: "success !",
+          description: "Success!",
         });
-        alert("success");
         router.refresh("/");
       })
       .catch((er) => {
-        console.log(er);
+        console.error(er);
+        toast({
+          description: "Failed to save data",
+          variant: "destructive",
+        });
       });
   }
+
   console.log(currentOnboardData);
 
   function buttonDisabled() {
@@ -92,14 +131,16 @@ export default function OnboardCard({ userid, email }) {
       return false;
     }
   }
+
   const style = {
     backgroundImage: "url('back2.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    height: "120vh", // Full height of the viewport
-    margin: 0, // Remove default margin
+    height: "120vh",
+    margin: 0,
   };
+
   return (
     <>
       <div className="lg:px-40 flex flex-1 justify-center py-5" style={style}>
@@ -186,20 +227,12 @@ export default function OnboardCard({ userid, email }) {
           </div>
           <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 text-white">
             <label className="flex flex-col min-w-40 flex-1">
-              {" "}
               Gender :
               <br />
               <RadioGroup
                 className="mt-2 flex "
-                value={selectedValue} // Controlled component
-                onChange={() =>
-                  setOnboardData({
-                    ...currentOnboardData,
-                    gender: selectedValue,
-                  })
-                }
+                value={selectedValue}
                 onValueChange={setSelectedValue}
-                //  onChange={handleChange} // Update state on change
               >
                 <div className="flex items-center space-x-2 ">
                   <RadioGroupItem value="male" id="r1" className="bg-white" />
@@ -219,7 +252,7 @@ export default function OnboardCard({ userid, email }) {
           <div className="flex ">
             <Label
               htmlFor="img"
-              className="flex items-center gap-4  px-4 min-h-[72px] py-2 bg-none"
+              className="flex items-center gap-4 px-4 min-h-[72px] py-2 bg-none cursor-pointer"
             >
               <div
                 className="text-gray text-[#637488] flex items-center justify-center rounded-lg bg-[#f0f2f4] shrink-0 size-12"
@@ -242,14 +275,20 @@ export default function OnboardCard({ userid, email }) {
                   Profile Photo
                 </p>
                 <p className="text-[#637488] text-sm font-normal leading-normal line-clamp-2">
-                  Upload a photo of yourself (optional)
+                  {uploading
+                    ? "Uploading..."
+                    : currentOnboardData.profile_image
+                      ? "Image uploaded ✓"
+                      : "Upload a photo of yourself (optional)"}
                 </p>
               </div>
             </Label>
             <input
               type="file"
               id="img"
+              accept="image/*"
               onChange={handleFileChange}
+              disabled={uploading}
               className="hidden"
             />
           </div>
@@ -257,10 +296,12 @@ export default function OnboardCard({ userid, email }) {
           <div className="flex px-4 py-3">
             <button
               onClick={handleOnboard}
-              disabled={buttonDisabled()}
+              disabled={buttonDisabled() || uploading}
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em] disabled:opacity-50 "
             >
-              <span className="truncate">Next</span>
+              <span className="truncate">
+                {uploading ? "Uploading..." : "Next"}
+              </span>
             </button>
           </div>
         </div>

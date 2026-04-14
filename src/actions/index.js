@@ -23,7 +23,7 @@ export async function currentUser() {
       // jwt.verify is synchronous in the way you're using it, but it has a callback.
       // You should use the promise-based API of `jwt.verify` for async/await usage
       const decoded = await new Promise((resolve, reject) => {
-        jwt.verify(myObject, process.env.TOKEN_SECRET_KEY, (err, decoded) => {
+        jwt.verify(myObject, "hdhffrffih$3439494332#232", (err, decoded) => {
           if (err) {
             reject(err); // Reject on error
           } else {

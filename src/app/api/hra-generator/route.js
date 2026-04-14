@@ -1,86 +1,123 @@
-// Make sure to include these imports:
-import { formattedDate } from "@/utils";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import axios from "axios";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { formattedDate } from "@/utils";
 
-const authemail = process.env.AUTH_EMAIL;
-const pass = process.env.EMAIL_PASS;
-
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    user: authemail,
-    pass: pass,
-  },
-});
+const GOOGLE_API_KEY = "AIzaSyCXDrthqsEXhIvcVeCzEIvPh-IGFDGn4z0";
+const EMAIL_USER = "kiransstartup@gmail.com";
+const EMAIL_PASS = "gaeqairfbrhfchhi";
 
 export async function POST(req) {
-  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  try {
+    const { prompt, email } = await req.json();
 
-  const { prompt, email } = await req.json();
+    // ✅ Gemini API Call (REST)
+    const response = await axios.post(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GOOGLE_API_KEY}`,
+      {
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: `You are Krushna, an AI assistant. Always respond as Krushna. 
+Format the output strictly like this:
 
-  const result = await model.generateContent(prompt);
+Health:
+<health analysis>
 
-  // Extract the content between "Health" and "Recommendations"
-  let healthStartIndex = result.response.text().indexOf("Health");
-  // Extract everything after the word "Recommendations"
-  let recommendationsStartIndex = result.response
-    .text()
-    .indexOf("Recommendations:");
+Recommendations:
+<recommendations>
+                `,
+              },
+              { text: prompt },
+            ],
+          },
+        ],
+      },
+    );
 
-  // Extract the data between "Health" and "Recommendations"
-  let healthToRecommendations = result.response
-    .text()
-    .substring(healthStartIndex, recommendationsStartIndex)
-    .trim();
+    // ✅ Extract response safely
+    const text =
+      response?.data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-  let recommendationsData = result.response
-    .text()
-    .substring(recommendationsStartIndex);
+    // ✅ Extract sections
+    let healthStartIndex = text.indexOf("Health:");
+    let recommendationsStartIndex = text.indexOf("Recommendations:");
 
-  // Send OTP email
-  await transporter.sendMail({
-    to: email,
-    subject: `Your Health Risk Assessment . ${formattedDate} `,
-    html: `
-         <h1>
-         Health Risk Assessment
-        </h1>
-        <table className=" bg-gray-200 w-full table-auto mt-5">
-          <thead className="w-full">
-            <tr className="bg-green-500 text-white">
-              <th className="hidden lg:flex lg:py-3 lg:px-4 border border-gray-300">
-                Factors
-              </th>
-              <th className="py-3 px-4 border border-gray-300">Details</th>
+    let healthToRecommendations =
+      healthStartIndex !== -1 && recommendationsStartIndex !== -1
+        ? text.substring(healthStartIndex, recommendationsStartIndex).trim()
+        : text;
+
+    let recommendationsData =
+      recommendationsStartIndex !== -1
+        ? text.substring(recommendationsStartIndex).trim()
+        : "No recommendations available.";
+
+    // ✅ Nodemailer setup
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: EMAIL_USER,
+        pass: EMAIL_PASS,
+      },
+    });
+
+    // ✅ Send Email
+    await transporter.sendMail({
+      to: email,
+      subject: `Health Risk Assessment - ${formattedDate}`,
+      html: `
+        <div style="font-family: Arial; padding: 20px;">
+          <h2 style="color: green;">Health Risk Assessment</h2>
+
+          <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #16a34a; color: white;">
+              <th style="padding:10px; border:1px solid #ccc;">Section</th>
+              <th style="padding:10px; border:1px solid #ccc;">Details</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr className=" bg-gray-200 even:bg-gray-100 hover:bg-gray-200">
-              <td className="hidden lg:flex py-3 px-4 border ">
-                <strong>Health Information</strong>
+
+            <tr>
+              <td style="padding:10px; border:1px solid #ccc;">
+                <strong>Health</strong>
               </td>
-              <td className="text-wrap text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
+              <td style="padding:10px; border:1px solid #ccc; white-space: pre-line;">
                 ${healthToRecommendations}
               </td>
             </tr>
+
             <tr>
-              <td className="hidden lg:flex py-3 px-4 border ">
+              <td style="padding:10px; border:1px solid #ccc;">
                 <strong>Recommendations</strong>
               </td>
-              <td className="text-xl py-3 px-4 lg:mx-10 whitespace-pre-line text-center font-serif">
+              <td style="padding:10px; border:1px solid #ccc; white-space: pre-line;">
                 ${recommendationsData}
               </td>
             </tr>
-          </tbody>
-        </table>
-        `,
-  });
+          </table>
 
-  return NextResponse.json({
-    healthToRecommendations: healthToRecommendations,
-    recommendationsData: recommendationsData,
-  });
+          <p style="margin-top:20px; font-size:12px; color:gray;">
+            Generated on ${formattedDate}
+          </p>
+        </div>
+      `,
+    });
+
+    return NextResponse.json({
+      success: true,
+      healthToRecommendations,
+      recommendationsData,
+    });
+  } catch (error) {
+    console.error("ERROR:", error?.response?.data || error.message);
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: error?.response?.data || error.message,
+      },
+      { status: 500 },
+    );
+  }
 }

@@ -20,7 +20,7 @@ export async function POST(req) {
 
     const token = jwt.sign(
       { email, userId: user._id },
-      process.env.TOKEN_SECRET_KEY
+      "hdhffrffih$3439494332#232",
     );
 
     // Check if OTP is correct and not expired
@@ -28,7 +28,7 @@ export async function POST(req) {
     if (user.otp === otp && Date.now() < user.expiration) {
       await User.updateOne(
         { email: email },
-        { verifyUser: true, token: token }
+        { verifyUser: true, token: token },
       );
       return NextResponse.json({
         success: true,

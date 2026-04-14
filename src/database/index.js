@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 mongoose.set("strictPopulate", false);
 
 async function DatabaseConn() {
-  const Mongo_DB = process.env.DATABASE_LINK;
+  const Mongo_DB =
+    "mongodb+srv://kiransstartup_db_user:7teRDMkNeWeN8XyM@cluster0.yow5eto.mongodb.net/HealthCare";
 
   const mongoose = require("mongoose");
 

@@ -5,8 +5,8 @@ import nodemailer from "nodemailer";
 import DatabaseConn from "@/database";
 import User from "@/models/User";
 
-const authemail = process.env.AUTH_EMAIL;
-const pass = process.env.EMAIL_PASS;
+const authemail = "kiransstartup@gmail.com";
+const pass = "gaeqairfbrhfchhi";
 
 const transporter = nodemailer.createTransport({
   service: "Gmail",
