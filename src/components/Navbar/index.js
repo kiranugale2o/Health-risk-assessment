@@ -44,7 +44,7 @@ export default function Navbar({ user, UserProfile }) {
 
   return (
     <>
-      <header className="flex absolute top-0 left-0 w-full h-[70px] z-10 justify-between  bg-[#285B5A]  px-3 lg:px-10 py-2">
+      <header className="flex absolute top-0 left-0 w-full h-[70px] z-10 justify-between  bg-[#28a745]  px-3 lg:px-10 py-2">
         <div className="flex items-center text-[#141414]  border-none px-0 lg:p-auto justify-between max-w-screen-xl mx-auto">
           <LogoImg />
           <Sheet>

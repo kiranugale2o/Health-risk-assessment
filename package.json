@@ -26,6 +26,7 @@
     "cookie": "^1.0.2",
     "express": "^4.21.1",
     "firebase": "^11.0.2",
+    "framer-motion": "^12.38.0",
     "generative-ai": "^0.1.4",
     "html2canvas": "^1.4.1",
     "input-otp": "^1.4.1",
