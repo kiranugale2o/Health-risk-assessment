@@ -3,137 +3,110 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AlignLeft, MenuIcon } from "lucide-react";
+import { AlignLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { LogoImg } from "../images";
 
 export default function Navbar({ user, UserProfile }) {
   const router = useRouter();
-  const style = {
-    backgroundImage: "url('be1.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    height: "auto", // Full height of the viewport
-    margin: 0, // Remove default margin
-  };
   const pathname = usePathname();
+
   const navItem = [
-    {
-      name: "Home",
-      path: "/",
-      show: UserProfile,
-    },
-    {
-      name: "Risk Assessment",
-      path: "/assessment",
-      show: UserProfile,
-    },
-    {
-      name: "Profile",
-      path: "/dashboard",
-      show: UserProfile,
-    },
+    { name: "Home", path: "/", show: UserProfile },
+    { name: "Risk Assessment", path: "/assessment", show: UserProfile },
+    { name: "Profile", path: "/dashboard", show: UserProfile },
   ];
 
   return (
-    <>
-      <header className="flex absolute top-0 left-0 w-full h-[70px] z-10 justify-between  bg-[#28a745]  px-3 lg:px-10 py-2">
-        <div className="flex items-center text-[#141414]  border-none px-0 lg:p-auto justify-between max-w-screen-xl mx-auto">
-          <LogoImg />
-          <Sheet>
-            <SheetTrigger
-              className={`flex mt-0 ml-10 lg:hidden ${
-                user ? "block" : "hidden"
+    <header className="flex sticky top-0 left-0 w-full h-[68px] z-50 justify-between items-center bg-gray border-b border-[#D0E8E0] px-6 lg:px-10">
+      {/* Logo — your original component */}
+      <div
+        className="flex items-center gap-3 cursor-pointer"
+        onClick={() => router.push("/")}
+      >
+        <LogoImg />
+      </div>
+
+      {/* Desktop Nav Links */}
+      <nav className="hidden lg:flex items-center gap-1">
+        {navItem.map((d) =>
+          d.show ? (
+            <Link
+              key={d.name}
+              href={d.path}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+                pathname === d.path
+                  ? "bg-[#E1F5EE] text-[#085041]"
+                  : "text-[#6B8C83] hover:bg-[#E1F5EE] hover:text-[#085041]"
               }`}
             >
-              <AlignLeft className="font-2xl text-[#80ED99] size-9 w-[70px] mx-10" />
-            </SheetTrigger>
-            <button
-              className={`${
-                user ? "hidden" : "flex"
-              } lg:hidden flex min-w-[94px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 lg:px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black mx-20`}
-            >
-              <Link href={pathname === "/sign-up" ? "/sign-in" : "/sign-up"}>
-                <span>{pathname === "/sign-up" ? "Log In" : "Sign up"}</span>
-              </Link>
-            </button>
-            <SheetContent className="py-24">
-              <SheetTitle
-                className="uppercase text-2xl semibold text-[#80ED99]"
-                onClick={() => {
-                  router.push("/");
-                }}
-              >
-                HealthCare
-              </SheetTitle>
+              {d.name}
+            </Link>
+          ) : null,
+        )}
+      </nav>
 
-              <div className="flex flex-col lg:hidden justify-start mt-6 gap-5">
-                {navItem.map((d) => {
-                  return (
-                    <div key={d.name}>
-                      {d.show ? (
-                        <SheetClose asChild>
-                          <Link
-                            href={d.path}
-                            className="font-semibold uppercase flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#80ED99] hover:bg-sky-300 bg-[#80ED99] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] "
-                          >
-                            {d.name}
-                          </Link>
-                        </SheetClose>
-                      ) : null}
-                    </div>
-                  );
-                })}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-        <div className="hidden lg:flex flex-1 justify-end gap-8">
-          <div className="flex items-center gap-9">
-            {navItem.map((d) => {
-              return (
-                <div key={d.name}>
-                  {d.show ? (
-                    <>
-                      <a
-                        className="text-[#141414] text-sm min-w-[84px] max-w-[480px] p-3 font-semibold font-serif leading-normal rounded-xl h-10 px-4  hover:bg-green-400  text-white text-lg  font-bold leading-normal tracking-[0.015em]"
-                        href={d.path}
-                      >
-                        {d.name}
-                      </a>
-                    </>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex gap-5 p-2">
-            {!user ? (
-              <>
-                <Link href="/sign-up">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px]  hover:bg-white hover:text-black ">
-                    <span className="truncate ">Sign up</span>
-                  </button>
-                </Link>
-                <Link href="/sign-in">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden border rounded-full h-10 px-4 bg-transperent text-white font-exo-2 font-normal font-bold text-[15px] leading-[24px] hover:bg-white hover:text-black ">
-                    <span className="truncate">Log in</span>
-                  </button>
-                </Link>
-              </>
-            ) : (
-              <></>
+      {/* Desktop Auth Buttons */}
+      <div className="hidden lg:flex items-center gap-3">
+        {!user ? (
+          <>
+            <Link href="/sign-in">
+              <button className="px-5 py-2 text-sm font-medium text-[#1A2E2A] border border-[#D0E8E0] rounded-lg hover:border-[#0D9E75] hover:text-[#0D9E75] transition-all duration-150">
+                Log in
+              </button>
+            </Link>
+            <Link href="/sign-up">
+              <button className="px-5 py-2 text-sm font-medium text-white bg-[#0D9E75] rounded-lg hover:bg-[#085041] transition-all duration-150">
+                Get started
+              </button>
+            </Link>
+          </>
+        ) : null}
+      </div>
+
+      {/* Mobile Sheet */}
+      <Sheet>
+        <SheetTrigger className={`flex lg:hidden ${user ? "block" : "hidden"}`}>
+          <AlignLeft className="size-7 text-[#0D9E75]" />
+        </SheetTrigger>
+
+        {!user && (
+          <Link
+            href={pathname === "/sign-up" ? "/sign-in" : "/sign-up"}
+            className="flex lg:hidden px-4 py-2 text-sm font-medium text-white bg-[#0D9E75] rounded-lg"
+          >
+            {pathname === "/sign-up" ? "Log in" : "Sign up"}
+          </Link>
+        )}
+
+        <SheetContent className="py-20 bg-white">
+          <SheetTitle className="mb-8">
+            <LogoImg />
+          </SheetTitle>
+          <div className="flex flex-col gap-3">
+            {navItem.map((d) =>
+              d.show ? (
+                <SheetClose asChild key={d.name}>
+                  <Link
+                    href={d.path}
+                    className={`px-4 py-3 rounded-xl text-sm font-semibold text-center transition-all ${
+                      pathname === d.path
+                        ? "bg-[#E1F5EE] text-[#085041]"
+                        : "bg-[#F7FAF9] text-[#6B8C83] hover:bg-[#E1F5EE] hover:text-[#085041]"
+                    }`}
+                  >
+                    {d.name}
+                  </Link>
+                </SheetClose>
+              ) : null,
             )}
           </div>
-        </div>
-      </header>
-    </>
+        </SheetContent>
+      </Sheet>
+    </header>
   );
 }
