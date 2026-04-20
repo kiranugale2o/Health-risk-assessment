@@ -4,8 +4,8 @@ import nodemailer from "nodemailer";
 import { formattedDate } from "@/utils";
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-const EMAIL_USER = "kiransstartup@gmail.com";
-const EMAIL_PASS = "gaeqairfbrhfchhi";
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
 
 export async function POST(req) {
   try {
@@ -59,8 +59,8 @@ Recommendations:
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
