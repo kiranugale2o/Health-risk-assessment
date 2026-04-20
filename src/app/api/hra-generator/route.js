@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { formattedDate } from "@/utils";
 
-const GOOGLE_API_KEY = "AIzaSyBVKbeFCrMpv-PT5NisMNUD3nNC-L2pQk4";
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const EMAIL_USER = "kiransstartup@gmail.com";
 const EMAIL_PASS = "gaeqairfbrhfchhi";
 
