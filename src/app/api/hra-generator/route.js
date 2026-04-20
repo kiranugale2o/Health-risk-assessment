@@ -4,8 +4,6 @@ import nodemailer from "nodemailer";
 import { formattedDate } from "@/utils";
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-const EMAIL_USER = process.env.EMAIL_USER;
-const EMAIL_PASS = process.env.EMAIL_PASS;
 
 export async function POST(req) {
   try {
