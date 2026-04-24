@@ -10,6 +10,8 @@ import { Button } from "../ui/button";
 import {
   Volume2,
   VolumeOff,
+  Activity,
+  Sparkles,
   ChevronRight,
   ChevronLeft,
   CheckCircle2,
@@ -365,47 +367,78 @@ export default function AssessmentPageCard({ email }) {
               </form>
 
               {/* Result Area */}
-              {(healthToRecommendations || recommendationsData) && (
-                <div className="mt-8 bg-white border border-[#D0E8E0] rounded-2xl p-6 animate-[fadeIn_.4s_ease]">
-                  <div className="flex items-center gap-4 pb-5 mb-5 border-b border-[#D0E8E0]">
-                    <div className="w-12 h-12 bg-[#E1F5EE] rounded-xl flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6 text-[#0D9E75]" />
-                    </div>
-                    <div>
-                      <h3 className="font-serif text-lg text-[#1A2E2A]">
-                        Assessment Complete
-                      </h3>
-                      <p className="text-xs text-[#6B8C83] mt-0.5">
-                        Personalised report for {currentData.name},{" "}
-                        {currentData.age}
-                      </p>
-                    </div>
-                  </div>
+             {(healthToRecommendations || recommendationsData) && (
+  <div className="w-full mt-6 bg-white border border-slate-200 rounded-xl shadow-sm">
 
-                  <div className="text-sm text-[#6B8C83] leading-relaxed mb-2">
-                    {healthToRecommendations}
-                  </div>
-                  <div className="text-sm text-[#6B8C83] leading-relaxed">
-                    {recommendationsData}
-                  </div>
+    {/* HEADER */}
+    <div className="px-6 py-5 border-b border-slate-200 bg-slate-50">
+      <h2 className="text-lg font-semibold text-slate-900">
+        Health Assessment Report
+      </h2>
+      <p className="text-sm text-slate-600 mt-1">
+        Patient: <span className="font-medium">{currentData.name}</span> | Age: {currentData.age}
+      </p>
+    </div>
 
-                  <div className="flex gap-3 mt-5 pt-5 border-t border-[#D0E8E0]">
-                    <button
-                      onClick={speechTotext}
-                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[#1A2E2A] border border-[#D0E8E0] rounded-lg hover:bg-[#E1F5EE] hover:border-[#0D9E75] hover:text-[#085041] transition-all"
-                    >
-                      <Volume2 className="w-4 h-4" /> Read aloud
-                    </button>
-                    <button
-                      onClick={stopSpeech}
-                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[#1A2E2A] border border-[#D0E8E0] rounded-lg hover:bg-[#E1F5EE] hover:border-[#0D9E75] hover:text-[#085041] transition-all"
-                    >
-                      <VolumeOff className="w-4 h-4" /> Stop
-                    </button>
-                  </div>
-                </div>
-              )}
+    {/* BODY */}
+    <div className="p-6 space-y-6">
 
+      {/* HEALTH ANALYSIS */}
+      <div>
+        <h3 className="text-sm font-semibold text-slate-800 mb-2 border-b pb-1">
+          1. Health Analysis
+        </h3>
+        <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">
+          {healthToRecommendations}
+        </p>
+      </div>
+
+      {/* BMI SECTION */}
+      <div>
+        <h3 className="text-sm font-semibold text-slate-800 mb-2 border-b pb-1">
+          2. Body Mass Index (BMI)
+        </h3>
+        <p className="text-sm text-slate-700">
+          {/* You can dynamically format this later */}
+          {healthToRecommendations?.match(/BMI.*$/m)}
+        </p>
+      </div>
+
+      {/* RECOMMENDATIONS */}
+      <div>
+        <h3 className="text-sm font-semibold text-slate-800 mb-2 border-b pb-1">
+          3. Recommendations
+        </h3>
+        <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">
+          {recommendationsData}
+        </p>
+      </div>
+
+    </div>
+
+    {/* FOOTER */}
+    <div className="flex items-center gap-3 px-6 py-4 border-t border-slate-200">
+      <button
+        onClick={speechTotext}
+        className="text-xs px-4 py-2 border rounded-md hover:bg-slate-50"
+      >
+        Read Aloud
+      </button>
+
+      <button
+        onClick={stopSpeech}
+        className="text-xs px-4 py-2 border rounded-md hover:bg-slate-50"
+      >
+        Stop
+      </button>
+
+      <span className="ml-auto text-xs text-slate-400">
+        AI-generated report · Consult a doctor
+      </span>
+    </div>
+
+  </div>
+)}
               {/* Capture Image */}
               <CaptureImage
                 healthToRecommendations={healthToRecommendations}

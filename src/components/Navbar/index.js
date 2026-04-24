@@ -55,7 +55,7 @@ export default function Navbar({ user, UserProfile }) {
         {!user ? (
           <>
             <Link href="/sign-in">
-              <button className="px-5 py-2 text-sm font-medium text-[#1A2E2A] border border-[#D0E8E0] rounded-lg hover:border-[#0D9E75] hover:text-[#0D9E75] transition-all duration-150">
+              <button className="px-5 py-2 text-sm font-medium text-white border border-[#D0E8E0] rounded-lg hover:border-[#0D9E75] hover:text-[#0D9E75] transition-all duration-150">
                 Log in
               </button>
             </Link>
